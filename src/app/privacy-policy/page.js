@@ -7,7 +7,7 @@ export default function page() {
                 <div className='hotel-checkout-top'>
                     <h2>Privacy and Security Policy</h2>
                 </div>
-                <p className='text-justify'>Your privacy matters to us. At Al Hijaz Tours, we value your trust and take the protection of your personal information very seriously. This document explains the data we collect, how we use it, and the steps we take to safeguard your information.</p>
+                <p className='text-justify'>Your privacy matters to us. At Travel Tours, we value your trust and take the protection of your personal information very seriously. This document explains the data we collect, how we use it, and the steps we take to safeguard your information.</p>
 
                 <h4 className='mb-0'>Why We Collect or Process Your Personal Data?</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
@@ -58,7 +58,7 @@ export default function page() {
 
                 <h4 className='mb-0 mt-4'>Third-Party Responsibility and Your Responsibility</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
-                    Our website may contain links to other sites such as Facebook, YouTube, etc. When visiting these sites, your data is governed by their privacy policies. Al Hijaz Tours is not responsible for data protection on these sites.
+                    Our website may contain links to other sites such as Facebook, YouTube, etc. When visiting these sites, your data is governed by their privacy policies. Travel Tours is not responsible for data protection on these sites.
                     <div className='mt-3'>
                         With your permission, we may share travel stories, images, and reviews on our website or social platforms. Once you submit this information, you agree it may be publicly viewed. If you share information about other people in your group, it is your responsibility to ensure they are aware and have accepted our privacy policy.
                     </div>

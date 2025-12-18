@@ -19,7 +19,7 @@ export default function ServicesForYou() {
               Our Experience And Services For you!
             </h2>
             <p className="fw-light fs-6 text-justify mt-2" >
-              Alhijaz Tours is well known within the Hajj and Umrah industry. We
+              Travel Tours is well known within the Hajj and Umrah industry. We
               have a highly experienced team who know the ins and outs of Umrah
               and Hajj. We have immense experience on how traveling and
               accommodation work within Makkah and Medinah so we can make it

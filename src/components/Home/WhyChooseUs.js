@@ -38,7 +38,7 @@ export function WhyChooseUs() {
     <section className="why-choose-us py-5 bg-light">
       <div className="container">
         <div className="text-center mb-5">
-          <h2 className="fw-bold fs-2 mb-3 heading-color">Why Choose Alhijaz Tours?</h2>
+          <h2 className="fw-bold fs-2 mb-3 heading-color">Why Choose Travel Tours?</h2>
           <p className="text-muted fs-5">
             We make travel planning simple, secure, and affordable
           </p>

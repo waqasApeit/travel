@@ -39,7 +39,7 @@ export default function DetailForm({ activityDetail }) {
     const [bookingOptionDetails, setBookingOptionDetails] = useState('');
 
     const bankInfo = {
-        accountName: "Al Hijaz Tours Ltd",
+        accountName: "Travel Tours Ltd",
         accountNumber: "58516868",
         // iban: "GB29NWBK60161331926819",
         sortcode: "309950",
@@ -299,7 +299,7 @@ export default function DetailForm({ activityDetail }) {
             'cancel_url': `${checkoutUrl}`
         }
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/packages/payment/checkout`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/payment/checkout`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", 'ngrok-skip-browser-warning': 'true', },
                 body: JSON.stringify(request),

@@ -34,7 +34,7 @@ async function getTopHotels() {
 
 export default async function TopHotels() {
   const hotels = await getTopHotels();
-
+console.log("Top Hotels:", hotels);
   // ✅ Hide section if no hotels
   if (!hotels.length) return null;
 
@@ -60,7 +60,7 @@ export default async function TopHotels() {
                   src={hotel.image || "/images/home/placeholder-hotel.jpg"}
                   alt={hotel.name}
                 />
-                <div className="home-hotel-img-circle">{hotel.city}</div>
+                <div className="home-hotel-img-circle">{hotel?.location?.city}</div>
               </div>
 
               <div className="px-2 py-3 mt-3 rounded gray-simple">

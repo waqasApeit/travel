@@ -8,7 +8,7 @@ import { IoLocationSharp } from 'react-icons/io5';
 import { useHotelList } from './HotelListingContext';
 import { useSearchParams } from "next/navigation";
 import moment from 'moment';
-import { FaHome, FaStar } from 'react-icons/fa';
+import { FaHome, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { LiaAngleRightSolid } from "react-icons/lia";
 import { ProviderCodeList } from '@/util/ProviderCodeList';
 import { useQuery } from '@tanstack/react-query';

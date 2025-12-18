@@ -3,13 +3,13 @@ import React from 'react'
 import styles from './FolloeUs.module.css'
 import { FaInstagram } from "react-icons/fa";
 export default function FollowUs() {
-     const instagramURL = "https://www.instagram.com/alhijaz.tours"; 
+     const instagramURL = "https://www.instagram.com/Travel.tours"; 
     return (
         <div className='container-fluid'>
             <div className={styles.followusWrapper}>
                 <div className={styles.TopHeading}>
                     <span>Our Gallery</span>
-                    <h2>Follow Us @alhijaz.tours</h2>
+                    <h2>Follow Us @Travel.tours</h2>
                 </div>
                 <div className='row w-100  justify-content-center align-items-center'>
                     <div className='col-lg-2  mb-3'>
