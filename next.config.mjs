@@ -15,6 +15,22 @@ const nextConfig = {
       },
     ],
   },
+   async redirects() {
+    return [
+     
+      {
+        source: '/.well-known/acme-challenge/:path*',
+        destination: '/.well-known/acme-challenge/:path*',
+        permanent: false,
+      },
+     
+      {
+        source: '/(.*)',
+        destination: '/lander`',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
