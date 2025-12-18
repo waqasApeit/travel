@@ -23,24 +23,12 @@ import LatestActivities from "@/components/LatestActivities/LatestActivities";
 export default function Home() {
   return (
     <div>
-      <Search />
+    <Search />
       <Easybook />
       <TopHotels />
       <LatestActivities />
-      {/* <SectionOne/> */}
       <AboutUs />
-      {/* <Package/> */}
       <EnquiryForm />
-      {/* <Services/> */}
-      {/* <TopHotels/> */}
-      {/* <IslamPillers/> */}
-      {/* <HajjCountdown/> */}
-      {/* <ListenHolyQuran/> */}
-      {/* <Video/> */}
-      {/* <FollowUs/> */}
-      {/* <ServicesForYou/> */}
-      {/* <WhyChooseUs/> */}
-      {/* <SeeSaudia/> */}
     </div>
   );
 }
