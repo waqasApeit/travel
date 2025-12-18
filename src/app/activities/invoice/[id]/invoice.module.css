@@ -1,0 +1,121 @@
+.invoicecontainerwrap {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6E6E6E;
+    line-height: 22px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-color: #e7e7e7;
+}
+
+.invoicecontainer {
+    width: 880px;
+    padding: 20px 15px;
+    margin: 15px auto;
+    position: relative;
+    z-index: 5;
+}
+.infobox2 {
+    background-color: #f3f3f3;
+    border-right: 1px solid #E3E3E3;
+    padding: 15px 20px;
+}
+.tablestripe3{
+    border: 1px solid #f3f3f3 !important;
+}
+
+.tablestripe3 thead tr{
+   border: 1px solid #f3f3f3 !important;
+}
+.tablestripe3 tbody tr{
+   border: 1px solid #f3f3f3 !important;
+}
+.tablestripe3 thead th, .tablestripe3 thead td {
+    border-radius: 0 !important;
+    border-top: 1px solid #E0E0E0;
+}
+.tablestripe3 tr th, .tablestripe3 tr td {
+    border-right: 1px solid #E0E0E0;
+}
+.themeholyinvoice {
+    position: relative;
+    z-index: 4;
+    background-color: #ffffff;
+}
+
+.downloadinner {
+    padding: 25px;
+}
+.invoicetable {
+    border: none;
+    margin-bottom: 25px;
+}
+
+.invoicetable thead th:first-child,
+.invoicetable thead td:first-child {
+    border-radius: 0;
+}
+
+.invoicetable thead th,
+.invoicetable thead td {
+    background-color: #E1ECFF;
+}
+
+.invoicetable th,
+.invoicetable td {
+    padding: 11px 20px;
+    border: none;
+}
+
+.invoicetable th {
+    color: #111111
+}
+
+.totaltable {
+    border: none;
+    margin-bottom: 0;
+    margin-top: -4px;
+}
+
+.totaltable th,
+.totaltable td {
+    border: none;
+    padding: 4px 20px;
+}
+
+.invoicenote {
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.invoiceprintbutton {
+    position: absolute;
+    right: -3em;
+}
+
+
+@media screen and (max-width : 998px) {
+    .invoiceprintbutton {
+        position: fixed;
+        z-index: 7;
+        right: 5px;
+    }
+
+    .invoicecontainer {
+        width: 99%;
+    }
+}
+
+@media print {
+    .invoicecontainerwrap {
+        width: 1200px !important;
+    }
+
+    .invoiceprintbutton {
+        display: none;
+    }
+
+}

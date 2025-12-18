@@ -1,0 +1,26 @@
+@media screen and (max-width: 768px) {
+   .home1 .d-flex {
+      flex-wrap: wrap;
+   }
+   .header-module__nrpHoW__navlogo{
+      height: 2.1em !important;
+   }
+   .traveller, .traveller select{
+      width: 100%;
+   }
+   .flight-type{
+      width: 100%;
+   }
+}
+
+@media screen and (min-width: 992px) {
+   .see-saudia .top-margin {
+      margin-top: 50%;
+   }
+}
+
+@media screen and (max-width: 786px) {
+   .fs-60 {
+      font-size: 40px !important;
+   }
+}

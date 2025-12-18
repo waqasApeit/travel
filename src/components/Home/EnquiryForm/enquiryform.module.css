@@ -1,0 +1,116 @@
+.bgcolor{
+  background-color: #c9dadb;
+}
+
+.section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.headerText {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subHeader {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featureIcon {
+  width: 60px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+ color: #1c403a;
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.featureDesc {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .headerText {
+    font-size: 2rem;
+  }
+
+  .featureIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .featureTitle {
+    font-size: 1.3rem;
+  }
+}
+
+
+.ticket {
+  background-image: url("/images/home/cta.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+.ticketInner {
+  position: relative;
+  color: #fff;
+}
+
+.ticketTitle h5 {
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.ticketTitle h1 {
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.pink {
+  color: #e91e63;
+}
+
+.ticketInfo p {
+  margin-bottom: 20px;
+}
+
+.ticketButton a {
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 25px;
+  padding: 15px 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: #1c403a;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.ticketButton a:hover {
+  background-color: #1c403a;
+}

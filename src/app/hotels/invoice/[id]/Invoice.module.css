@@ -1,0 +1,215 @@
+.invoicecontainerwrap {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6E6E6E;
+    line-height: 22px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-color: #e7e7e7;
+}
+
+.invoicecontainer {
+    width: 880px;
+    padding: 20px 15px;
+    margin: 15px auto;
+    position: relative;
+    z-index: 5;
+}
+
+.themeholyinvoice {
+    position: relative;
+    z-index: 4;
+    background-color: #ffffff;
+}
+
+.downloadinner {
+    padding: 25px;
+}
+
+.headerbottom {
+    margin-top: 22px;
+    margin-bottom: 19px;
+}
+
+.headerbottomleft,
+.headerbottomright {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* .headerbottomleft p {
+    -webkit-clip-path: polygon(0 0, calc(100% - 30px) 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, calc(100% - 30px) 0%, 100% 100%, 0% 100%);
+} */
+
+.headerbottomleft p,
+.headerbottomright p {
+    margin-bottom: 0;
+    background-color: #f3f3f3;
+    padding: 11px 20px;
+    width: 22em;
+    position: relative;
+    z-index: 2;
+}
+
+/* .headerbottomleft .shape:first-of-type {
+    margin-left: -9px;
+} */
+
+.headerbottomleft .shape,
+.headerbottomright .shape {
+    display: inline-block;
+    min-height: 44px;
+    height: 100%;
+    width: 10px;
+    background-color: #E1ECFF;
+    margin-left: 3px;
+    margin-right: 3px;
+    /* -webkit-transform: skewX(33deg);
+    -ms-transform: skewX(33deg);
+    transform: skewX(33deg); */
+}
+
+/* .headerbottomright p {
+    text-align: right;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%);
+} */
+
+.bookinginfo {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.bookinginfo::before {
+    content: '';
+    height: 34px;
+    width: 2px;
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    background-color: #E1ECFF;
+}
+
+.bookinginfo p {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.bookinginfo p:before {
+    content: '';
+    height: 12px;
+    width: 12px;
+    background-color: #E1ECFF;
+    border-radius: 99px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.addressleft {
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.addressbox {
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    border: 1px solid #E3E3E3;
+}
+
+.addressright {
+    border-radius: 0 10px 10px 0;
+}
+
+.invoicetable {
+    border: none;
+    margin-bottom: 25px;
+}
+
+.invoicetable thead th:first-child,
+.invoicetable thead td:first-child {
+    border-radius: 0;
+}
+
+.invoicetable thead th,
+.invoicetable thead td {
+    background-color: #E1ECFF;
+}
+
+.invoicetable th,
+.invoicetable td {
+    padding: 11px 20px;
+    border: none;
+}
+
+.invoicetable th {
+    color: #111111
+}
+
+.totaltable {
+    border: none;
+    margin-bottom: 0;
+    margin-top: -4px;
+}
+
+.totaltable th,
+.totaltable td {
+    border: none;
+    padding: 4px 20px;
+}
+
+.invoicenote {
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.invoiceprintbutton {
+    position: absolute;
+    right: -3em;
+}
+
+@media screen and (max-width : 998px) {
+    .invoiceprintbutton {
+        position: fixed;
+        z-index: 7;
+        right: 5px;
+    }
+
+    .invoicecontainer {
+        width: 99%;
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .headerbottomleft p {
+        width: 98%;
+    }
+
+    .headerbottomright p {
+        width: 98%;
+    }
+
+    .invmobile100 {
+        width: 100%;
+    }
+}
+
+@media print {
+    .invoicecontainerwrap {
+        width: 1200px !important;
+    }
+
+    .invoiceprintbutton {
+        display: none;
+    }
+
+}

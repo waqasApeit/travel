@@ -1,0 +1,107 @@
+.VideoSection {
+    /* background: url('/images/bg2.jpg') center center/cover no-repeat; */
+    position: relative;
+    background-attachment: fixed;
+    padding: 90px 0;
+    color: #fff;
+    background-color: rgba(128, 128, 128, 0.185);
+}
+
+/* .VideoSection .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+} */
+
+.videoTitle {
+    position: relative;
+    color: #000;
+    font-weight: 800;
+    font-size: 48px;
+    margin-top: 5px;
+    margin-bottom: 70px;
+}
+
+.videoSubtitle {
+    color: grey;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+}
+/* Swiper Pagination Customization */
+.heroSwiper :global(.swiper-pagination) {
+    bottom: 30px !important;
+    z-index: 10;
+}
+.heroSwiper :global(.swiper-pagination-bullet) {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.heroSwiper :global(.swiper-pagination-bullet-active) {
+    background-color: #fdb714;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.heroSwiper :global(.swiper-pagination-bullet):hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.videoNavButtons {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: end;
+}
+
+.customprev, .customnext {
+  background-color: transparent;
+  border: 1px solid #000000;
+  padding: 8px 20px;
+  color: #000;
+  border-radius: 6px;
+}
+
+.customprev:hover, .customnext:hover {
+  background: #ffb74a3d;
+}
+
+@media (max-width: 991px) {
+    .heroSwiper :global(.swiper-pagination) {
+        bottom: 25px !important;
+    }
+
+    .heroSwiper :global(.swiper-pagination-bullet) {
+        width: 10px;
+        height: 10px;
+    }
+
+    .heroSwiper :global(.swiper-pagination-bullet-active) {
+        width: 25px;
+    }
+}
+
+/* Mobile (max 767px) */
+@media (max-width: 767px) {
+    .heroSwiper :global(.swiper-pagination) {
+        bottom: 80px !important;
+    }
+
+    .heroSwiper :global(.swiper-pagination-bullet) {
+        width: 8px;
+        height: 8px;
+    }
+
+    .heroSwiper :global(.swiper-pagination-bullet-active) {
+        width: 20px;
+    }
+}
+
+/* Mobile Small (max 575px) */
+@media (max-width: 575px) {
+    .heroSwiper :global(.swiper-pagination) {
+        bottom: 60px !important;
+    }
+}

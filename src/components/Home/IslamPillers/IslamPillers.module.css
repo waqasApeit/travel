@@ -1,0 +1,71 @@
+
+.pillarsSection {
+  background: url('/images/bg2.jpg') center center/cover no-repeat;
+  position: relative;
+  background-attachment: fixed;
+  padding: 90px 0;
+  color: #fff;
+}
+
+.pillarsSection .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+}
+
+/* Titles */
+.pillarsSubtitle {
+  color: #ffb84a;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.pillarsTitle {
+    position: relative;
+    color: #fff;
+  font-weight: 800;
+  font-size: 48px;
+  margin-top: 5px;
+}
+
+/* Items */
+.pillarItem {
+  position: relative;
+}
+
+.pillarCircle {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #d58a2f91, #a3641c81);
+  border: 2px dotted #fff;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillarCircle img {
+  width: 60px;
+  filter: invert(100%) brightness(200%);
+}
+
+.pillarTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.pillarText {
+  color: #ffb84a;
+  font-size: 16px;
+  margin-top: -5px;
+}
+
+/* Curved lines between items */
+.pillarsRow {
+  position: relative;
+}
+

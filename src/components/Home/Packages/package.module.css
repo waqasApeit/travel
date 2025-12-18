@@ -1,0 +1,58 @@
+.umrahCard {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f4f1e8;
+}
+
+/* Badge */
+.daysBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #1f3f3a;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.daysBadge strong {
+  display: block;
+  font-size: 18px;
+}
+
+/* Body */
+.cardBody {
+  padding: 25px;
+}
+
+/* Features */
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #1f3f3a;
+}
+
+/* Price box */
+.priceBox {
+  background: #ffffff;
+  /* padding: 15px; */
+  border-radius: 14px;
+  /* margin-top: 20px; */
+}
+
+/* Button */
+.detailsBtn {
+  background: #1f3f3a;
+  color: #ffffff;
+  border-radius: 0 0 16px 16px;
+}
+
+.detailsBtn:hover {
+  background: #16312d;
+  color: #fff;
+}

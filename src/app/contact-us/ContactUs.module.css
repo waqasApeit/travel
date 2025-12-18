@@ -1,0 +1,92 @@
+.map iframe {
+    border-radius: 1em;
+}
+
+.contactform {
+    margin-top: 2em;
+    background-color: #217c7a30;
+    border-radius: 10px;
+    padding: 1em;
+}
+.contactdetail{
+    height: 100%;
+}
+.contactdetail h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contactdetail p {
+    font-size: 13px;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.contactdetail .infodiv {
+   background: linear-gradient(145deg, #004c4c, #0c817d);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contactdetail .contactinfocard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: auto;
+}
+
+.infocard {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.infocard .iconcontainer {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactsocialLinks h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.contactsocialLinks .socialicons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contactsocialLinks .socialicons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+.socialicons a{
+    text-decoration: none;
+    color: #ffff;
+}

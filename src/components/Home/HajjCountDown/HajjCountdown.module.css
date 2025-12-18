@@ -1,0 +1,37 @@
+.hajjCountdownWrapper {
+    background-color: #f5f5f5;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: bottom;
+    padding: 5em 0;
+    background-image: url('https://winsfolio.net/html/ibadah/assets/img/background-navigating.jpg');
+}
+.hajjCountdownWrapper h1{
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 70px;
+}
+.hajjimgWrapper,
+.hajjimgWrapperTwo {
+    position: relative;
+    overflow: hidden;
+}
+
+.hajjimgWrapper img {
+    vertical-align: middle;
+    width:80%;
+    border-radius: 5px;
+    height: auto;
+}
+
+
+@media screen and (max-width: 786px) {
+  .countdownTimerWrapper {
+    padding-left: 0px;
+    text-align: center;
+}
+.hajjCountdownWrapper h1{
+    
+    font-size: 40px;
+}
+}

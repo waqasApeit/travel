@@ -1,0 +1,87 @@
+.sectionTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.sectionDesc {
+  color: #6b7280;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
+}
+
+.imageWrap {
+  position: relative;
+}
+
+.imageWrap img {
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #1c403a;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.cardBody h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.cardBody p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.price {
+  font-weight: 700;
+  color: #1c403a;
+}
+
+.btn {
+  background: #1c403a;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: rgb(28, 92, 53);
+  color: #fff;
+}
