@@ -1,8 +1,10 @@
 import moment from "moment";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa6";
+import Clientbutton from "./Clientbutton";
 
-async function getTopHotels() {
+async function getTopHotelsWithDetails() {
+  // Step 1: Pehle search API se top hotels list fetch karo
   const request = {
     provider: "custom",
     checkIn: moment().add(1, "days").format("YYYY-MM-DD"),
@@ -14,6 +16,7 @@ async function getTopHotels() {
       },
     ],
   };
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/search`,
     {
@@ -29,13 +32,72 @@ async function getTopHotels() {
   if (!res.ok) return [];
 
   const data = await res.json();
-  return data.data?.hotels || [];
+  const hotels = data.data?.hotels || [];
+
+  if (hotels.length === 0) return [];
+
+  // Step 2: Har hotel ke liye details (images) fetch karo
+  const checkIn = moment().add(1, "days").format("YYYY-MM-DD");
+  const checkOut = moment().add(3, "days").format("YYYY-MM-DD");
+
+  const hotelDetailsPromises = hotels.map(async (hotel) => {
+    try {
+      const detailRes = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/basic/details`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true", // agar ngrok use kar rahe ho
+          },
+          body: JSON.stringify({
+            provider: hotel.provider,
+            hotelId: hotel.id,
+            checkIn,
+            checkOut,
+          }),
+        }
+      );
+
+      if (!detailRes.ok) return { ...hotel, mainImage: null };
+
+      const detailData = await detailRes.json();
+
+      // Main image nikaalo
+      const mainImage =
+        detailData.data?.main_images &&
+        Array.isArray(detailData.data.main_images) &&
+        detailData.data.main_images.length > 0
+          ? detailData.data.main_images[0].url
+          : null;
+
+      return {
+        ...hotel,
+        mainImage: mainImage || hotel.image || "/images/home/placeholder-hotel.jpg",
+        address: detailData.data?.address || "",
+        facilities: detailData.data?.facilities || [],
+      };
+    } catch (err) {
+      console.error(`Error fetching details for hotel ${hotel.id}:`, err);
+      return {
+        ...hotel,
+        mainImage: hotel.image || "/images/home/placeholder-hotel.jpg",
+      };
+    }
+  });
+
+  // Sab promises resolve hone ka wait karo
+  const hotelsWithDetails = await Promise.all(hotelDetailsPromises);
+
+  return hotelsWithDetails;
 }
 
 export default async function TopHotels() {
-  const hotels = await getTopHotels();
-console.log("Top Hotels:", hotels);
-  // ✅ Hide section if no hotels
+  const hotels = await getTopHotelsWithDetails();
+
+  console.log("Top Hotels with Details:", hotels);
+
+  // Agar koi hotel na mile to section hide kar do
   if (!hotels.length) return null;
 
   return (
@@ -46,7 +108,7 @@ console.log("Top Hotels:", hotels);
       <h2 className="text-center fs-60">Explore Our Top Hotels</h2>
 
       <div className="row mt-5 m-0">
-        {hotels.map((hotel, index) => (
+        {hotels.slice(0, 8).map((hotel, index) => (
           <div
             key={hotel.id || index}
             className="col-md-4 col-lg-3 col-12 col-sm-6 mt-2"
@@ -57,10 +119,13 @@ console.log("Top Hotels:", hotels);
                   className="home-hotel-image w-100"
                   height={250}
                   width={250}
-                  src={hotel.image || "/images/home/placeholder-hotel.jpg"}
+                  src={hotel.mainImage} // Yahan real image use ho rahi hai
                   alt={hotel.name}
+                  unoptimized // Agar external URL hai to Next.js optimization off kar do
                 />
-                <div className="home-hotel-img-circle">{hotel?.location?.city}</div>
+                <div className="home-hotel-img-circle">
+                  {hotel?.location?.city}
+                </div>
               </div>
 
               <div className="px-2 py-3 mt-3 rounded gray-simple">
@@ -81,10 +146,12 @@ console.log("Top Hotels:", hotels);
                 <p className="small">
                   From :{" "}
                   <b>
-                    {hotel.currency} {hotel.price}
-                  </b>
+                    {hotel.metadata?.currency} {hotel.metadata?.min_price}
+                  </b>{" "}
                   /per night
                 </p>
+                
+              <Clientbutton hotel={hotel} />
               </div>
             </div>
           </div>

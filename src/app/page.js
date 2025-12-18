@@ -23,7 +23,7 @@ import LatestActivities from "@/components/LatestActivities/LatestActivities";
 export default function Home() {
   return (
     <div>
-    <Search />
+      <Search />
       <Easybook />
       <TopHotels />
       <LatestActivities />

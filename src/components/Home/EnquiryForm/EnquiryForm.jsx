@@ -21,7 +21,7 @@ function EnquiryForm() {
             Vokalia and Consonantia, there live the blind texts.
           </p>
 
-          <div className="row justify-content-center g-5">
+          <div className="row justify-content-center ">
             <div className="col-md-4 col-sm-6">
               <BiSolidDish className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Good Foods</h2>
@@ -50,7 +50,7 @@ function EnquiryForm() {
             </div>
           </div>
 
-          <div className="row justify-content-center g-5 mt-3">
+          <div className="row justify-content-center mt-3">
             <div className="col-md-4 col-sm-6">
               <FaUmbrellaBeach className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Beach Resort</h2>

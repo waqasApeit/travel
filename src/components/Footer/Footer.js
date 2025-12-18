@@ -108,11 +108,11 @@ export default function Footer() {
               <div>
                 {/* <strong>Phone No:</strong> <br /> */}
                 <a
-                  href="tel:923036060601"
+                  href="tel:9211122233333"
                   className="text-decoration-none text-white"
                 >
                   {" "}
-                  +92 303-6060601
+                  +92 111 222 33333
                 </a>
               </div>
             </div>

@@ -11,8 +11,8 @@ export default function AboutUs() {
             <div className="container">
               <div className="row">
                 <div
-                  className="col-xl-6 col-lg-6 wow animate__fadeInLeft"
-                  data-wow-delay="200ms"
+                  className="col-xl-6 col-lg-6 d-none d-md-block"
+                  
                 >
                   <div className="about-one__image ">
                     <div className="row">
@@ -42,8 +42,7 @@ export default function AboutUs() {
                   </div>
                 </div>
                 <div
-                  className="col-xl-6 col-lg-6 wow animate__animated animate__fadeInRight"
-                  data-wow-delay="200ms"
+                  className="col-xl-6 col-lg-6"
                 >
                   <div className="about-one__content">
                     <div className="sec-title text-left">
