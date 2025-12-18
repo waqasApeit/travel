@@ -10,7 +10,7 @@ export default function SectionThree() {
         //     <div className='container'>
         //         <div>
         //             <p className='text-muted h5'>Committed to Supporting Pilgrims Every Step</p>
-        //             <h1>The Journey of Al Hijaz Tours</h1>
+        //             <h1>The Journey of Travel Tours</h1>
         //         </div>
         //         <div className='row mt-5'>
         //             <div className='col-lg-7'>
@@ -24,7 +24,7 @@ export default function SectionThree() {
         //                 <div className={styles.sectionThreeContent}>
         //                     <h4>About Us</h4>
         //                     <p className='text-justify'>
-        //                         Al Hijaz Tours is one of the most trusted travel agencies that offers affordable Umrah package options from the UK. Our carefully designed umrah tours from the UK guarantee a convenient and spiritually fulfilling journey. With experienced umrah guides and easy-to-book websites through which you can explore packages without compromising quality and service.
+        //                         Travel Tours is one of the most trusted travel agencies that offers affordable Umrah package options from the UK. Our carefully designed umrah tours from the UK guarantee a convenient and spiritually fulfilling journey. With experienced umrah guides and easy-to-book websites through which you can explore packages without compromising quality and service.
         //                     </p>
         //                     <h4>Our Mission</h4>
         //                     <ul className="ps-0 ms-0">

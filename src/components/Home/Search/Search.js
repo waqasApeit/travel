@@ -11,38 +11,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const HotelSearch = dynamic(() => import("./HotelSearch"));
 const ActivitySearch = dynamic(() => import("./ActivitySearch"));
 
-const FetchCategories = async () => {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/packages/categories`,
-      {
-        headers: { "ngrok-skip-browser-warning": "true" },
-        //  next: { revalidate: 60 },
-        cache: "no-store",
-      }
-    );
-
-    const contentType = response.headers.get("content-type") || "";
-    if (!contentType.includes("application/json")) {
-      console.warn("Non-JSON response received:", await response.text());
-      return [];
-    }
-
-    const res = await response.json();
-    console.log("Fetched categories:", res);
-    if (res.Success) {
-      return res.Content.categories;
-    } else {
-      return [];
-    }
-  } catch (error) {
-    console.error("Failed to fetch categories:", error);
-    return [];
-  }
-};
-
 export default async function Search() {
-  const categories = await FetchCategories();
 
   return (
     <div className={styles.heroWrapper}>

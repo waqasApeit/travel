@@ -28,10 +28,10 @@ export default function HajjCountdown() {
           <div className="col-lg-6 mb-3">
             <div className={styles.countdownTimerWrapper}>
               <h2 className="mb-3">Step Into Hajj 2026</h2>
-              <p className="text-muted text-justify">We are pleased to offer our well-planned Hajj packages and trusted Hajj or Umrah services for Hajj 2026 (1447 AH). Al Hijaz Tours partners with top Saudi companies to make sure that each pilgrim has a smooth, spiritually fulfilling, and unforgettable pilgrimage aligned with the Ministry of Hajj and Nusuk Portal guidelines.</p>
+              <p className="text-muted text-justify">We are pleased to offer our well-planned Hajj packages and trusted Hajj or Umrah services for Hajj 2026 (1447 AH). Travel Tours partners with top Saudi companies to make sure that each pilgrim has a smooth, spiritually fulfilling, and unforgettable pilgrimage aligned with the Ministry of Hajj and Nusuk Portal guidelines.</p>
                 <div className="text-center my-4">
                   <Image src='/images/home/nusk.png' alt="Nusuk Portal" className="h-auto" width={120} height={100} />
-                  <Image src='/images/home/alhijaz2.png' alt="Nusuk Portal" className="h-auto" width={120} height={100} />
+                  <Image src='/images/home/Travel2.png' alt="Nusuk Portal" className="h-auto" width={120} height={100} />
                   <Image src='/images/home/mcdc.png' alt="Nusuk Portal" className="h-auto" width={120} height={100} />
                   <Image src='/images/home/saudia.png' alt="Nusuk Portal" className="h-auto" width={120} height={100} />
                 </div>

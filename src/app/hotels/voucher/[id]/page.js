@@ -22,6 +22,7 @@ const Page = () => {
     const ref = useRef();
     const [voucherDetail, setVoucherDetail] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [clientDetail, setClientDetail] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     const [voucherUrl, setVoucherUrl] = useState("");
     useEffect(() => {
@@ -48,6 +49,7 @@ const Page = () => {
             setIsLoading(false);
             if (res.success) {
                 setVoucherDetail(res?.data);
+                setClientDetail(res?.data?.client);
             } else {
                 setErrorMessage(res?.message)
             }
@@ -189,7 +191,7 @@ const Page = () => {
                     ) : (
                         <div>
                             <div className="bg-white shadow ">
-                                <Image src='/images/header.png' height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
+                                <Image src={clientDetail?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
                                 <div className={`${styles.header} text-black  px-3 my-2 position-relative`}>
                                     <div>
                                         <p className="mb-1 small opacity-75">CONFIRMATION NUMBER</p>
@@ -303,7 +305,7 @@ const Page = () => {
                             <div className="text-center small bg-primary p-2  bg-opacity-25">
                                 This voucher is valid only for the specified dates and guest. Please keep this confirmation for your records.
                             </div>
-                            <Image src='/images/footer.png' height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
+                            <Image src={clientDetail?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
                         </div>
                     )}
                 </div>

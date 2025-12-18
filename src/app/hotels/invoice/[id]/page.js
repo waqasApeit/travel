@@ -15,6 +15,7 @@ export default function Page() {
     const ref = useRef();
     const [voucherDetail, setVoucherDetail] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [clientDetail, setClientDetail] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     
     useEffect(() => {
@@ -37,6 +38,7 @@ export default function Page() {
             if (res.success) {
                 const duration = moment(res?.data?.check_out).diff(moment(res?.data?.check_in), 'days')
                 res.data.nights = duration;
+                setClientDetail(res?.data?.client);
                 setVoucherDetail(res?.data);
             } else {
                 setErrorMessage(res?.message)
@@ -140,7 +142,7 @@ export default function Page() {
                                 </Tooltip> */}
                             </div>
                             <div ref={ref} id="voucher" className={styles.themeholyinvoice}>
-                                <Image src='/images/header.png' height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
+                                <Image src={clientDetail?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
                                 <div className={styles.downloadinner}>
                                     <header className="themeholy-header header-layout1">
                                         <div className={styles.headerbottom}>
@@ -258,7 +260,7 @@ export default function Page() {
                                         <b className='text-black'>NOTE: </b>This is computer generated receipt and does not require physical signature.
                                     </p>
                                 </div>
-                                <Image src='/images/footer.png' height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
+                                <Image src={clientDetail?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
                             </div>
                         </main>
                     )}

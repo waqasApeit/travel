@@ -37,11 +37,11 @@ export default function Footer() {
           <div className="col-lg-4 col-md-12 text-center mb-4 mb-lg-0">
             <h5 className={styles.sectionTitle}>Connect with us</h5>
             <div className={styles.socialIcons}>
-              <a className="text-decoration-none text-white" href="https://www.facebook.com/alhijaztoursbirmingham"><span><FaFacebookF /></span></a>
-              <a className="text-decoration-none text-white" href="https://x.com/Alhijaztours2"><span><FaXTwitter /></span></a>
-              <a className="text-decoration-none text-white" href="https://www.instagram.com/alhijaz.tours"><span><FaInstagram /></span></a>
-              <a className="text-decoration-none text-white" href="https://www.linkedin.com/company/alhijaztours/"><span><FaLinkedinIn /></span></a>
-              <a className="text-decoration-none text-white" href="https://www.tiktok.com/@alhijaztours"><span><FaTiktok /></span></a>
+              <a className="text-decoration-none text-white" href="https://www.facebook.com/Traveltoursbirmingham"><span><FaFacebookF /></span></a>
+              <a className="text-decoration-none text-white" href="https://x.com/Traveltours2"><span><FaXTwitter /></span></a>
+              <a className="text-decoration-none text-white" href="https://www.instagram.com/Travel.tours"><span><FaInstagram /></span></a>
+              <a className="text-decoration-none text-white" href="https://www.linkedin.com/company/Traveltours/"><span><FaLinkedinIn /></span></a>
+              <a className="text-decoration-none text-white" href="https://www.tiktok.com/@Traveltours"><span><FaTiktok /></span></a>
             </div>
           </div>
 
@@ -124,10 +124,10 @@ export default function Footer() {
               <div>
                 {/* <strong>Email Address:</strong> <br /> */}
                 <a
-                  href="mailto:info@umrahshop.com"
+                  href="mailto:info@example.com"
                   className="text-decoration-none text-white"
                 >
-                  info@umrahshop.com
+                  info@example.com
                 </a>
               </div>
             </div>
