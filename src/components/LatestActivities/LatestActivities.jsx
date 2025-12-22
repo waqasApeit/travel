@@ -95,7 +95,7 @@ function LatestActivities() {
           </div>
 
           <div className="row">
-            {activityList.map((item, ind) => (
+            {activityList.slice(0,8).map((item, ind) => (
               <div className="col-lg-4 col-md-6 mb-4" key={ind}>
                 <div className={styles.card}>
                   <div className={styles.imageWrap}>
@@ -111,7 +111,7 @@ function LatestActivities() {
                     </span>
                   </div>
                   <div className={styles.cardBody}>
-                    <div className="d-flex justify-content-between">
+                    <div className="">
                       <h5>{item?.title}</h5>
                       <p>
                         {Array.from({ length: 5 }).map((_, index) => {
@@ -145,7 +145,7 @@ function LatestActivities() {
                     <small className="text-success">
                       <FaLocationDot /> {item?.address}
                     </small>
-                    <p>{item?.content_text}</p>
+                    {/* <p>{item?.content_text}</p> */}
                     <div className={styles.cardFooter}>
                       <span className={styles.price}>
                         From{" "}

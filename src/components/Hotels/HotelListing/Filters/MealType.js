@@ -23,6 +23,12 @@ export default function MealType() {
           className="mt-2"
           label="Room Only"
         />
+         <Checkbox
+          checked={meal.includes("breakfast")}
+          onChange={() => handleCheckboxChange("breakfast")}
+          className="mt-2"
+          label="Breakfast"
+        />
         <Checkbox
           checked={meal.includes("bed and breakfast")}
           onChange={() => handleCheckboxChange("bed and breakfast")}
@@ -47,12 +53,7 @@ export default function MealType() {
           className="mt-2"
           label="Dinner"
         />
-        <Checkbox
-          checked={meal.includes("breakfast")}
-          onChange={() => handleCheckboxChange("breakfast")}
-          className="mt-2"
-          label="Breakfast"
-        />
+       
       </div>
     </div>
   );

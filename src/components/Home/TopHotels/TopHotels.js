@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import moment from "moment";
 import Image from "next/image";
@@ -106,7 +105,7 @@ export default function TopHotels() {
 
   return (
     <div className="container section-gap">
-      <p className="text-center mb-2 text-muted">
+      <p className="text-center mb-2 sec-title__tagline">
         Experience Comfort, Luxury, and Exceptional Service
       </p>
 
@@ -136,7 +135,7 @@ export default function TopHotels() {
 
               <div className="px-2 py-3 mt-3 rounded gray-simple">
                 <p className="mb-1">
-                  {Array(Math.floor(hotel.rating || 4))
+                  {Array(Math.round(hotel?.metadata?.stars))
                     .fill(0)
                     .map((_, i) => (
                       <FaRegStar key={i} />

@@ -45,9 +45,9 @@ export default function Summery({ activityDetail }) {
           </div>
         )}
         <hr />
-        <div className='mt-2 d-flex  align-items-center justify-content-between'>
+        {/* <div className='mt-2 d-flex  align-items-center justify-content-between'>
           Services Total: <span><PriceDisplay price={activityDetail?.services_total} currency={activityDetail?.currency} /></span>
-        </div>
+        </div> */}
         <div className='mt-2 d-flex  align-items-center justify-content-between'>
           Traveler Total: <span><PriceDisplay price={activityDetail?.participants_total} currency={activityDetail?.currency} /></span>
         </div>

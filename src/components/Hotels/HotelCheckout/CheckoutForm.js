@@ -11,7 +11,7 @@ import { BiCreditCard } from "react-icons/bi";
 import { BsBank } from "react-icons/bs";
 import { FaFaceGrinStars } from "react-icons/fa6";
 import { GoCheckCircle } from "react-icons/go";
-
+import Link from "next/link";
 export default function CheckoutForm({ data }) {
     const [showLoader, setShowLoader] = useState(false);
     const [loaderError, setLoaderError] = useState("");
@@ -41,9 +41,9 @@ export default function CheckoutForm({ data }) {
     const countryOptions = countryListLocal.item.map((item) => ({
         label: item.name.common,
         value: item.name.common,
-        code: item.idd?.root && item.idd?.suffixes?.length
-            ? item.idd.root + item.idd.suffixes[0]
-            : "",
+        code: item.cca3 === "USA"
+          ? item.idd.root
+          : item.idd.root + item.idd.suffixes[0],
     }));
 
     // ---- Form state ----
@@ -483,7 +483,7 @@ export default function CheckoutForm({ data }) {
                     onChange={handleChange}
                 />
                 <label className="form-check-label" htmlFor="terms">
-                    I agree to the <a href="#">terms and conditions</a>.
+                    I agree to the <Link href="/terms-and-conditions">terms and conditions</Link>.
                 </label>
                 {errors.terms && (
                     <div className="text-danger small mt-1">{errors.terms}</div>
