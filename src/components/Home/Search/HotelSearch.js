@@ -198,6 +198,7 @@ export default function HotelSearch() {
     <div>
       <div className="row ">
         <div className="col-md-3 my-1">
+          <label htmlFor="Destination" className="form-label fw-medium">Location</label>
           <Autocomplete onPlaceSelected={handlePlaceSelected} onChange={handleLocationChange} className="form-control height-25" placeholder="Location" apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
             options={{
               types: ['establishment', 'geocode'],
@@ -207,9 +208,11 @@ export default function HotelSearch() {
           />
         </div>
         <div className="col-md-3 my-1">
-          <DatePickerInput clearable minDate={new Date()} valueFormat="DD-MM-YYYY" numberOfColumns={2} value={formData.dateRange} onChange={handleDateChange} placeholder="Pick dates range" className=" height-25" type="range" />
+          <label htmlFor="datepick" className="form-label fw-medium">Select Dates</label>
+          <DatePickerInput clearable minDate={new Date()} valueFormat="DD-MM-YYYY" numberOfColumns={2} value={formData.dateRange} onChange={handleDateChange} placeholder="Select Dates" className=" height-25" type="range" />
         </div>
         <div className="col-md-3 my-1">
+            <label htmlFor="selectroons" className="form-label fw-medium">Guest & Rooms</label>
           <Popover
             width={300}
             opened={popoverOpened}

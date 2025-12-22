@@ -264,6 +264,11 @@ export default function Page() {
                             </div>
                         </main>
                     )}
+                     {!isLoading && !errorMessage && (
+                                    <div className="mt-2 text-center">
+                                        <Link href={`/hotels/voucher/${voucherDetail?.invoice_number}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Voucher</button></Link>
+                                    </div>
+                                )}
                 </div>
             </div>
         </div>

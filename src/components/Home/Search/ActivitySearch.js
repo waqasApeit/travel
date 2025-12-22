@@ -74,6 +74,7 @@ export default function ActivitySearch() {
     <div>
       <div className="row ">
         <div className="col-md-4 my-1">
+           <label htmlFor="selectcity" className="form-label fw-medium">Select City</label>
           <Select
             onChange={handleSelectChange}
             value={formData.name}
@@ -84,6 +85,7 @@ export default function ActivitySearch() {
           />
         </div>
         <div className="col-md-4 my-1">
+           <label htmlFor="selectcity" className="form-label fw-medium">Select Date</label>
           <DateInput
             clearable
             onChange={handleDateChange}

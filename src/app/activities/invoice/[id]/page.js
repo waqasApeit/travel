@@ -377,7 +377,7 @@ export default function Page() {
           {!isLoading && !errorMessage && (
             <div className="mt-2 text-center">
               <button className="btn btn-success mx-1" onClick={handleDownload}><MdOutlineFileDownload /> Download PDF</button>
-              <Link href={`/activities/invoice/${voucherDetail?.booking_reference}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Invoice</button></Link>
+              <Link href={`/activities/voucher/${voucherDetail?.booking_reference}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Voucher</button></Link>
             </div>
           )}
         </div>

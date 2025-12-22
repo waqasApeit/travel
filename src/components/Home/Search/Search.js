@@ -34,17 +34,9 @@ export default async function Search() {
             <h1 className={`fw-bold ${styles.heroTitle}`}>
               Where Comfort Meets Adventure
             </h1>
-            {/* <p className={styles.heroSubtitle}>Turning your journey into a path of blessings</p> */}
           </div>
 
-          {/* Tabs */}
-
-          {/* Tab Content */}
           <div
-            className={`tab-content ${styles.searchBoxWrapper}`}
-            id="searchTabsContent"
-          >
-            <div
               className={`${styles.searchTabsWrapper} d-flex justify-content-center mb-3`}
             >
               <ul
@@ -82,6 +74,12 @@ export default async function Search() {
                 </li>
               </ul>
             </div>
+          <div
+            className={`tab-content ${styles.searchBoxWrapper}`}
+            id="searchTabsContent"
+          >
+           
+
             <div
               className="tab-pane fade show active"
               id="hotel-tab-pane"
