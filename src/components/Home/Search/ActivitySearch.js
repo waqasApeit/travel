@@ -95,8 +95,8 @@ export default function ActivitySearch() {
             minDate={new Date()}
           />
         </div>
-        <div className="col-md-4 my-1">
-          <button className="btn btn-success cursor-pointer bg-color w-100 height-25" onClick={HandleSubmit}>
+        <div className="col-md-4 mt-auto">
+          <button className="btn btn-success mt-auto cursor-pointer bg-color w-100 height-25" onClick={HandleSubmit}>
             Search
           </button>
         </div>

@@ -12,7 +12,6 @@ function LatestActivities() {
   const [isLoading, setIsLoading] = useState(true);
   const [activityList, setActivityList] = useState([]);
 
-  const city = "jeddah";
   const date = moment().add(1, "day").format("YYYY-MM-DD");
 
   useEffect(() => {
@@ -20,7 +19,6 @@ function LatestActivities() {
       setIsLoading(true);
       try {
         const params = new URLSearchParams({
-          city,
           date,
         });
 
@@ -50,10 +48,10 @@ function LatestActivities() {
       }
     }
 
-    if (city && date) {
+    if (date) {
       getActivities();
     }
-  }, [city, date]);
+  }, [date]);
 
   return (
     <>

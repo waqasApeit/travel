@@ -318,7 +318,7 @@ export default function HotelSearch() {
             </Popover.Dropdown>
           </Popover>
         </div>
-        <div className="col-md-3 my-1">
+        <div className="col-md-3 mt-auto">
           <button onClick={SubmitForm} className="btn btn-success bg-color w-100 height-25">
             Search
           </button>

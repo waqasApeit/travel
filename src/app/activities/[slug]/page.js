@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { FcApproval } from "react-icons/fc";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
@@ -12,39 +13,56 @@ import Selection from "@/components/Activities/Detail/Selection";
 import moment from "moment";
 import { ThemeIcon } from "@mantine/core";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-const GetActivityDetail = async (slug) => {
-  let PackageDetail = {};
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${slug}`, { cache: 'no-store', headers: { 'ngrok-skip-browser-warning': 'true' } });
-    const response = await res.json();
-    if (response.Success) {
-      PackageDetail = response?.Content?.activity || {};
-      // console.log("Activity Detail", PackageDetail)
+import { usePathname } from "next/navigation";
+import ActivityDetailLoader from "@/components/Loader/ActivityDetailLoader";
 
-    }
-    return PackageDetail;
-  } catch (error) {
-    console.log("Error fetching activity detail:", error);
-    return {};
+function ActivityDetail() {
+  const [packageDetail, setPackageDetail] = React.useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const pathname = usePathname();
+ useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const lastPart = pathname.split('/').filter(Boolean).pop();
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${lastPart}`, { method: 'GET', cache: 'no-store', headers: { 'ngrok-skip-browser-warning': 'true' } });
+        const response = await res.json();
+        // console.log("Activity Detail", response)
+        if (response.Success) {
+          setPackageDetail(response?.Content?.activity || {});
+          setIsLoading(false);
+          // console.log("Activity Detail", PackageDetail)
+
+        }
+      } catch (error) {
+        console.log("Error fetching activity detail:", error);
+          setIsLoading(false);
+      }
+
+    };
+    fetchData();
+  }, [pathname]);
+
+  const PackageDetail = packageDetail;
+  
+  if (isLoading) {
+    return <ActivityDetailLoader />;
+  }
+  
+  if (!PackageDetail || Object.keys(PackageDetail).length === 0) {
+    return null;
   }
 
-};
-async function page({ params }) {
-  let PackageDetail = {};
-  const { slug } = await params;
-  PackageDetail = await GetActivityDetail(slug);
-  
   return (
     <>
-
-      <section className="page-title-section activity-bg-page text-center d-flex align-items-center justify-content-center">
+      {/* <section className="page-title-section activity-bg-page text-center d-flex align-items-center justify-content-center">
         <div className="page-title-overlay"></div>
         <div className="container">
           <h1 className="text-white fw-bold">Unforgettable Experiences Await</h1>
         </div>
-      </section>
+      </section> */}
 
-      <div className="container mt-4">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-md-8">
             <div className="carousal-images">
@@ -72,7 +90,7 @@ async function page({ params }) {
                 <IoLocationSharp className="text-success" /> {PackageDetail?.address}
               </p>
               <div className="description">
-                <div dangerouslySetInnerHTML={{ __html: PackageDetail?.content }} />
+                <div dangerouslySetInnerHTML={{ __html: PackageDetail?.content || "" }} />
               </div>
               <div className="row g-4">
                 <div className="col-6 col-sm-6 col-md-4 d-flex">
@@ -175,4 +193,4 @@ async function page({ params }) {
   );
 }
 
-export default page;
+export default ActivityDetail;
