@@ -71,7 +71,7 @@ export function HotelListProvider({ children, hotels }) {
         // Star Rating
         if (star.length > 0) {
             result = result.filter((h) => {
-                const starValue = Number(h.metadata?.stars);
+                const starValue = Math.round(Number(h.metadata?.stars));
                 const isNumericStar = !isNaN(starValue) && starValue >= 1 && starValue <= 5;
 
                 // If star includes 0 → allow hotels with non-numeric or out-of-range star values

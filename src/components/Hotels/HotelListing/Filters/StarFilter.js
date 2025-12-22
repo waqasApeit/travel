@@ -16,6 +16,8 @@ export default function StarFilter() {
     }
   };
 
+  
+
   return (
     <div>
       <p className='small fw-bold'>Property rating</p>

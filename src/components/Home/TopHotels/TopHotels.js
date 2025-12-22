@@ -1,103 +1,107 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import moment from "moment";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa6";
 import Clientbutton from "./Clientbutton";
 import PriceDisplay from "@/components/Currency/PriceDisplay";
-async function getTopHotelsWithDetails() {
- 
-  const request = {
-    provider: "custom",
-    checkIn: moment().add(1, "days").format("YYYY-MM-DD"),
-    checkOut: moment().add(1, "days").add(2, "days").format("YYYY-MM-DD"),
-    rooms: [
-      {
-        adults: 2,
-        children: [],
-      },
-    ],
-  };
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/search`,
-    {
-      cache: "no-store",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(request),
-    }
-  );
+export default function TopHotels() {
+  const [hotels, setHotels] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  if (!res.ok) return [];
+  useEffect(() => {
+    const getTopHotelsWithDetails = async () => {
+      try {
+        const request = {
+          provider: "custom",
+          checkIn: moment().add(1, "days").format("YYYY-MM-DD"),
+          checkOut: moment().add(2, "days").format("YYYY-MM-DD"),
+          rooms: [{ adults: 2, children: [] }],
+        };
 
-  const data = await res.json();
-  const hotels = data.data?.hotels || [];
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/search`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(request),
+          }
+        );
 
-  if (hotels.length === 0) return [];
+        if (!res.ok) return setLoading(false);
 
-  // Step 2: Har hotel ke liye details (images) fetch karo
-  const checkIn = moment().add(1, "days").format("YYYY-MM-DD");
-  const checkOut = moment().add(3, "days").format("YYYY-MM-DD");
+        const data = await res.json();
+        const hotelsList = data.data?.hotels || [];
 
-  const hotelDetailsPromises = hotels.map(async (hotel) => {
-    try {
-      const detailRes = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/basic/details`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true", // agar ngrok use kar rahe ho
-          },
-          body: JSON.stringify({
-            provider: hotel.provider,
-            hotelId: hotel.id,
-            checkIn,
-            checkOut,
-          }),
-        }
-      );
+        if (!hotelsList.length) return setLoading(false);
 
-      if (!detailRes.ok) return { ...hotel, mainImage: null };
+        const checkIn = request.checkIn;
+        const checkOut = request.checkOut;
 
-      const detailData = await detailRes.json();
+        const detailedHotels = await Promise.all(
+          hotelsList.map(async (hotel) => {
+            try {
+              const detailRes = await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/basic/details`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true",
+                  },
+                  body: JSON.stringify({
+                    provider: hotel.provider,
+                    hotelId: hotel.id,
+                    checkIn,
+                    checkOut,
+                  }),
+                }
+              );
 
-      // Main image nikaalo
-      const mainImage =
-        detailData.data?.main_images &&
-        Array.isArray(detailData.data.main_images) &&
-        detailData.data.main_images.length > 0
-          ? detailData.data.main_images[0].url
-          : null;
+              if (!detailRes.ok) {
+                return {
+                  ...hotel,
+                  mainImage:
+                    hotel.image || "/images/home/placeholder-hotel.jpg",
+                };
+              }
 
-      return {
-        ...hotel,
-        mainImage: mainImage || hotel.image || "/images/home/placeholder-hotel.jpg",
-        address: detailData.data?.address || "",
-        facilities: detailData.data?.facilities || [],
-      };
-    } catch (err) {
-      console.error(`Error fetching details for hotel ${hotel.id}:`, err);
-      return {
-        ...hotel,
-        mainImage: hotel.image || "/images/home/placeholder-hotel.jpg",
-      };
-    }
-  });
+              const detailData = await detailRes.json();
+              const mainImage =
+                detailData.data?.main_images?.[0]?.url ||
+                hotel.image ||
+                "/images/home/placeholder-hotel.jpg";
 
-  // Sab promises resolve hone ka wait karo
-  const hotelsWithDetails = await Promise.all(hotelDetailsPromises);
+              return {
+                ...hotel,
+                mainImage,
+                address: detailData.data?.address || "",
+                facilities: detailData.data?.facilities || [],
+              };
+            } catch {
+              return {
+                ...hotel,
+                mainImage:
+                  hotel.image || "/images/home/placeholder-hotel.jpg",
+              };
+            }
+          })
+        );
 
-  return hotelsWithDetails;
-}
+        setHotels(detailedHotels);
+      } catch (error) {
+        console.error("Hotel fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-export default async function TopHotels() {
-  const hotels = await getTopHotelsWithDetails();
+    getTopHotelsWithDetails();
+  }, []);
 
-  console.log("Top Hotels with Details:", hotels);
-
-  // Agar koi hotel na mile to section hide kar do
+  if (loading) return null;
   if (!hotels.length) return null;
 
   return (
@@ -105,24 +109,26 @@ export default async function TopHotels() {
       <p className="text-center mb-2 text-muted">
         Experience Comfort, Luxury, and Exceptional Service
       </p>
+
       <h2 className="text-center fs-60">Explore Our Top Hotels</h2>
 
       <div className="row mt-5 m-0">
         {hotels.slice(0, 8).map((hotel, index) => (
           <div
             key={hotel.id || index}
-            className="col-md-4 col-lg-3 col-12 col-sm-6 mt-2"
+            className="col-md-4 col-lg-3 col-sm-6 col-12 mt-2"
           >
             <div className="card h-100">
               <div className="position-relative">
                 <Image
-                  className="home-hotel-image w-100"
-                  height={250}
-                  width={250}
-                  src={hotel.mainImage} // Yahan real image use ho rahi hai
+                  src={hotel.mainImage}
                   alt={hotel.name}
-                  unoptimized // Agar external URL hai to Next.js optimization off kar do
+                  width={250}
+                  height={250}
+                  className="home-hotel-image w-100"
+                  unoptimized
                 />
+
                 <div className="home-hotel-img-circle">
                   {hotel?.location?.city}
                 </div>
@@ -144,14 +150,17 @@ export default async function TopHotels() {
                 <hr className="my-3" />
 
                 <p className="small">
-                  From :{" "}
+                  From:{" "}
                   <b>
-                    <PriceDisplay price={hotel.metadata?.min_price} currency={hotel.metadata?.currency} />
+                    <PriceDisplay
+                      price={hotel.metadata?.min_price}
+                      currency={hotel.metadata?.currency}
+                    />
                   </b>{" "}
-                  /per night
+                  / per night
                 </p>
-                
-              <Clientbutton hotel={hotel} />
+
+                <Clientbutton hotel={hotel} />
               </div>
             </div>
           </div>
