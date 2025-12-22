@@ -2,9 +2,9 @@ import moment from "moment";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa6";
 import Clientbutton from "./Clientbutton";
-
+import PriceDisplay from "@/components/Currency/PriceDisplay";
 async function getTopHotelsWithDetails() {
-  // Step 1: Pehle search API se top hotels list fetch karo
+ 
   const request = {
     provider: "custom",
     checkIn: moment().add(1, "days").format("YYYY-MM-DD"),
@@ -146,7 +146,7 @@ export default async function TopHotels() {
                 <p className="small">
                   From :{" "}
                   <b>
-                    {hotel.metadata?.currency} {hotel.metadata?.min_price}
+                    <PriceDisplay price={hotel.metadata?.min_price} currency={hotel.metadata?.currency} />
                   </b>{" "}
                   /per night
                 </p>

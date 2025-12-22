@@ -175,12 +175,21 @@ export default function HotelCard({ isLoading }) {
                     onError={() => handleImageError(item?.id)}
                     unoptimized={true}
                   />
-                  <span
-                    className="badge bg-success position-absolute top-0 end-0 m-2"
-                    style={{ zIndex: 1 }}
-                  >
-                    {item?.rooms.length} {item?.rooms.length > 1 ? 'Rooms Left' : 'Room Left'}
-                  </span>
+                   <div
+    className="position-absolute top-0 w-100 d-flex justify-content-between px-2 pt-2"
+    style={{ zIndex: 1 }}
+  >
+    {/* Left badge */}
+    <span className="badge bg-success">
+      {item?.rooms.length}{" "}
+      {item?.rooms.length > 1 ? "Rooms Left" : "Room Left"}
+    </span>
+
+    {/* Right badge */}
+    {item?.provider === "custom" && (
+      <span className="badge bg-success">TT</span>
+    )}
+  </div>
                 </div>
                 <div className="col-md-8 col-sm-12 col-12">
                   <div className="card-body">
