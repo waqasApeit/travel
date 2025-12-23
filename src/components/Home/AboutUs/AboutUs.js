@@ -19,7 +19,7 @@ export default function AboutUs() {
                       <div className="col-md-5">
                         <div
                           className="about-one__image__one trevlo-tilt d-flex d-md-block gap-3"
-                          data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 3, "speed": 700, "scale": 1 }'
+                       
                         >
                           <img src='/images/home/about-1-1.ab752ecdb58d2c4cb178.jpg' alt="trevlo" />
                           <img src='/images/home/about-1-2.f91bde4cefe5ed09cf63.jpg' alt="trevlo" />
@@ -31,7 +31,7 @@ export default function AboutUs() {
                         
                           <div
                             className="trevlo-tilt"
-                            data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'
+                           
                           >
                             <img src='images/home/about-1-3.7765cfca97f837a53a2f.jpg' alt="trevlo" />
                           </div>

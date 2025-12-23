@@ -223,7 +223,7 @@ export default function IslamicHeader() {
                             src='/images/umrahshoplogo.png' 
                             alt="Ibadah Logo"
                         /> */}
-              <h1 className="fw-bold">Travel</h1>
+              <h1 className="fw-bold text-dark">Travel</h1>
             </Link>
             <button
               className={styles.islamicMobileMenuClose}

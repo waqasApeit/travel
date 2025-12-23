@@ -138,13 +138,21 @@
         display: none !important;
     }
 
-    /* Hide all buttons in print view */
-    :global(button) {
-        display: none !important;
-    }
+     .themeholyinvoice :global(button) {
+    display: none !important;
+  }
 
-    /* Hide button containers */
-    :global(.mt-2.text-center) {
+  .themeholyinvoice :global(a) {
+    display: none !important;
+  }
+
+  .themeholyinvoice :global(.btn) {
+    display: none !important;
+  }
+   .themeholyinvoice :global(.mt-2.text-center) {
         display: none !important;
     }
+     .printActions {
+    display: none !important;
+  }
 }

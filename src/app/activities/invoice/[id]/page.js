@@ -373,7 +373,7 @@ export default function Page() {
             </main>
           )}
           {!isLoading && !errorMessage && (
-            <div className="mt-2 text-center">
+            <div className="mt-2 text-center printActions">
               <button className="btn btn-success mx-1" onClick={handleDownload}><MdOutlineFileDownload /> Download PDF</button>
               <button className="btn btn-success mx-1" onClick={()=>window.print()}><FaPrint /> Print</button>
               <Link href={`/activities/voucher/${voucherDetail?.booking_reference}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Voucher</button></Link>

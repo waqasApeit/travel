@@ -296,6 +296,7 @@ export default function DetailForm({ activityDetail }) {
       additional_services: activityDetail?.selected_services || [],
     };
 
+    
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/activities/booking`,

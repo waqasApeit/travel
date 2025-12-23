@@ -21,8 +21,8 @@ function EnquiryForm() {
             Vokalia and Consonantia, there live the blind texts.
           </p>
 
-          <div className="row justify-content-center ">
-            <div className="col-md-4 col-sm-6">
+          <div className="row">
+            <div className="col-md-4">
               <BiSolidDish className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Good Foods</h2>
               <p className={styles.featureDesc}>
@@ -31,7 +31,7 @@ function EnquiryForm() {
               </p>
             </div>
 
-            <div className="col-md-4 col-sm-6">
+            <div className="col-md-4 ">
               <FaGlobe className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Travel Anywhere</h2>
               <p className={styles.featureDesc}>
@@ -40,7 +40,7 @@ function EnquiryForm() {
               </p>
             </div>
 
-            <div className="col-md-4 col-sm-6">
+            <div className="col-md-4">
               <ImAirplane className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Airplane</h2>
               <p className={styles.featureDesc}>
@@ -50,8 +50,8 @@ function EnquiryForm() {
             </div>
           </div>
 
-          <div className="row justify-content-center mt-3">
-            <div className="col-md-4 col-sm-6">
+          <div className="row  mt-3">
+            <div className="col-md-4">
               <FaUmbrellaBeach className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Beach Resort</h2>
               <p className={styles.featureDesc}>
@@ -60,7 +60,7 @@ function EnquiryForm() {
               </p>
             </div>
 
-            <div className="col-md-4 col-sm-6">
+            <div className="col-md-4">
               <FaMountainSun className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Mountain Climbing</h2>
               <p className={styles.featureDesc}>
@@ -69,7 +69,7 @@ function EnquiryForm() {
               </p>
             </div>
 
-            <div className="col-md-4 col-sm-6">
+            <div className="col-md-4">
               <BiSolidDish className={styles.featureIcon} />
               <h2 className={styles.featureTitle}>Hot Air Balloon</h2>
               <p className={styles.featureDesc}>
