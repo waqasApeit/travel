@@ -12,7 +12,7 @@ export default function Summery({ activityDetail }) {
       )}
       <div className='mt-3 border p-3 rounded'>
         <h5 className="mb-0">Booking Summary</h5>
-        <p className='small text-muted'>Review your selected activity, date, and passenger details.</p>
+        <p className='small text-muted'>Review your selected activity, and traveler details.</p>
         <hr />
         <div className="small text-muted mb-1">Traveler Detail:</div>
         {activityDetail?.adults > 0 && (

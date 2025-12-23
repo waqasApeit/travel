@@ -3,6 +3,7 @@ import Detail from "./components/Detail";
 import Map from "./components/Map";
 import Form from "./components/Form";
 import { FaAngleRight } from "react-icons/fa";
+import Link from "next/link";
 export default function page() {
   return (
     <div>
@@ -11,7 +12,7 @@ export default function page() {
         <div className="container">
           <h1 className="text-white fw-bold">Contact Us</h1>
           <p>
-            Home <FaAngleRight /> Contact us
+           <Link className='text-light' href='/'>Home</Link>  <FaAngleRight /> Contact us
           </p>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { FaAngleRight } from 'react-icons/fa'
 import SectionOne from '@/components/AboutUs/SectionOne';
 import SectionTwo from '@/components/AboutUs/SectionTwo';
 import SectionThree from '@/components/AboutUs/SectionThree';
+import Link from 'next/link';
 export default function page() {
     return (
         <div>
@@ -10,7 +11,7 @@ export default function page() {
                  <div className='page-title-overlay'></div>
                 <div className="container">
                     <h1 className="text-white fw-bold">About Us</h1>
-                    <p>Home <FaAngleRight/> About us</p>
+                    <p><Link className='text-light' href='/'>Home</Link> <FaAngleRight/> About us</p>
                 </div>
             </section>
             <SectionThree/>

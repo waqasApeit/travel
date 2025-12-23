@@ -12,6 +12,8 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import Summery from '@/components/Activities/Checkout/Summery';
 import DetailForm from '@/components/Activities/Checkout/DetailForm';
+import { FaClockRotateLeft } from "react-icons/fa6";
+
 export default function page() {
     const { selectedActivity } = useActivityStore();
     const [activityDetail, setActivityDetail] = useState({});
@@ -39,7 +41,7 @@ export default function page() {
                             </div>
                         </div>
                         <div className='col-md-3 col-12 col-sm-6 d-flex align-items-center gap-2 mb-2'>
-                            <IoMoonOutline className='text-success' />
+                            <FaClockRotateLeft className='text-success' />
                             <div>
                                 <small className="text-muted d-block">Duration</small>
                                 <span className="fw-semibold">{activityDetail?.duration}</span>

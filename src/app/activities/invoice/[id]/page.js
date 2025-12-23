@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import HotelInvoiceLoader from "@/components/Loader/HotelInvoiceLoader";
 import { toJpeg } from "html-to-image";
 import jsPDF from "jspdf";
-import { FaFileInvoice, FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaFileInvoice, FaHome, FaPrint, FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineFileDownload } from "react-icons/md";
 import Link from "next/link";
@@ -15,7 +15,6 @@ export default function Page() {
   const { id } = useParams();
   const ref = useRef();
   const [voucherDetail, setVoucherDetail] = useState({});
-  const [clientDetail, setClientDetail] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -37,8 +36,7 @@ export default function Page() {
       setIsLoading(false);
       if (res.Success) {
         setVoucherDetail(res?.Content?.booking);
-        setClientDetail(res?.Content?.booking?.client);
-        console.log("Voucher Details:", res?.Content);
+        // console.log("Voucher Details:", res?.Content);
       } else {
         setErrorMessage(res?.message)
       }
@@ -179,13 +177,13 @@ export default function Page() {
               <div className={styles?.invoiceprintbutton}>
               </div>
               <div ref={ref} id="voucher" className={styles.themeholyinvoice}>
-                <Image src={clientDetail?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
+                <Image src={voucherDetail?.client?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
                 <div className={styles.downloadinner}>
                   <header className="themeholy-header header-layout1">
                     <div className="row gx-0 justify-content-between my-4">
                       <div className="col-6">
                         <div className={`${styles.infobox2} text-start`}>
-                          <b className="text-black">Voucher No:</b> <br />
+                          <b className="text-black">Invoice No:</b> <br />
                           <span>{voucherDetail?.booking_reference}</span>
                         </div>
                       </div>
@@ -370,14 +368,16 @@ export default function Page() {
                     <b className='text-black'>NOTE: </b>This is computer generated receipt and does not require physical signature.
                   </p>
                 </div>
-                <Image src={clientDetail?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
+                <Image src={voucherDetail?.client?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
               </div>
             </main>
           )}
           {!isLoading && !errorMessage && (
             <div className="mt-2 text-center">
               <button className="btn btn-success mx-1" onClick={handleDownload}><MdOutlineFileDownload /> Download PDF</button>
+              <button className="btn btn-success mx-1" onClick={()=>window.print()}><FaPrint /> Print</button>
               <Link href={`/activities/voucher/${voucherDetail?.booking_reference}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Voucher</button></Link>
+              <Link href='/'><button className="btn btn-success mx-1" ><FaHome /> Go to Home</button></Link>
             </div>
           )}
         </div>

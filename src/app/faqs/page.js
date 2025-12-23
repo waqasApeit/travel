@@ -17,8 +17,7 @@ export default function page() {
       <div className="container my-5 ">
         <h3 className="mb-3 text-center">Frequently Asked Questions</h3>
         <p className="text-muted small text-center">
-          There are a lot of questions that come up when you plan your Hajj or
-          Umrah trip. AtTravels Tours, we've put together a list of the most
+          There are a lot of questions that come up when you plan your Hotel or Excursions trip. AtTravels Tours, we've put together a list of the most
           common questions to help pilgrims learn more about our services,
           packages, and travel advice. Check out these frequently asked
           questions to make your spiritual journey easy, informed, and

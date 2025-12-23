@@ -95,7 +95,7 @@ function LatestActivities() {
           </div>
 
           <div className="row">
-            {activityList.slice(0,8).map((item, ind) => (
+            {activityList.slice(0, 8).map((item, ind) => (
               <div className="col-lg-4 col-md-6 mb-4" key={ind}>
                 <div className={styles.card}>
                   <div className={styles.imageWrap}>
@@ -112,7 +112,13 @@ function LatestActivities() {
                   </div>
                   <div className={styles.cardBody}>
                     <div className="">
-                      <h5>{item?.title}</h5>
+                      <h5 >
+                        {" "}
+                        <Link href={`/activities/${item.slug}`} className="text-dark">
+                          {" "}
+                          {item?.title}
+                        </Link>
+                      </h5>
                       <p>
                         {Array.from({ length: 5 }).map((_, index) => {
                           const rating = Number(item.rating_stars);

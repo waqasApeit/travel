@@ -31,25 +31,53 @@ export default function HotelSearch() {
     const updatedRooms = rooms.filter((_, i) => i !== index);
     setRooms(updatedRooms);
   };
-  const handleRoomChange = (index, type, delta) => {
+ const handleRoomChange = (index, type, delta) => {
     const updatedRooms = [...rooms];
+ 
     if (type === "adults") {
-      updatedRooms[index].adults = Math.max(1, updatedRooms[index].adults + delta);
-    } else if (type === "children") {
-      const newCount = Math.max(0, updatedRooms[index].children + delta);
+      updatedRooms[index].adults = Math.max(
+        1,
+        updatedRooms[index].adults + delta
+      );
+    }
+    else if (type === "children") {
+      const prevCount = updatedRooms[index].children;
+      const newCount = Math.max(0, prevCount + delta);
+ 
       updatedRooms[index].children = newCount;
-      updatedRooms[index].childrenAges = Array(newCount).fill(null);
+ 
+      // copy old ages
+      let ages = [...(updatedRooms[index].childrenAges || [])];
+ 
+      if (newCount > prevCount) {
+        // child add hua → sirf new entry null
+        ages.push(null);
+      } else if (newCount < prevCount) {
+        // child remove hua → last age remove
+        ages.pop();
+      }
+ 
+      updatedRooms[index].childrenAges = ages;
+ 
+      // agar children 0 ho jaen to errors remove
       if (newCount === 0) {
-        updatedRooms[index].errors = [];
+         updatedRooms[index].errors = {};
       }
     }
+ 
     setRooms(updatedRooms);
   };
+ 
   const handleAgeChange = (roomIndex, ageIndex, value) => {
     const updatedRooms = [...rooms];
     updatedRooms[roomIndex].childrenAges[ageIndex] = value;
+    const hasEmptyAge = updatedRooms[roomIndex].childrenAges.some((age) => !age);
+    if (!hasEmptyAge) {
+      updatedRooms[roomIndex].errors = {};
+    }
     setRooms(updatedRooms);
   };
+ 
   const handleLocationChange = (e) => {
     setFormData((prev) => ({ ...prev, location: e.target.value }));
   }

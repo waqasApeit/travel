@@ -11,68 +11,77 @@ import HotelDetailLoader from "@/components/Loader/HotelDetailLoader";
 import { useQuery } from '@tanstack/react-query';
 
 export default function Page() {
-  const searchParams = useSearchParams();
-  const HotelCode = searchParams.get("id");
-  const ProviderCode = searchParams.get("code");
+const searchParams = useSearchParams();
+const HotelCode = searchParams.get("id");
+const ProviderCode = searchParams.get("code");
 
-  const [searchData, setSearchData] = useState({});
+const [isFetching, setIsFetching] = useState(true);
+const [searchData, setSearchData] = useState(null);
+const [hotelDetails, setHotelDetails] = useState(null);
 
-  // ✅ Load search data safely from localStorage (client only)
-  useEffect(() => {
-    const storedData = localStorage.getItem('HotelSearchData');
-    if (storedData) {
-      setSearchData(JSON.parse(storedData));
-    }
-  }, []);
+// ✅ Load search data (client only)
+useEffect(() => {
+  const storedData = localStorage.getItem("HotelSearchData");
+  if (storedData) {
+    setSearchData(JSON.parse(storedData));
+  }
+}, []);
 
-  const fetchDetails = async () => {
-    let storedRoomList = [];
-    const roomDetails = localStorage.getItem('roomSelection');
-    if (roomDetails) {
-      storedRoomList = JSON.parse(roomDetails);
-    }
+// ✅ Fetch hotel details ONLY when searchData is ready
+useEffect(() => {
+  if (!searchData || !HotelCode || !ProviderCode) return;
 
-    const providerfind = ProviderCodeList.find(item => item.code === ProviderCode);
-    const hotelProviderName = providerfind ? providerfind.name : '';
+  fetchDetails();
+}, [searchData, HotelCode, ProviderCode]);
 
-    try {
-      const responses = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/hotel/full/details`, {
-        method: 'POST',
+const fetchDetails = async () => {
+  setIsFetching(true);
+
+  let storedRoomList = [];
+  const roomDetails = localStorage.getItem("roomSelection");
+  if (roomDetails) {
+    storedRoomList = JSON.parse(roomDetails);
+  }
+
+  const providerfind = ProviderCodeList.find(
+    item => item.code === ProviderCode
+  );
+  const hotelProviderName = providerfind?.name || "";
+
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/full/details`,
+      {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
+          "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "true",
         },
         body: JSON.stringify({
           provider: hotelProviderName,
           hotelId: HotelCode,
-          checkIn: searchData?.check_in,
-          checkOut: searchData?.check_out,
+          checkIn: searchData.check_in,
+          checkOut: searchData.check_out,
           roomList: storedRoomList,
         }),
-      });
-
-      const res = await responses.json();
-      if (res.success) {
-        res.data.provider = res.provider;
-        return res.data;
       }
-      return {};
-    } catch (err) {
-      console.error("Error fetching hotel details:", err);
-      return {};
-    }
-  };
+    );
 
-  // ✅ Cache hotel details for 20 minutes and do NOT refetch unless expired
-  const { data: hotelDetails = {}, isFetching } = useQuery({
-    queryKey: ['hotelDetails', HotelCode, ProviderCode],
-    queryFn: fetchDetails,
-    enabled: !!HotelCode && !!ProviderCode && !!searchData?.check_in,
-    cacheTime: 20 * 60 * 1000, // 20 minutes
-    staleTime: 20 * 60 * 1000, // data stays "fresh" for 20 minutes
-    refetchOnWindowFocus: false, // don't refetch on tab switch
-    refetchOnMount: false,
-  });
+    const res = await response.json();
+
+    if (res.success) {
+      setHotelDetails({
+        ...res.data,
+        provider: res.provider,
+      });
+    }
+  } catch (err) {
+    console.error("Error fetching hotel details:", err);
+  } finally {
+    setIsFetching(false);
+  }
+};
+
 
   return (
     <div className="container my-5">

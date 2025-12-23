@@ -381,7 +381,7 @@ export default function CheckoutForm({ data }) {
                 {otherGuestDetail.map((item, index) => (
                     <div key={index} className="row my-4">
                         <div className="col-12 d-flex justify-content-between align-items-center">
-                            <h5>Guest {index + 2} {item.type === 'CH' && <span style={{ fontSize: '12px' }} class="small bg-secondary-subtle rounded px-1 py-1">Child</span>}</h5>
+                            <h5>Guest {index + 2} {item.type === 'CH' && <span style={{ fontSize: '12px' }} className="small bg-secondary-subtle rounded px-1 py-1">Child</span>}</h5>
                             <TiDeleteOutline onClick={() => handleGuestRemove(index)} className="text-danger cursor-pointer" size={20} />
                         </div>
                         <div className="col-12 col-md-6">
@@ -419,12 +419,12 @@ export default function CheckoutForm({ data }) {
                 <div className="row g-3">
                     <div className="col-12">
                         <p className="small">Choose your payment method</p>
-                        <ul class="nav nav-pills nav-fill g-2">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><BiCreditCard size={20}/> Debit/Credit Card</a>
+                        <ul className="nav nav-pills nav-fill g-2">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="#"><BiCreditCard size={20}/> Debit/Credit Card</a>
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link bg-body-secondary" href="#"><BsBank size={18}/> Bank Transfer</a>
+                            <li className="nav-item ">
+                                <a className="nav-link bg-body-secondary" href="#"><BsBank size={18}/> Bank Transfer</a>
                             </li>
                         </ul>
                     </div>
@@ -499,8 +499,8 @@ export default function CheckoutForm({ data }) {
                 >
                     Confirm Booking
                     {/* {isLoading ? (
-                        <div class="spinner-border spinner-border-sm text-light" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                        <div className="spinner-border spinner-border-sm text-light" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     ) : (
                         'Confirm Booking'

@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa6";
-import Clientbutton from "./Clientbutton";
 import PriceDisplay from "@/components/Currency/PriceDisplay";
-
+import { ProviderCodeList } from "@/util/ProviderCodeList";
+import { LiaAngleRightSolid } from "react-icons/lia"; // agar icon use karna hai
+import Link from "next/link";
+import { use } from "react";
 export default function TopHotels() {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchData, setSearchData] = useState({});
 
   useEffect(() => {
     const getTopHotelsWithDetails = async () => {
@@ -19,7 +22,12 @@ export default function TopHotels() {
           checkOut: moment().add(2, "days").format("YYYY-MM-DD"),
           rooms: [{ adults: 2, children: [] }],
         };
-
+        setSearchData({
+          provider: request.provider,
+          check_in: request.checkIn,
+          check_out: request.checkOut,
+          rooms: request.rooms,
+        });
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/search`,
           {
@@ -82,8 +90,7 @@ export default function TopHotels() {
             } catch {
               return {
                 ...hotel,
-                mainImage:
-                  hotel.image || "/images/home/placeholder-hotel.jpg",
+                mainImage: hotel.image || "/images/home/placeholder-hotel.jpg",
               };
             }
           })
@@ -102,6 +109,36 @@ export default function TopHotels() {
 
   if (loading) return null;
   if (!hotels.length) return null;
+
+  const makingSlug = (name) => {
+    return (
+      name
+        ?.toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/[^\w-]+/g, "") || ""
+    );
+  };
+
+  const ProviderShortNames = (provider) => {
+    if (!provider) return "";
+    const providerFind = ProviderCodeList.find(
+      (item) => item.name === provider.toLowerCase()
+    );
+    return providerFind?.code || "";
+  };
+
+  const handleClick = (hotel) => {
+    if (hotel?.rooms) {
+      localStorage.setItem("roomSelection", JSON.stringify(hotel.rooms));
+      localStorage.setItem("HotelSearchData", JSON.stringify(searchData));
+      localStorage.setItem(
+        "searchRoomSelection",
+        JSON.stringify(searchData.rooms)
+      );
+    }
+  };
+
+  if (!hotels) return null;
 
   return (
     <div className="container section-gap">
@@ -158,8 +195,18 @@ export default function TopHotels() {
                   </b>{" "}
                   / per night
                 </p>
-
-                <Clientbutton hotel={hotel} />
+                <Link
+                  target="_blank"
+                  onClick={() => handleClick(hotel)}
+                  href={`/hotels/${makingSlug(hotel.name)}?id=${
+                    hotel.id
+                  }&code=${ProviderShortNames(hotel.provider)}`}
+                  className="d-block mt-3"
+                >
+                  <button className="btn btn-success w-100">
+                    View Detail <LiaAngleRightSolid />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
