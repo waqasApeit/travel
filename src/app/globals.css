@@ -997,3 +997,8 @@ a {
     padding: 2em 0em;
     margin-top: 1px;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color:#004c4c
+    
+}

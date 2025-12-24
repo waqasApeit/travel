@@ -35,7 +35,7 @@ export default function Page() {
   return (
     <div className='container my-5'>
       <div className='hotel-checkout-top'>
-        <h2>Review Your Booking</h2>
+        <h2 className='fw-bold'>Review Your Booking</h2>
       </div>
       <div className='row'>
         <div className='col-md-4'>

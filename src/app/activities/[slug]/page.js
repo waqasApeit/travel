@@ -15,7 +15,6 @@ import { ThemeIcon } from "@mantine/core";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import ActivityDetailLoader from "@/components/Loader/ActivityDetailLoader";
-
 function ActivityDetail() {
   const [packageDetail, setPackageDetail] = React.useState({});
   const [isLoading, setIsLoading] = useState(true);

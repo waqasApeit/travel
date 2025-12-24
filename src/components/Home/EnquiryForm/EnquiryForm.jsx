@@ -11,7 +11,7 @@ function EnquiryForm() {
   return (
     <>
       <div className={styles.bgcolor}>
-        <div className={`container ${styles.section}`}>
+        <div className={`container py-5 ${styles.section}`}>
           <h1 className={styles.headerText}>
             Experience Once In Your Life Time
           </h1>

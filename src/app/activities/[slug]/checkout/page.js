@@ -3,11 +3,8 @@ import React, { act, useEffect, useState } from 'react'
 import { useActivityStore } from '@/components/Store/ActivityStore';
 import { LuCalendarCheck2 } from "react-icons/lu";
 import { LuCalendarX2 } from "react-icons/lu";
-import { IoMoonOutline } from "react-icons/io5";
 import { TbShieldStar } from "react-icons/tb";
-import { Blockquote } from '@mantine/core';
 import moment from 'moment'
-import PriceDisplay from '@/components/Currency/PriceDisplay';
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import Summery from '@/components/Activities/Checkout/Summery';

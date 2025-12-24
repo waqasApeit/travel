@@ -8,7 +8,6 @@ import { notifications } from "@mantine/notifications";
 import PackageBookingLoader from "@/components/Loader/PackageBookingLoader";
 import { useCurrency } from "@/util/currency";
 import { ConvertPrice } from "@/components/Currency/ConvertPrice";
-import { FaShield } from "react-icons/fa6";
 import {
   IoCopyOutline,
   IoPersonAddOutline,
@@ -98,9 +97,15 @@ export default function DetailForm({ activityDetail }) {
   // ---- Handle field change ----
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+    let updatedValue = value;
+
+    // Allow only numbers for phone
+    if (name === "phone") {
+      updatedValue = value.replace(/[^0-9]/g, "");
+    }
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : updatedValue,
     });
 
     if (errors[name]) {
@@ -296,7 +301,6 @@ export default function DetailForm({ activityDetail }) {
       additional_services: activityDetail?.selected_services || [],
     };
 
-    
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/activities/booking`,
@@ -548,20 +552,8 @@ export default function DetailForm({ activityDetail }) {
               <input
                 type="text"
                 name="phone"
-                onKeyDown={(e) => {
-                  if (
-                    !/[0-9]/.test(e.key) &&
-                    ![
-                      "Backspace",
-                      "Delete",
-                      "ArrowLeft",
-                      "ArrowRight",
-                      "Tab",
-                    ].includes(e.key)
-                  ) {
-                    e.preventDefault();
-                  }
-                }}
+                inputMode="numeric"
+                pattern="[0-9]*"
                 value={formData.phone}
                 onChange={handleChange}
                 className={`form-control ${errors.phone ? "is-invalid" : ""}`}
@@ -743,7 +735,10 @@ export default function DetailForm({ activityDetail }) {
         />
         <label className="form-check-label" htmlFor="terms">
           I agree to the{" "}
-          <Link href="/terms-and-conditions">terms and conditions</Link>.
+          <Link href="/terms-and-conditions" target="_blank">
+            terms and conditions
+          </Link>
+          .
         </label>
         {errors.terms && (
           <div className="text-danger small mt-1">{errors.terms}</div>
