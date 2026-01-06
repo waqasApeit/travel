@@ -22,7 +22,11 @@ async function FetchCategories() {
       {
         cache: "force-cache",          // cache forever (until deploy)
         next: { revalidate: 60  }, // revalidate every 30 minutes
-        // headers: { "ngrok-skip-browser-warning": "true" }
+        headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
       }
     );
 
@@ -42,7 +46,11 @@ async function FetchCategoryPackages(slug) {
       {
        cache: "no-store",
         // next: { revalidate: 60 },
-        headers: { "ngrok-skip-browser-warning": "true" }
+          headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
       }
     );
 

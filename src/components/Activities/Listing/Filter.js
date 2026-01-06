@@ -56,7 +56,11 @@ export default function Filter() {
         const urlCity = searchParams.get('city');
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/filters?date=${urlDate || ''}&city=${urlCity || ''}`, { cache: 'no-store', 
-                // headers: { 'ngrok-skip-browser-warning': 'true' } 
+                  headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
             });
             const response = await res.json();
             setIsLoading(false)

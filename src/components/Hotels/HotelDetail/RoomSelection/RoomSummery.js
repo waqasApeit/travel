@@ -75,10 +75,11 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
             const responses = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/hotel/check-rates`, {
                 method: 'POST',
                 cache: 'no-store',
-                // headers: {
-                //     'Content-Type': 'application/json',
-                //     'ngrok-skip-browser-warning': 'true',
-                // },
+                 headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
                 body: JSON.stringify(request),
             })
             const res = await responses.json();

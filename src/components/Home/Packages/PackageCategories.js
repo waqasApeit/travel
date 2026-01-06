@@ -20,7 +20,11 @@ export default function PackageCategories({
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/packages/search?category_slug=${slug}`,
       {
-        // headers: { "ngrok-skip-browser-warning": "true" },
+          headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
       }
     );
 

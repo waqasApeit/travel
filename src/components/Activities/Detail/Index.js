@@ -19,7 +19,11 @@ const GetActivityDetail = async (slug) => {
     let PackageDetail = {};
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${slug}`, { method: 'GET', cache: 'no-store', 
-            // headers: { 'ngrok-skip-browser-warning': 'true' } 
+             headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
         });
         const response = await res.json();
         console.log("Activity Detail", response)

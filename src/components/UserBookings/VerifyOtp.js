@@ -25,11 +25,11 @@ export default function VerifyOtp({ step, setStep, email, startExpiryTimer }) {
         try {
             const responses = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/otp/verify`, {
                 method: 'POST',
-                // headers: {
-                //     'Content-Type': 'application/json',
-                //     'ngrok-skip-browser-warning': 'true',
-                //     'Access-Control-Allow-Origin': '*'
-                // },
+                  headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
                 body: JSON.stringify({ "holder_email": email, "otp": otp }),
             });
             const res = await responses.json();

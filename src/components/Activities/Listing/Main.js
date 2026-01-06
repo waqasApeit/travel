@@ -26,7 +26,11 @@ function Main() {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/search?${searchParams}`,
           { cache: 'no-store', 
-            // headers: { 'ngrok-skip-browser-warning': 'true' }
+             headers: {
+              // 'ngrok-skip-browser-warning': 'true',
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
            }
         );
         const response = await res.json();
