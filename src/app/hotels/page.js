@@ -138,7 +138,7 @@ async function fetchHotelsFn({ queryKey }) {
           headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+            //   "Access-Control-Allow-Origin": "*",
             },
         body: JSON.stringify(request),
     });

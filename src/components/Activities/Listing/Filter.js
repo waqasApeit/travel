@@ -59,7 +59,7 @@ export default function Filter() {
                   headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+            //   "Access-Control-Allow-Origin": "*",
             },
             });
             const response = await res.json();

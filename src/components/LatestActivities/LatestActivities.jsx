@@ -30,8 +30,8 @@ function LatestActivities() {
             cache: "no-store",
               headers: {
               // 'ngrok-skip-browser-warning': 'true',
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Content-Type": "application/json",
+              // "Access-Control-Allow-Origin": "*",
             },
           }
         );
