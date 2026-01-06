@@ -28,9 +28,9 @@ function LatestActivities() {
           }/api/activities/search?${params.toString()}`,
           {
             cache: "no-store",
-            headers: {
-              "ngrok-skip-browser-warning": "true",
-            },
+            // headers: {
+            //   "ngrok-skip-browser-warning": "true",
+            // },
           }
         );
 

@@ -53,10 +53,10 @@ const fetchDetails = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/api/hotel/full/details`,
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "ngrok-skip-browser-warning": "true",
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   "ngrok-skip-browser-warning": "true",
+        // },
         body: JSON.stringify({
           provider: hotelProviderName,
           hotelId: HotelCode,

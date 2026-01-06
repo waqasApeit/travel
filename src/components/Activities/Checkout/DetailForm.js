@@ -306,10 +306,10 @@ export default function DetailForm({ activityDetail }) {
         `${process.env.NEXT_PUBLIC_API_URL}/api/activities/booking`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true",
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   "ngrok-skip-browser-warning": "true",
+          // },
           body: JSON.stringify(request),
         }
       );

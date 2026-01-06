@@ -18,7 +18,9 @@ import ActivityDetailLoader from "@/components/Loader/ActivityDetailLoader";
 const GetActivityDetail = async (slug) => {
     let PackageDetail = {};
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${slug}`, { method: 'GET', cache: 'no-store', headers: { 'ngrok-skip-browser-warning': 'true' } });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${slug}`, { method: 'GET', cache: 'no-store', 
+            // headers: { 'ngrok-skip-browser-warning': 'true' } 
+        });
         const response = await res.json();
         console.log("Activity Detail", response)
         if (response.Success) {

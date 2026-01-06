@@ -30,11 +30,11 @@ export default function ActivitySearch() {
         `${process.env.NEXT_PUBLIC_API_URL}/api/activities/destinations`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true",
-            "Access-Control-Allow-Origin": "*",
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   "ngrok-skip-browser-warning": "true",
+          //   "Access-Control-Allow-Origin": "*",
+          // },
         }
       );
       const data = await response.json();

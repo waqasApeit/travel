@@ -27,10 +27,10 @@ export default function Page() {
         try {
             const responses = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/hotel/booking/details`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'ngrok-skip-browser-warning': 'true',
-                },
+                // headers: {
+                //     'Content-Type': 'application/json',
+                //     'ngrok-skip-browser-warning': 'true',
+                // },
                 body: JSON.stringify({ 'invoice_number': id }),
             });
             const res = await responses.json();

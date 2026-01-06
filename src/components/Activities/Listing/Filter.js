@@ -55,7 +55,9 @@ export default function Filter() {
         const urlDate = searchParams.get('date');
         const urlCity = searchParams.get('city');
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/filters?date=${urlDate || ''}&city=${urlCity || ''}`, { cache: 'no-store', headers: { 'ngrok-skip-browser-warning': 'true' } });
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/filters?date=${urlDate || ''}&city=${urlCity || ''}`, { cache: 'no-store', 
+                // headers: { 'ngrok-skip-browser-warning': 'true' } 
+            });
             const response = await res.json();
             setIsLoading(false)
             if (response.Success) {

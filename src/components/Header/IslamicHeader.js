@@ -61,7 +61,7 @@ export default function IslamicHeader() {
               >
                 <FaLocationDot className={styles.islamicTopBarIcon} />
                 <span className={styles.islamicTopBarText}>
-                  Stratford Road Birmingham, UK
+                  jeddah, Saudia Arabia
                 </span>
               </div>
             </div>

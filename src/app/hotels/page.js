@@ -135,11 +135,11 @@ async function fetchHotelsFn({ queryKey }) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/hotel/search`, {
         method: 'POST',
         cache: 'no-store',
-        headers: {
-            'Content-Type': 'application/json',
-            'ngrok-skip-browser-warning': 'true',
-            "Access-Control-Allow-Origin": '*'
-        },
+        // headers: {
+        //     'Content-Type': 'application/json',
+        //     'ngrok-skip-browser-warning': 'true',
+        //     "Access-Control-Allow-Origin": '*'
+        // },
         body: JSON.stringify(request),
     });
 

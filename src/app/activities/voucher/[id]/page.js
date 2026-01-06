@@ -36,10 +36,10 @@ export default function Page() {
         `${process.env.NEXT_PUBLIC_API_URL}/api/activities/booking/${id}`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true",
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   "ngrok-skip-browser-warning": "true",
+          // },
         }
       );
       const res = await responses.json();

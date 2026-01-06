@@ -24,7 +24,9 @@ function ActivityDetail() {
       setIsLoading(true);
       const lastPart = pathname.split('/').filter(Boolean).pop();
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${lastPart}`, { method: 'GET', cache: 'no-store', headers: { 'ngrok-skip-browser-warning': 'true' } });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/${lastPart}`, { method: 'GET', cache: 'no-store', 
+          // headers: { 'ngrok-skip-browser-warning': 'true' }
+         });
         const response = await res.json();
         // console.log("Activity Detail", response)
         if (response.Success) {

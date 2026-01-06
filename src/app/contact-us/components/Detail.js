@@ -20,7 +20,7 @@ export default function Detail() {
             </div>
             <div className="card-content">
               <h4>Our Location</h4>
-              <p> Stratford Road Birmingham, UK</p>
+              <p> Jeddah, Saudia Arabia</p>
             </div>
           </div></div>
             <div className="col-md-3"><div className={styles.infocard}>
@@ -29,7 +29,7 @@ export default function Detail() {
             </div>
             <div className="card-content">
               <h4>Email Us</h4>
-              <a href="mailto:info@traveltours.net" className="text-decoration-none text-white">info@traveltours.net</a>
+              <a href="mailto:info@traveltours.net" className="text-decoration-none text-white">info@kashta.com</a>
             </div>
           </div></div>
             <div className="col-md-3"> <div className={styles.infocard}>

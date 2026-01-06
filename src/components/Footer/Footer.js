@@ -98,7 +98,7 @@ export default function Footer() {
                 <FaLocationPin />
               </div>
               <div>
-                Stratford Road Birmingham, UK
+                Jeddah, Saudia Arabia
               </div>
             </div>
             <div className={styles.contactItem}>
@@ -127,7 +127,7 @@ export default function Footer() {
                   href="mailto:info@example.com"
                   className="text-decoration-none text-white"
                 >
-                  info@example.com
+                  info@kashta.com
                 </a>
               </div>
             </div>

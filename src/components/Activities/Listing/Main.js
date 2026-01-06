@@ -25,7 +25,9 @@ function Main() {
       setIsLoading(true);
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/search?${searchParams}`,
-          { cache: 'no-store', headers: { 'ngrok-skip-browser-warning': 'true' } }
+          { cache: 'no-store', 
+            // headers: { 'ngrok-skip-browser-warning': 'true' }
+           }
         );
         const response = await res.json();
         // console.log('Activities Response:', response);

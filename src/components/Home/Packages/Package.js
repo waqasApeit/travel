@@ -22,7 +22,7 @@ async function FetchCategories() {
       {
         cache: "force-cache",          // cache forever (until deploy)
         next: { revalidate: 60  }, // revalidate every 30 minutes
-        headers: { "ngrok-skip-browser-warning": "true" }
+        // headers: { "ngrok-skip-browser-warning": "true" }
       }
     );
 
