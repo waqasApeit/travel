@@ -98,15 +98,15 @@ export default function IslamicHeader() {
               href="/"
             >
               <div className={styles.islamicLogoWrapper}>
-                {/* <Image 
+                <Image 
                                 className={styles.islamicLogo} 
                                 height={60} 
                                 width={150} 
-                                src='/images/umrahshoplogo.png' 
-                                alt="Logo" 
+                                src='/images/logoo.png' 
+                                alt="kashta" 
                                 priority
-                            /> */}
-                <h1 className="fw-bold">Travel</h1>
+                            />
+                {/* <h1 className="fw-bold">Travel</h1> */}
               </div>
             </Link>
 
@@ -216,14 +216,14 @@ export default function IslamicHeader() {
               href="/"
               onClick={closeMobileMenu}
             >
-              {/* <Image 
+              <Image 
                             height={50} 
                             width={150} 
                             className="w-100"
-                            src='/images/umrahshoplogo.png' 
-                            alt="Ibadah Logo"
-                        /> */}
-              <h1 className="fw-bold text-dark">Travel</h1>
+                            src='/images/logoo.png' 
+                            alt="Kashta"
+                        />
+              {/* <h1 className="fw-bold text-dark">Travel</h1> */}
             </Link>
             <button
               className={styles.islamicMobileMenuClose}

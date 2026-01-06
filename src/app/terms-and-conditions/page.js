@@ -17,10 +17,10 @@ export default function page() {
                 <div className='hotel-checkout-top'>
                     <h2>Terms and Conditions</h2>
                 </div>
-                <p className='text-justify'>At Travel Tours, we are committed to providing pilgrims with a safe, comfortable, and spiritually enriching journey. Our Hajj and Umrah packages are designed to simplify every step of your pilgrimage. These Terms and Conditions outline your rights, responsibilities, and our services to ensure a smooth and transparent experience.</p>
+                <p className='text-justify'>At Kashta Travels, we are committed to providing pilgrims with a safe, comfortable, and spiritually enriching journey. Our Hajj and Umrah packages are designed to simplify every step of your pilgrimage. These Terms and Conditions outline your rights, responsibilities, and our services to ensure a smooth and transparent experience.</p>
                 <h4 className='mb-0'>Booking and Confirmation</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
-                    When you book with Travel Tours, your booking is confirmed once payment is received and acknowledgment is sent via email. We ask that all details you provide, including personal information, passport details, and travel preferences, are accurate and complete. Package availability is subject to change until confirmation is finalized.
+                    When you book with Kashta Travels, your booking is confirmed once payment is received and acknowledgment is sent via email. We ask that all details you provide, including personal information, passport details, and travel preferences, are accurate and complete. Package availability is subject to change until confirmation is finalized.
                 </Blockquote>
                 <h4 className='mb-0 mt-4'>Payment Policy</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
@@ -32,11 +32,11 @@ export default function page() {
                 </Blockquote>
                 <h4 className='mb-0 mt-4'>Changes to Packages</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
-                    Travel Tours reserves the right to make changes to itineraries, hotels, flights, or ground services if operational circumstances require it. We will communicate any major changes promptly and work with you to minimize inconvenience. Minor adjustments may occur due to local regulations or service providers.
+                    Kashta Travels reserves the right to make changes to itineraries, hotels, flights, or ground services if operational circumstances require it. We will communicate any major changes promptly and work with you to minimize inconvenience. Minor adjustments may occur due to local regulations or service providers.
                 </Blockquote>
                 <h4 className='mb-0 mt-4'>Responsibilities and Liability</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
-                    Pilgrims are responsible for ensuring passports, visas, vaccinations, and personal belongings are complete and accurate. Travel Tours is not liable for delays, cancellations, or other circumstances outside our control, including airline changes, government regulations, or unforeseen events. We strongly recommend travel insurance to cover unexpected incidents.
+                    Pilgrims are responsible for ensuring passports, visas, vaccinations, and personal belongings are complete and accurate. Kashta Travels is not liable for delays, cancellations, or other circumstances outside our control, including airline changes, government regulations, or unforeseen events. We strongly recommend travel insurance to cover unexpected incidents.
                 </Blockquote>
 
                 <h4 className='mb-0 mt-4'>Travel Documents and Visa</h4>
@@ -61,7 +61,7 @@ export default function page() {
                 </Blockquote>
                 <h4 className='mb-0 mt-4'>Your Journey, Our Commitment</h4>
                 <Blockquote color="darkgreen" className='mt-2' mt="xl">
-                    At Travel Tours, we are working to make your Hajj or Umrah experience meaningful and unforgettable. By following these Terms and Conditions, both pilgrims and our team can ensure a safe, organized, and spiritually rewarding journey.
+                    At Kashta Travels, we are working to make your Hajj or Umrah experience meaningful and unforgettable. By following these Terms and Conditions, both pilgrims and our team can ensure a safe, organized, and spiritually rewarding journey.
                 </Blockquote>
             </div>
         </>

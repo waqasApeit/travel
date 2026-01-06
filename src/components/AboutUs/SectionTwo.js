@@ -8,7 +8,7 @@ export default function SectionTwo() {
     //     <div className='container'>
     //         <div className={styles.sectionTwoHeading}>
     //             <p className='text-muted'> Making every Hajj and Umrah journey meaningful and memorable</p>
-    //             <h1 className='fw-bold'>Why Pilgrims Choose<br/> Travel Tours</h1>
+    //             <h1 className='fw-bold'>Why Pilgrims Choose<br/> Kashta Travels</h1>
     //         </div>
     //         <div className='row align-items-center mt-5'>
     //             <div className='col-lg-3 mb-3'>

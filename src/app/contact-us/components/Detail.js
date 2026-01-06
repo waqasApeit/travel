@@ -8,7 +8,7 @@ export default function Detail() {
         <div className={`${styles.infoheader} mb-4`}>
           <h3 className='fw-bolds text-center'>Contact Information</h3>
           <p>
-            Do you have any questions about our Hotels and Excursions packages, or need any guidance while planning your trip? The Travel Tours team is here to help you with expert advice and travel plans that are just for you. Call us and plan your next trip, and get affordable package deals for a smooth and meaningful journey.
+            Do you have any questions about our Hotels and Excursions packages, or need any guidance while planning your trip? The Kashta Travels team is here to help you with expert advice and travel plans that are just for you. Call us and plan your next trip, and get affordable package deals for a smooth and meaningful journey.
           </p>
         </div>
 

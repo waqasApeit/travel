@@ -9,7 +9,7 @@ export default function SectionOne() {
     //     <div className='container'>
     //         <div className={styles.sectionOneInner}>
     //             <h2 className={styles.sectionOneHeading}>Join Us on Your Journey</h2>
-    //             <p className={styles.sectionOnePara}>At Travel Tours, we are dedicated to providing each pilgrim with compassionate care and comfort.<br/> Explore our Hajj or Umrah packages to book easily and have a memorable pilgrimage experience.</p>
+    //             <p className={styles.sectionOnePara}>At Kashta Travels, we are dedicated to providing each pilgrim with compassionate care and comfort.<br/> Explore our Hajj or Umrah packages to book easily and have a memorable pilgrimage experience.</p>
     //             <div  className={styles.sectionOneImgWrapper}>
     //                 <Image src="/images/about/img1.jpg" alt="Mission Image" height={100} width={100} />
     //                 <Image src="/images/about/img2.jpg" alt="Mission Image" height={100} width={100} />

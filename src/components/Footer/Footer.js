@@ -60,14 +60,14 @@ export default function Footer() {
           <div className="col-lg-4 col-md-6 mb-4">
             {/* <h5 className={styles.heading}>Trusted Support</h5> */}
             <div className={styles.footerLogo}>
-              {/* <Image
+              <Image
                 height={100}
                 width={350}
-                src="/images/umrahshoplogo.png"
-                alt="footer-logo"
+                src="/images/logoo.png"
+                alt="kashta"
                 className="img-fluid"
-              /> */}
-              <h1 className="fw-bold">Travel</h1>
+              />
+              {/* <h1 className="fw-bold">Travel</h1> */}
             </div>
 
             <p className={styles.text}>

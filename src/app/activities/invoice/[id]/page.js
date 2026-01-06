@@ -177,7 +177,7 @@ export default function Page() {
               <div className={styles?.invoiceprintbutton}>
               </div>
               <div ref={ref} id="voucher" className={styles.themeholyinvoice}>
-                <Image src={voucherDetail?.client?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
+                <Image src={voucherDetail?.client?.client_images?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
                 <div className={styles.downloadinner}>
                   <header className="themeholy-header header-layout1">
                     <div className="row gx-0 justify-content-between my-4">
@@ -220,8 +220,8 @@ export default function Page() {
 
                     </tbody>
                   </table>
-                  {(voucherDetail?.additional_adults?.additional_adults?.length > 0
-                    || voucherDetail?.additional_adults?.children_details?.length > 0 || voucherDetail?.additional_adults?.infants_details?.length > 0
+                  {(voucherDetail?.other_passengers?.additional_adults?.length > 0
+                    || voucherDetail?.other_passengers?.children_details?.length > 0 || voucherDetail?.additional_adults?.infants_details?.length > 0
                   ) && (
                       <div>
                         <h6 className="mb-2 text-black">Additional Guests</h6>
@@ -234,7 +234,7 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            {voucherDetail?.additional_adults?.additional_adults.map((adult, index) => (
+                            {voucherDetail?.other_passengers?.additional_adults.map((adult, index) => (
                               <tr key={index}>
                                 <td>{adult.first_name} {adult.last_name}</td>
                                 <td>{adult.gender}</td>
@@ -368,7 +368,7 @@ export default function Page() {
                     <b className='text-black'>NOTE: </b>This is computer generated receipt and does not require physical signature.
                   </p>
                 </div>
-                <Image src={voucherDetail?.client?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
+                <Image src={voucherDetail?.client?.client_images?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
               </div>
             </main>
           )}

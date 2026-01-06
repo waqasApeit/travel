@@ -42,7 +42,7 @@ export default function DetailForm({ activityDetail }) {
   const [bookingOptionDetails, setBookingOptionDetails] = useState("");
 
   const bankInfo = {
-    accountName: "Travel Tours Ltd",
+    accountName: "Kashta Travels Ltd",
     accountNumber: "58516868",
     // iban: "GB29NWBK60161331926819",
     sortcode: "309950",

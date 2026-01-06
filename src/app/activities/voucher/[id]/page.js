@@ -201,7 +201,7 @@ export default function Page() {
             <main className="text-black">
               <div ref={ref} id="voucher" className={styles.themeholyinvoice}>
                 <Image
-                  src={voucherDetail?.client?.header_image}
+                  src={voucherDetail?.client?.client_images?.header_image}
                   height={150}
                   width={1000}
                   className="w-100 h-auto"
@@ -267,9 +267,9 @@ export default function Page() {
                   </table>
                   {(voucherDetail?.other_passengers?.additional_adults?.length >
                     0 ||
-                    voucherDetail?.additional_adults?.children_details?.length >
+                    voucherDetail?.other_passengers?.children_details?.length >
                       0 ||
-                    voucherDetail?.additional_adults?.infants_details?.length >
+                    voucherDetail?.other_passengers?.infants_details?.length >
                       0) && (
                     <div>
                       <h6 className="mb-2 text-black">Additional Guests</h6>
@@ -439,7 +439,7 @@ export default function Page() {
                   </p>
                 </div>
                 <Image
-                  src={voucherDetail?.client?.footer_image}
+                  src={voucherDetail?.client?.client_images?.footer_image}
                   height={150}
                   width={1000}
                   className="w-100 h-auto"
