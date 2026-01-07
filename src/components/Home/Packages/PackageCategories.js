@@ -23,7 +23,7 @@ export default function PackageCategories({
           headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Origin": "*",
             },
       }
     );

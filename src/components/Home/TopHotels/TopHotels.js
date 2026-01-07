@@ -35,7 +35,7 @@ export default function TopHotels() {
              headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(request),
           }
@@ -61,7 +61,7 @@ export default function TopHotels() {
                     headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Origin": "*",
             },
                   body: JSON.stringify({
                     provider: hotel.provider,

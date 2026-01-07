@@ -25,7 +25,7 @@ async function FetchCategories() {
         headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Origin": "*",
             },
       }
     );
@@ -49,7 +49,7 @@ async function FetchCategoryPackages(slug) {
           headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Origin": "*",
             },
       }
     );

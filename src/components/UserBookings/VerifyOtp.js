@@ -28,7 +28,7 @@ export default function VerifyOtp({ step, setStep, email, startExpiryTimer }) {
                   headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+            //   "Access-Control-Allow-Origin": "*",
             },
                 body: JSON.stringify({ "holder_email": email, "otp": otp }),
             });

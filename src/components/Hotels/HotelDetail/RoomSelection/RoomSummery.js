@@ -78,7 +78,7 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
                  headers: {
               // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+            //   "Access-Control-Allow-Origin": "*",
             },
                 body: JSON.stringify(request),
             })
