@@ -204,7 +204,7 @@ export default function HotelCard({ isLoading }) {
 
                     {/* Right badge */}
                     {item?.provider === "custom" && (
-                      <span className="badge bg-success">TT</span>
+                      <span className="badge bg-success">K</span>
                     )}
                   </div>
                 </div>

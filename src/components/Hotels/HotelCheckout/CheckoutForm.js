@@ -21,6 +21,8 @@ export default function CheckoutForm({ data }) {
   const [searchData, setSearchData] = useState({});
   const [activetab, setActiveTab] = useState("card");
   const router = useRouter();
+  console.log(data);
+  
   useEffect(() => {
     const totals = data?.rooms
       ? data?.rooms.reduce(
@@ -596,6 +598,7 @@ export default function CheckoutForm({ data }) {
       <div className="d-grid mt-4">
         <button
           onClick={handleCheckout}
+          disabled={data.provider === "custom" ? false : true}
           type="button"
           className="btn bg-color text-light"
         >

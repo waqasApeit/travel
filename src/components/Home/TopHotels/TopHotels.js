@@ -7,7 +7,6 @@ import PriceDisplay from "@/components/Currency/PriceDisplay";
 import { ProviderCodeList } from "@/util/ProviderCodeList";
 import { LiaAngleRightSolid } from "react-icons/lia"; // agar icon use karna hai
 import Link from "next/link";
-import { use } from "react";
 export default function TopHotels() {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);

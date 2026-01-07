@@ -71,7 +71,7 @@ export default function Footer() {
             </div>
 
             <p className={styles.text}>
-              Travel, based in the UK, is committed to helping pilgrims every
+              Travel, based in the Jeddah, is committed to helping pilgrims every
               step of the way. We make sure that your Hajj or Umrah journey goes
               smoothly,
             </p>
