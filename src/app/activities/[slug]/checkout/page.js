@@ -10,7 +10,11 @@ import { FaLocationDot } from 'react-icons/fa6';
 import Summery from '@/components/Activities/Checkout/Summery';
 import DetailForm from '@/components/Activities/Checkout/DetailForm';
 import { FaClockRotateLeft } from "react-icons/fa6";
-
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function page() {
     const { selectedActivity } = useActivityStore();
     const [activityDetail, setActivityDetail] = useState({});
@@ -22,12 +26,12 @@ export default function page() {
     return (
         <div>
             <div className='container my-5'>
-                <div className='hotel-checkout-top'>
-                    <h2>Review Your Booking</h2>
+                <div className='hotel-checkout-top shadow'>
+                    <h2 className={`fw-bold ${philosopher.className}`}>Review Your Booking</h2>
                 </div>
 
-                <div className='border rounded p-3'>
-                    <h4 className='mb-0'>{activityDetail?.title}</h4>
+                <div className='border rounded shadow p-3'>
+                    <h4 className={`mb-0 ${philosopher.className}`}>{activityDetail?.title}</h4>
                     <p className='text-muted'><FaLocationDot/> {activityDetail?.address}</p>
                     <div className='row mt-4 mb-3 text-center text-md-start justify-content-center align-items-center'>
                         <div className='col-md-3 col-12 col-sm-6 d-flex align-items-center gap-2 mb-2'>

@@ -96,7 +96,7 @@ export default function RoomList({ hotelDetail }) {
                                                                 <span onClick={() => handleSelectToggle(room?.id, rate?.rate_key)} className='bg-danger-subtle cursor-pointer ms-1 rounded p-1'><CiTrash className='text-danger' size={20} /></span>
                                                             </div>
                                                         ) : (
-                                                            <button onClick={() => handleSelectToggle(room?.id, rate?.rate_key)} className='btn w-100 btn-success mt-2 btn-sm'>Reserve</button>
+                                                            <button onClick={() => handleSelectToggle(room?.id, rate?.rate_key)} className='btn w-100 text-light exploreBtn mt-2 btn-sm'>Reserve</button>
                                                         )}
                                                     </div>
                                                 </div>

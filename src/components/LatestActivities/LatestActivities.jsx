@@ -7,7 +7,12 @@ import Image from "next/image";
 import styles from "./LatestExcursions.module.css";
 import moment from "moment/moment";
 import PriceDisplay from "../Currency/PriceDisplay";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 function LatestActivities() {
   const [isLoading, setIsLoading] = useState(true);
   const [activityList, setActivityList] = useState([]);
@@ -28,12 +33,12 @@ function LatestActivities() {
           }/api/activities/search?${params.toString()}`,
           {
             cache: "no-store",
-              headers: {
+            headers: {
               // 'ngrok-skip-browser-warning': 'true',
               // "Content-Type": "application/json",
               // "Access-Control-Allow-Origin": "*",
             },
-          }
+          },
         );
 
         const response = await res.json();
@@ -54,6 +59,7 @@ function LatestActivities() {
       getActivities();
     }
   }, [date]);
+
 
   return (
     <>
@@ -86,97 +92,111 @@ function LatestActivities() {
           </div>
         </div>
       ) : activityList.length > 0 ? (
-        <div className="container py-5">
-          <div className="row mb-4">
-            <div className="col text-center">
-              <h2 className={styles.sectionTitle}>Latest Excursions</h2>
-              <p className={styles.sectionDesc}>
-                Discover our most popular and recently added excursions
-              </p>
+        <>
+          <div className="container py-5">
+            <div className="row mb-4">
+              <div className="col text-dark">
+                <h2 className={`fw-bold ${styles.sectionTitle} ${philosopher.className}`}>Explore Our Excursions</h2>
+                <p className={styles.sectionDesc}>
+                  Discover our most popular and recently added excursions
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="row">
-            {activityList.slice(0, 8).map((item, ind) => (
-              <div className="col-lg-4 col-md-6 mb-4" key={ind}>
-                <div className={styles.card}>
-                  <div className={styles.imageWrap}>
-                    <Image
-                      src={item?.featured_image}
-                      alt={item.title}
-                      width={400}
-                      height={280}
-                      className="w-100 h-auto"
-                    />
-                    <span className={styles.badge}>
-                      Duration: {item?.activity_duration}
-                    </span>
-                  </div>
-                  <div className={styles.cardBody}>
-                    <div className="">
-                      <h5 >
-                        {" "}
-                        <Link href={`/activities/${item.slug}`} className="text-dark">
-                          {" "}
-                          {item?.title}
-                        </Link>
-                      </h5>
-                      <p>
-                        {Array.from({ length: 5 }).map((_, index) => {
-                          const rating = Number(item.rating_stars);
-                          const fullStars = Math.floor(rating);
-                          const hasHalfStar = rating - fullStars >= 0.5;
-
-                          if (index < fullStars)
-                            return (
-                              <FaStar
-                                key={index}
-                                className="text-warning me-1"
-                              />
-                            );
-                          if (index === fullStars && hasHalfStar)
-                            return (
-                              <FaStarHalfAlt
-                                key={index}
-                                className="text-warning me-1"
-                              />
-                            );
-                          return (
-                            <FaRegStar
-                              key={index}
-                              className="text-warning me-1"
-                            />
-                          );
-                        })}
-                      </p>
-                    </div>
-                    <small className="text-success">
-                      <FaLocationDot /> {item?.address}
-                    </small>
-                    {/* <p>{item?.content_text}</p> */}
-                    <div className={styles.cardFooter}>
-                      <span className={styles.price}>
-                        From{" "}
-                        <PriceDisplay
-                          price={item?.sale_price}
-                          currency={item?.currency_code}
-                        />{" "}
-                        <sub>pp</sub>
+            <div className="row">
+              {activityList.slice(0, 8).map((item, ind) => (
+                <div className="col-lg-3 col-md-6 mb-4" key={ind}>
+                  <div className={styles.card}>
+                    <div className={styles.imageWrap}>
+                      <Image
+                        src={item?.featured_image}
+                        alt={item.title}
+                        width={400}
+                        height={280}
+                        className="w-100 h-auto"
+                      />
+                      <span className={styles.badge}>
+                        Duration: {item?.activity_duration}
                       </span>
-                      <Link
-                        href={`/activities/${item.slug}`}
-                        className={styles.btn}
-                      >
-                        View Details
-                      </Link>
+                    </div>
+                    {/* <small className="text-muted mt-2">
+                      <FaLocationDot /> 
+                    </small> */}
+
+                    <div className="d-flex align-items-center gap-1 text-muted small mt-2 ms-2">
+                      <FaMapMarkerAlt size={12} />
+                      <span>{item?.address}</span>
+                    </div>
+                    <div className={styles.cardBody}>
+                      <div className="d-flex align-items-center justify-content-between mb-2">
+                        <h5 className={philosopher.className}>
+                          {" "}
+                          <Link
+                            href={`/activities/${item.slug}`}
+                            className="text-dark"
+                          >
+                            {" "}
+                            {item?.title}
+                          </Link>
+                        </h5>
+                        <p>
+                          {Array.from({ length: 5 }).map((_, index) => {
+                            const rating = Number(item.rating_stars);
+                            const fullStars = Math.floor(rating);
+                            const hasHalfStar = rating - fullStars >= 0.5;
+
+                            if (index < fullStars)
+                              return (
+                                <FaStar
+                                  key={index}
+                                  className="text-danger me-1"
+                                />
+                              );
+                            if (index === fullStars && hasHalfStar)
+                              return (
+                                <FaStarHalfAlt
+                                  key={index}
+                                  className="text-danger me-1"
+                                />
+                              );
+                            return (
+                              <FaRegStar
+                                key={index}
+                                className="text-danger me-1"
+                              />
+                            );
+                          })}
+                        </p>
+                      </div>
+
+                      <div className={styles.cardFooter}>
+                        <span className={styles.price}>
+                          From{" "}
+                          <PriceDisplay
+                            price={item?.sale_price}
+                            currency={item?.currency_code}
+                          />{" "}
+                          <sub>pp</sub>
+                        </span>
+                      </div>
+                      <div className="mt-3 w-100">
+                        <Link
+                          href={`/activities/${item.slug}`}
+                          className={styles.btn}
+                        >
+                          View Details
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       ) : null}
+
+     
     </>
   );
 }

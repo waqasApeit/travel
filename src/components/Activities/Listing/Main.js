@@ -14,6 +14,13 @@ import { Spoiler } from '@mantine/core';
 import ActivityPaggination from "./ActivityPaggination";
 import PriceDisplay from "@/components/Currency/PriceDisplay";
 import Filter from "./Filter";
+import styles from './main.module.css'
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 function Main() {
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -71,10 +78,10 @@ function Main() {
               ) : (
                 <div className="row">
                   {activityList.map((item, index) => (
-                    <div className="col-12 col-lg-12 mb-4" key={index}>
-                      <div className="card shadow-sm border-0">
+                    <div key={index}>
+                    {/* <div className="col-12 col-lg-12 mb-4" key={index}>
+                      <div className="card shadow border-0">
                         <div className="row g-0 position-relative">
-                          {/* Hotel Image Section */}
                           <div className="col-md-4 position-relative">
                             <Image
                               src={item?.featured_image}
@@ -102,13 +109,13 @@ function Main() {
                                     const hasHalfStar = rating - fullStars >= 0.5;
 
                                     if (index < fullStars) {
-                                      // Full star
+                                    
                                       return <FaStar key={index} className="text-warning me-1" />;
                                     } else if (index === fullStars && hasHalfStar) {
-                                      // Half star
+                                    
                                       return <FaStarHalfAlt key={index} className="text-warning me-1" />;
                                     } else {
-                                      // Empty star
+                                   
                                       return <FaRegStar key={index} className="text-warning me-1" />;
                                     }
                                   })}
@@ -118,22 +125,20 @@ function Main() {
                                   {moment(item.end_date).format("DD-MM-YYYY")}
                                 </span>
                               </div>
-
-                              {/* Name & Address */}
                               <h5 className="card-title mt-2">{item.title}</h5>
                               <p className="card-text text-muted mb-2">
                                 <IoLocationSharp className="text-success" />{" "}
                                 {item.address}
                               </p>
 
-                              {/* description*/}
+                          
                               <div className="">
                                 <div className="bg-light text-dark  me-2 mb-2 p-2">
                                   <Spoiler className="mb-0" maxHeight={55}>{item?.content_text}</Spoiler>
                                 </div>
                               </div>
 
-                              {/* Price & Button */}
+                          
                               <div className="d-flex justify-content-between align-items-center flex-wrap">
                                 <div className="mb-2 mb-md-0">
                                   <span className="fw-bold">
@@ -148,7 +153,7 @@ function Main() {
                                   </small>
                                 </div>
                                 <Link href={`/activities/${item.slug}`}>
-                                  <button className="btn btn-success">
+                                  <button className="btn exploreBtn text-white">
                                     View Details
                                   </button>
                                 </Link>
@@ -157,7 +162,105 @@ function Main() {
                           </div>
                         </div>
                       </div>
+                    </div> */}
+
+                      <div className="col-lg-4 col-md-6 mb-4" >
+                  <div className={styles.card}>
+                    <div className={styles.imageWrap}>
+                      <Image
+                        src={item?.featured_image}
+                        alt={item.title}
+                        width={400}
+                        height={280}
+                        className="w-100 h-auto"
+                      />
+                      <span className={styles.badge}>
+                        Duration: {item?.activity_duration}
+                      </span>
                     </div>
+                    {/* <small className="text-muted mt-2">
+                      <FaLocationDot /> 
+                    </small> */}
+
+                    <div className="d-flex align-items-center gap-1 text-muted small mt-2 ms-2">
+                      <FaMapMarkerAlt size={12} />
+                      <span>{item?.address}</span>
+                    </div>
+                    <div className={styles.cardBody}>
+                      <div className="d-flex align-items-center justify-content-between ">
+                        <h5 className={philosopher.className}>
+                          {" "}
+                          <Link
+                            href={`/activities/${item.slug}`}
+                            className="text-dark"
+                          >
+                            {" "}
+                            {item?.title}
+                          </Link>
+                        </h5>
+                        <p>
+                          {Array.from({ length: 5 }).map((_, index) => {
+                            const rating = Number(item.rating_stars);
+                            const fullStars = Math.floor(rating);
+                            const hasHalfStar = rating - fullStars >= 0.5;
+
+                            if (index < fullStars)
+                              return (
+                                <FaStar
+                                  key={index}
+                                  className="text-danger me-1"
+                                />
+                              );
+                            if (index === fullStars && hasHalfStar)
+                              return (
+                                <FaStarHalfAlt
+                                  key={index}
+                                  className="text-danger me-1"
+                                />
+                              );
+                            return (
+                              <FaRegStar
+                                key={index}
+                                className="text-danger me-1"
+                              />
+                            );
+                          })}
+                        </p>
+                      </div>
+                      <div>
+                        {item?.content_text}
+                      </div>
+
+                      <div className={styles.cardFooter}>
+                        <span className={styles.price}>
+                          From{" "}
+                          <PriceDisplay
+                            price={item?.sale_price}
+                            currency={item?.currency_code}
+                          />{" "}
+                          <sub>pp</sub>
+                        </span>
+                        
+                      </div>
+                      <small
+                                    className="text-muted d-block"
+                                    style={{ fontSize: "11px" }}
+                                  >
+                                    Inclusive of VAT and Taxes
+                                  </small>
+                      <div className="mt-3 w-100">
+                        <Link
+                          href={`/activities/${item.slug}`}
+                          className={styles.btn}
+                        >
+                          View Details
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                    </div>
+                    
                   ))}
                 </div>
               )}

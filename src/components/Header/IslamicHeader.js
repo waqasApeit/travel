@@ -32,7 +32,7 @@ export default function IslamicHeader() {
     <div className={styles.islamicHeaderOther}>
       <div className={`container ${styles.islamicHeaderContainer}`}>
         {/* Top Bar with Sunrise, Sunset, Location and Social Icons */}
-        <div className={styles.islamicTopBar}>
+        {/* <div className={styles.islamicTopBar}>
           <div
             className={`${styles.islamicTopBarContent} container d-flex justify-content-between align-items-center`}
           >
@@ -68,10 +68,7 @@ export default function IslamicHeader() {
             <div
               className={`${styles.islamicTopBarRight} d-flex align-items-center gap-3`}
             >
-              {/* <div className={`${styles.islamicTopBarItem} ${styles.islamicLocationItem} d-none d-lg-flex align-items-center gap-2`}>
-                                <FaMapMarkerAlt className={styles.islamicTopBarIcon} />
-                                <span className={styles.islamicTopBarText}>693a Stratford Road Birmingham B11 4DX, UK</span>
-                            </div> */}
+          
               <div className={`${styles.islamicSocialIcons} d-flex gap-2`}>
                 <a href="" className={styles.islamicSocialLink}>
                   <FaFacebookF />
@@ -88,7 +85,7 @@ export default function IslamicHeader() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Navigation Header */}
         <nav className={`${styles.islamicNavbar} navbar navbar-expand-lg`}>

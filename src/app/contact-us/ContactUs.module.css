@@ -90,3 +90,160 @@
     text-decoration: none;
     color: #ffff;
 }
+
+
+
+
+
+
+
+
+
+.storyBadge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: #dbdbdbab; /* accent */
+  color: #EE1B22; /* primary */
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: 'Philosopher', sans-serif;
+}
+
+
+.storyHeading {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  margin-bottom: 1.5rem;
+  font-family: 'Philosopher', sans-serif;
+}
+
+.highlight {
+  color: #EE1B22; /* Bootstrap primary */
+}
+
+.storyDescription {
+  font-size: 1.125rem;
+  color: #6c757d;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+.card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  background-color: #dbdbdbab; /* accent */
+  color: #EE1B22; /* primary */
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  font-size: 1.25rem;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+
+
+
+.section {
+  padding: 4rem 0;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  font-family: 'Philosopher', sans-serif;
+}
+
+.faqheading {
+    font-family: 'Philosopher', sans-serif;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.iconPrimary {
+  width: 40px;
+  height: 40px;
+  background-color: #EE1B22;
+  color: #fff;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconAccent {
+  width: 40px;
+  height: 40px;
+  background-color: #dbdbdbab;
+  color: #EE1B22;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faqItem {
+  background-color: rgba(108, 117, 125, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.faqItem h5 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.faqItem p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.exploreBtn {
+  background-color: #EE1B22 !important;
+  border-color: #EE1B22 !important;
+}
+
+.exploreBtn:hover {
+  background-color: #c81419 !important;
+  border-color: #c81419 !important;
+}

@@ -28,7 +28,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.637);
+    background-color: #00000026;
     z-index: 1;
 }
 
@@ -68,10 +68,10 @@
 /* Search Box Wrapper */
 .searchBoxWrapper {
     background-color: #ffffff;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 50px;
+    /* padding: 10px; */
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -94,8 +94,8 @@
     }
 
     .searchBoxWrapper {
-        padding: 10px;
-        max-width: 1400px;
+        /* padding: 10px; */
+        max-width: 920px;
     }
 }
 
@@ -124,9 +124,6 @@
         font-size: 1.15rem;
     }
 
-    .searchBoxWrapper {
-        padding: 10px;
-    }
 }
 
 /* Tablet (768px - 991px) */
@@ -153,8 +150,8 @@
     }
 
     .searchBoxWrapper {
-        padding: 10px;
-        border-radius: 10px;
+        /* padding: 10px; */
+        border-radius: 50px;
     }
 }
 
@@ -281,4 +278,146 @@
     .heroCarouselBackground :global(.swiper-pagination) {
         bottom: 60px !important;
     }
+}
+
+
+
+.wrapper {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.searchBar {
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  gap: 0;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.inputWrapper :global(.mantine-Select-root),
+.inputWrapper :global(.mantine-DateInput-root),
+.inputWrapper :global(.mantine-DatePickerInput-root) {
+  width: 100%;
+}
+
+.inputWrapper :global(.mantine-Select-input),
+.inputWrapper :global(.mantine-DateInput-input),
+.inputWrapper :global(.mantine-DatePickerInput-input),
+.inputWrapper :global(input.form-control) {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 2.5rem !important;
+  height: 48px !important;
+  font-size: 0.95rem !important;
+}
+
+.inputWrapper :global(.mantine-Select-input:focus),
+.inputWrapper :global(.mantine-DateInput-input:focus),
+.inputWrapper :global(.mantine-DatePickerInput-input:focus),
+.inputWrapper :global(input.form-control:focus) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.icon {
+  position: absolute;
+  left: 1.5rem;
+  color: #6c757d;
+  font-size: 1.1rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.divider {
+  width: 1px;
+  height: 36px;
+  background-color: #e0e0e0;
+  margin: 0 0.25rem;
+}
+
+.searchBtn {
+  height: 48px;
+  width: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ee1b22;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 0.25rem;
+}
+
+.searchBtn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.searchBtn:active {
+  transform: scale(0.98);
+}
+
+.guestButton {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 2.5rem !important;
+  height: 48px !important;
+  font-size: 0.95rem !important;
+  text-align: left;
+  width: 100%;
+  color: #495057;
+}
+
+.guestButton:hover,
+.guestButton:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 20px;
+    gap: 0.75rem;
+  }
+
+  .inputWrapper {
+    width: 100%;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .searchBtn {
+    width: 100%;
+    border-radius: 10px;
+    height: 50px;
+  }
+
+  .icon {
+    left: 1rem;
+  }
 }

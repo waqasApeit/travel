@@ -1,7 +1,11 @@
 'use client'
 import React, { useState, useMemo } from 'react'
 import moment from 'moment'
-
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function Availability({PackageDetail}) {
     const [showAll, setShowAll] = useState(false);
 
@@ -51,7 +55,7 @@ export default function Availability({PackageDetail}) {
     return (
         <div>
             <div className="available-dates rounded p-3 border">
-                <h5 className="fw-bold mb-0">Availability</h5>
+                <h5 className={`fw-bold mb-0 ${philosopher.className}`}>Availability</h5>
                 <p className='small text-muted'>Check available dates and times</p>
                 {availableDates.length === 0 ? (
                     <p className="text-muted">No available dates for this activity.</p>

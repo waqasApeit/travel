@@ -1,24 +1,16 @@
 import React from "react";
 import styles from "./enquiryform.module.css";
-import { IoFastFood } from "react-icons/io5";
-import { BiSolidDish } from "react-icons/bi";
-import { FaGlobe } from "react-icons/fa";
-import { ImAirplane } from "react-icons/im";
-import { FaUmbrellaBeach } from "react-icons/fa";
-import { FaMountainSun } from "react-icons/fa6";
-import Link from "next/link";
-import {
-  FaHotel,
-
-  FaCity,
-
-  FaShip,
-  FaMapMarkedAlt,
-} from "react-icons/fa";
+import Link from "next/link"
+import { Philosopher } from 'next/font/google';
+const philosopher = Philosopher({
+  subsets: ['latin'],
+  weight: '700',
+});
 function EnquiryForm() {
   return (
     <>
-    <div className={styles.bgcolor}>
+   
+    {/* <div className={styles.bgcolor}>
   <div className={`container py-5 ${styles.section}`}>
     <h1 className={styles.headerText}>
       Unforgettable Hotel Stays & Excursions
@@ -87,7 +79,7 @@ function EnquiryForm() {
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
     <section className={`${styles.ticket} position-relative`}>
   <div className={styles.overlay}></div>
@@ -95,16 +87,16 @@ function EnquiryForm() {
   <div className="container">
     <div className={`w-lg-75 mx-auto text-center ${styles.ticketInner}`}>
       <div className={styles.ticketTitle}>
-        <h5>LET'S DO IT HURRY</h5>
-        <h1>
-          HAVEN'T BOOKED YOUR HOTEL YET?{" "}
-          {/* <span className={styles.pink}>Get Ticket</span> */}
+        {/* <h5>LET'S DO IT HURRY</h5> */}
+        <h1 className={philosopher.className}>
+         Ready to Explore World?{" "}
+        
         </h1>
       </div>
 
       <div className={styles.ticketInfo}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Book your next adventure and discover the wonders of the Kingdom.
         </p>
 
         <div className={styles.ticketButton}>

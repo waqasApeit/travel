@@ -2,35 +2,34 @@ import React from "react";
 import Detail from "./components/Detail";
 import Map from "./components/Map";
 import Form from "./components/Form";
-import { FaAngleRight } from "react-icons/fa";
-import Link from "next/link";
+import Faqs from "./components/Faqs";
+import styles from "./ContactUs.module.css";
 export default function page() {
   return (
-    <div>
-      <section className="page-title-section contact-bg-page text-center d-flex align-items-center justify-content-center">
-        <div className="page-title-overlay"></div>
-        <div className="container">
-          <h1 className="text-white fw-bold">Contact Us</h1>
-          <p>
-           <Link className='text-light' href='/'>Home</Link>  <FaAngleRight /> Contact us
-          </p>
-        </div>
-      </section>
+    <>
       <div className="container contact-page mb-5 mt-5">
         <div className="row">
-           <div className="col-lg-12 mt-4">
+          <div className="col-lg-12 mt-4">
             <Detail />
           </div>
-          <div className="col-lg-5 mt-3">
-           
-             <Map />
+          <section className={styles.section}>
+            <div className="container">
+              <div className="row g-5">
+                <div className="col-lg-6">
+                  <Form />
+                </div>
+
+                <div className="col-lg-6">
+                  <Faqs />
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="col-lg-12">
+            <Map />
           </div>
-          <div className="col-lg-7 mt-3">
-            <Form />
-          </div>
-         
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -68,7 +68,7 @@ export default function HotelDetailLoader() {
             <div className="bg-light rounded w-100 mt-3 placeholder-glow"
                 style={{ height: "15em" }}
             >
-                <span className="placeholder bg-success col-12 h-100 rounded">
+                <span className="placeholder bg-danger col-12 h-100 rounded">
                 </span>
                
             </div>

@@ -16,6 +16,11 @@ import {
 import { BiSupport } from "react-icons/bi";
 import { CiCircleCheck } from "react-icons/ci";
 import Link from "next/link";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function DetailForm({ activityDetail }) {
   const [errors, setErrors] = useState({});
   const router = useRouter();
@@ -434,8 +439,8 @@ export default function DetailForm({ activityDetail }) {
         />
       )}
       {/* Lead Guest Info */}
-      <div className="rounded border mt-3 p-3">
-        <h5 className="mb-3">Lead Person Information</h5>
+      <div className="rounded border shadow mt-3 p-3">
+        <h5 className={`mb-3 fw-bold ${philosopher.className}`}>Lead Person Information</h5>
 
         <div className="row mb-4 g-3">
           {/* Title */}
@@ -609,7 +614,7 @@ export default function DetailForm({ activityDetail }) {
           communications. Ensure that the name matches travel documents.
         </p>
       </div>
-      <div className="rounded border mt-3 p-3">
+      <div className="rounded border shadow mt-3 p-3">
         {/* Other Guest Info */}
         <button onClick={handleGuestAdd} className="btn btn-primary btn-sm ">
           + Add New Guest
@@ -710,8 +715,8 @@ export default function DetailForm({ activityDetail }) {
         ))}
       </div>
       {/* Special Requests */}
-      <div className="rounded border mt-3 p-3">
-        <h5>Special requests</h5>
+      <div className="rounded border shadow mt-3 p-3">
+        <h5 className={`fw-bold ${philosopher.className}`}>Special requests</h5>
         <p className="mt-3 small">
           Special requests cannot be guaranteed – we’ll do our best to fulfill
           them.
@@ -745,7 +750,7 @@ export default function DetailForm({ activityDetail }) {
           <div className="text-danger small mt-1">{errors.terms}</div>
         )}
       </div>
-      <div className="bg-success-subtle rounded p-3 mt-3">
+      <div className="bg-success-subtle rounded shadow p-3 mt-3">
         <div className="text-success">
           <IoShieldCheckmarkOutline /> All transactions are encrypted and 100%
           safe.
@@ -824,10 +829,10 @@ export default function DetailForm({ activityDetail }) {
                 </div>
             </div> */}
       <div className="mt-3">
-        <div className="border rounded p-3 bg-white shadow-sm">
+        <div className="border rounded p-3 bg-white shadow">
           <div className="d-flex justify-content-between align-items-center">
             <div>
-              <h6 className="mb-0">Pay via Card</h6>
+              <h6 className={`mb-0 fw-bold ${philosopher.className}`}>Pay via Card</h6>
               <div className="small text-muted">
                 Pay securely using your debit or credit card.
               </div>
@@ -851,7 +856,7 @@ export default function DetailForm({ activityDetail }) {
             <div className="col-12 mt-3 d-flex justify-content-end">
               <button
                 type="button"
-                className="btn btn-success"
+                className="btn exploreBtn text-light"
                 disabled={loading}
                 onClick={handleCheckout}
               >

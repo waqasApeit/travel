@@ -10,6 +10,11 @@ import CheckoutForm from '@/components/Hotels/HotelCheckout/CheckoutForm';
 import { FaLocationDot } from 'react-icons/fa6';
 import { BsPatchCheck } from "react-icons/bs";
 import PriceDisplay from '@/components/Currency/PriceDisplay';
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function Page() {
   const { availabilityData } = useHotelStore();
 
@@ -34,23 +39,23 @@ export default function Page() {
 
   return (
     <div className='container my-5'>
-      <div className='hotel-checkout-top'>
-        <h2 className='fw-bold'>Review Your Booking</h2>
+      <div className='hotel-checkout-top shadow'>
+        <h2 className={`fw-bold ${philosopher.className}`}>Review Your Booking</h2>
       </div>
       <div className='row'>
         <div className='col-md-4'>
-          <div className='rounded border mt-2'>
+          <div className='rounded shadow border mt-2'>
             <div className='p-3'>
               <div className='small text-warning'>
                 {availabilityData?.stars && Array(Number(availabilityData?.stars)).fill(0).map((_, index) => (
                   <FaStar key={index} />
                 ))}
               </div>
-              <div className='mt-2 fw-bold'>{availabilityData?.hotel_name}</div>
+              <div className={`mt-2 fw-bold fs-5 ${philosopher.className}`}>{availabilityData?.hotel_name}</div>
               <div className='small text-success mt-1'> <FaLocationDot className='me-2' />{availabilityData?.address}</div>
             </div>
           </div>
-          <div className='rounded border mt-3 p-3'>
+          <div className='rounded shadow border mt-3 p-3'>
             <div className='d-flex justify-content-between align-items-center'>
               <div>
                 <p className='small mb-1'>Check in</p>
@@ -68,7 +73,7 @@ export default function Page() {
           <div className='rounded hotel-detail-room-selection p-3  mt-3'>
             {availabilityData?.rooms && availabilityData?.rooms.map((item, index) => (
               <div key={index} className="rounded ">
-                <h5 className='mb-2'>{item.name}</h5>
+                <h5 className={`mb-2 fw-bold ${philosopher.className}`}>{item.name}</h5>
                 {item.rates.map((rate, idx) => (
                   <div key={idx}>
                     {idx > 0 && <hr />}
@@ -103,7 +108,7 @@ export default function Page() {
                       </span>
                       <span>{rate.children}</span>
                     </div>
-                    <div className="d-flex justify-content-between mb-2">
+                    <div className="d-flex  justify-content-between mb-2">
                       <span className="text-muted">
                         <BiUser className="me-2" />
                         <strong>Price:</strong>
@@ -119,16 +124,16 @@ export default function Page() {
             ))}
           </div>
 
-          <div className='rounded border mt-3 '>
+          <div className='rounded shadow border mt-3 '>
             <div className='gray-simple  p-3'>
               <div className='fw-bold d-flex align-items-center justify-content-between'>
-                <h4 className='mb-0'>Price</h4>
+                <h4 className={`mb-0 fw-bold ${philosopher.className}`}>Price</h4>
                 <h4 className='mb-0'><PriceDisplay price={availabilityData?.total_net} currency={availabilityData?.currency} /></h4>
               </div>
             </div>
           </div>
-          <div className="rounded border mt-3 p-3">
-            <h5 className="mb-3">Good to know:</h5>
+          <div className="rounded shadow border mt-3 p-3">
+            <h5 className={`mb-3 fw-bold ${philosopher.className}`}>Good to know:</h5>
             <div>
               <BsPatchCheck className="text-success" /> Check-in and check-out times
               may vary depending on the hotel’s policy.

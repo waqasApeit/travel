@@ -15,6 +15,11 @@ import { ThemeIcon } from "@mantine/core";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import ActivityDetailLoader from "@/components/Loader/ActivityDetailLoader";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 function ActivityDetail() {
   const [packageDetail, setPackageDetail] = React.useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -77,7 +82,7 @@ function ActivityDetail() {
               <GalleryImages imageList={PackageDetail?.gallery_images || []} />
             </div>
             <section id="overview" className="mb-5 mt-4">
-              <h3>{PackageDetail?.title}</h3>
+              <h3 className={`fw-bold ${philosopher.className}`}>{PackageDetail?.title}</h3>
               {Array.from({ length: 5 }).map((_, index) => {
                 const rating = Number(PackageDetail?.rating_stars);
                 const fullStars = Math.floor(rating);
@@ -179,7 +184,7 @@ function ActivityDetail() {
               {PackageDetail?.facilities &&
                 PackageDetail?.facilities.length > 0 && (
                   <div className="mt-5">
-                    <h5 className="mb-0">Facilities</h5>
+                    <h5 className={`mb-0 fw-bold ${philosopher.className}`}>Facilities</h5>
                     <p className="small text-muted">
                       Explore the facilities included in this package.
                     </p>

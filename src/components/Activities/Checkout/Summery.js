@@ -1,5 +1,10 @@
 import React from 'react'
 import PriceDisplay from '@/components/Currency/PriceDisplay';
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function Summery({ activityDetail }) {
   const totalPeople = Number(activityDetail?.adults || 0) + Number(activityDetail?.children || 0);
   return (
@@ -10,8 +15,8 @@ export default function Summery({ activityDetail }) {
           {activityDetail?.cancellation_policy_text}
         </div>
       )}
-      <div className='mt-3 border p-3 rounded'>
-        <h5 className="mb-0">Booking Summary</h5>
+      <div className='mt-3 border p-3 rounded shadow'>
+        <h5 className={`mb-0 fw-bold ${philosopher.className}`}>Booking Summary</h5>
         <p className='small text-muted'>Review your selected activity, and traveler details.</p>
         <hr />
         <div className="small text-muted mb-1">Traveler Detail:</div>

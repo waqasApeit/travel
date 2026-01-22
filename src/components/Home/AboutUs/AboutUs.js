@@ -7,7 +7,7 @@ import { IoMan } from "react-icons/io5";
 export default function AboutUs() {
     return (
     <>
-     <section className="about-one">
+     {/* <section className="about-one">
             <div className="container">
               <div className="row">
                 <div
@@ -94,7 +94,7 @@ export default function AboutUs() {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           
     </>

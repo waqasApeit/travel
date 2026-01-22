@@ -50,7 +50,7 @@ export default function HotelCardLoader() {
                                     {/* Price & Button */}
                                     <div className="mt-3">
                                         <div className="text-end placeholder-glow">
-                                            <button className="btn btn-success disabled placeholder col-5"></button>
+                                            <button className="btn btn-danger disabled placeholder col-5"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@ export default function HotelCardLoader() {
                                     {/* Price & Button */}
                                     <div className="mt-3">
                                         <div className="text-end placeholder-glow">
-                                            <button className="btn btn-success disabled placeholder col-5"></button>
+                                            <button className="btn btn-danger disabled placeholder col-5"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@ export default function HotelCardLoader() {
                                     {/* Price & Button */}
                                     <div className="mt-3">
                                         <div className="text-end placeholder-glow">
-                                            <button className="btn btn-success disabled placeholder col-5"></button>
+                                            <button className="btn btn-danger disabled placeholder col-5"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ export default function HotelCardLoader() {
                                     {/* Price & Button */}
                                     <div className="mt-3">
                                         <div className="text-end placeholder-glow">
-                                            <button className="btn btn-success disabled placeholder col-5"></button>
+                                            <button className="btn btn-danger disabled placeholder col-5"></button>
                                         </div>
                                     </div>
                                 </div>

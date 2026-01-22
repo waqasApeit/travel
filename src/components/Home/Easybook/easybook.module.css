@@ -1,71 +1,18 @@
-.serviceSection {
-  background-size: cover;
+.section {
+  background-color: #fff;
 }
 
-/* Dark cards */
-.darkCard {
-  background-color: #1f3f3a;
-  color: #ffffff;
-}
-
-.paddd{
-    padding: 80px 35px;
-}
-/* Light card */
-.lightCard {
-  background-color: #f4f1e8;
-}
-
-/* Titles */
-.title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.darkText {
-  color: #1f3f3a;
-}
-
-/* Paragraphs */
-.text {
-  color: #e5e5e5;
-  line-height: 1.7;
-}
-
-.lightText {
-  color: #6b6b6b;
-  line-height: 1.7;
-}
-
-/* Explore link */
-.explore {
-  margin-top: 30px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.darkExplore {
-  color: #1f3f3a;
-}
-
-/* Arrow circle */
-.icon {
-  width: 36px;
-  height: 36px;
+.iconWrapper {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: #ffffff;
-  color: #1f3f3a;
+  background-color: #f2f6ff; /* light accent */
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.darkExplore .icon {
-  background: #1f3f3a;
-  color: #ffffff;
+.icon {
+  color: #EE1B22; /* Bootstrap primary */
 }

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { Select } from "@mantine/core";
 import { countryListLocal } from "@/util/CountryList"; // your country data
@@ -9,9 +8,13 @@ import { useRouter } from "next/navigation";
 import { TiDeleteOutline } from "react-icons/ti";
 import { BiCreditCard } from "react-icons/bi";
 import { BsBank } from "react-icons/bs";
-import { FaFaceGrinStars } from "react-icons/fa6";
 import { GoCheckCircle } from "react-icons/go";
 import Link from "next/link";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function CheckoutForm({ data }) {
   const [showLoader, setShowLoader] = useState(false);
   const [loaderError, setLoaderError] = useState("");
@@ -285,8 +288,8 @@ export default function CheckoutForm({ data }) {
       </div>
 
       {/* Lead Guest Info */}
-      <div className="rounded border mt-3 p-3">
-        <h5 className="mb-3">Lead Guest Information</h5>
+      <div className="rounded shadow border mt-3 p-3">
+        <h5 className={`mb-3 fw-bold ${philosopher.className}`}>Lead Guest Information</h5>
 
         <div className="row mb-4 g-3">
           {/* Title */}
@@ -409,7 +412,7 @@ export default function CheckoutForm({ data }) {
           communications. Ensure that the name matches travel documents.
         </p>
       </div>
-      <div className="rounded border mt-3 p-3">
+      <div className="rounded shadow border mt-3 p-3">
         {/* Other Guest Info */}
         <button onClick={handleGuestAdd} className="btn btn-primary btn-sm ">
           + Add New Guest
@@ -474,8 +477,8 @@ export default function CheckoutForm({ data }) {
         ))}
       </div>
       {/* Special Requests */}
-      <div className="rounded border mt-3 p-3">
-        <h5>Special requests</h5>
+      <div className="rounded shadow border mt-3 p-3">
+        <h5 className={`mb-3 fw-bold ${philosopher.className}`}>Special requests</h5>
         <p className="mt-3 small">
           Special requests cannot be guaranteed – but the property will do its
           best to meet your needs.
@@ -490,8 +493,8 @@ export default function CheckoutForm({ data }) {
         ></textarea>
       </div>
       {/* Payment */}
-      <div className="rounded border mt-3 p-3">
-        <h5 className="mb-3">Payment</h5>
+      <div className="rounded shadow border mt-3 p-3">
+        <h5 className={`mb-3 fw-bold ${philosopher.className}`}>Payment</h5>
         <div className="row g-3">
           <div className="col-12">
             <p className="small">Choose your payment method</p>

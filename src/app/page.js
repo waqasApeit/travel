@@ -5,13 +5,15 @@ import AboutUs from "@/components/Home/AboutUs/AboutUs";
 import Easybook from "@/components/Home/Easybook/Easybook";
 import EnquiryForm from "@/components/Home/EnquiryForm/EnquiryForm";
 import LatestActivities from "@/components/LatestActivities/LatestActivities";
+import Topdestination from "@/components/Home/TopDestination/Topdestination";
 export default function Home() {
   return (
     <div>
       <Search />
       <Easybook />
-      <TopHotels />
       <LatestActivities />
+      <TopHotels />
+      <Topdestination />
       <AboutUs />
       <EnquiryForm />
     </div>

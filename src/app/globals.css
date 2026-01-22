@@ -18,7 +18,7 @@
 }
 
 .bg-color {
-    background-color: #004c4c !important;
+    background-color: #ee1b22 !important;
 }
 
 .cursor-pointer {
@@ -207,13 +207,13 @@ a {
 
 .nav-pills.lights .nav-link.active,
 .nav-pills.lights .show>.nav-link {
-    background: #004c4c;
+    background: #ffffff8c;
     color: #fff !important;
 }
 
 .btn-success {
-    background-color: #004c4c;
-    border-color: #004c4c;
+    background-color: #ee1b22;
+    border-color: #ee1b22;
 }
 
 .nav-pills.medium .nav-link {
@@ -285,7 +285,7 @@ a {
 
 .adult-modal-btn {
     background-color: initial;
-    color: #004c4c;
+    color: #EE1B22;
     border: none;
     outline: none;
     padding: .2rem .7em;
@@ -810,7 +810,7 @@ a {
 }
 
 .text-success {
-    color: #004c4c !important
+    color: #EE1B22 !important
 }
 
 .quantity-box {
@@ -1001,4 +1001,13 @@ a {
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
     background-color:#004c4c
     
+}
+
+.exploreBtn{
+    background-color: #EE1B22 !important;
+    border-color: #EE1B22 !important;
+}
+.exploreBtn:hover{
+    background-color: #c81419 !important;
+    border-color: #c81419 !important;
 }

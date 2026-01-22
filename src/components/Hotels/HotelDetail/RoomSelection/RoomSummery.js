@@ -6,6 +6,11 @@ import PriceDisplay from '@/components/Currency/PriceDisplay';
 import { notifications } from '@mantine/notifications';
 import { useHotelStore } from '@/components/Store/HotelStore';
 import { useRouter } from 'next/navigation';
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function RoomSummery({ selectedRooms, roomList, detail }) {
     const { setAvailabilityData } = useHotelStore();
     const [isLoading, setIsLoading] = useState(false);
@@ -137,7 +142,7 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
     };
     return (
         <div className="card border sticky-top-div p-3">
-            <h5>Reservation Summary</h5>
+            <h5 className={`fw-bold ${philosopher.className}`}>Reservation Summary</h5>
             {selectedRooms.length === 0 ? (
                 <div className="hotel-detail-room-selection text-center">No Room Selected.</div>
             ) : (
@@ -171,7 +176,7 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
             )
             }
 
-            <button disabled={isLoading} onClick={PreBooking} className="btn btn-success w-100">
+            <button disabled={isLoading} onClick={PreBooking} className="btn text-light exploreBtn w-100">
                 {isLoading ? (
                     <div className="spinner-border text-light spinner-border-sm" role="status">
                         <span className="visually-hidden">Loading...</span>

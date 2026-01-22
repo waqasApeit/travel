@@ -64,7 +64,7 @@ export default function Page() {
                         )}
                     </div>
                 </section>
-                <div className="container search-box bg-light rounded p-2 position-relative " style={{ top: '-2em' }}>
+                <div className="container  rounded-pill p-3 position-relative " style={{ top: '-3em' }}>
                     <HotelModify />
                 </div>
 

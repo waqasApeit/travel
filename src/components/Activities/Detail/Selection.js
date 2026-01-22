@@ -9,6 +9,11 @@ import AdditionalServices from './AdditionalServices';
 import PriceDisplay from '@/components/Currency/PriceDisplay';
 import { useActivityStore } from '@/components/Store/ActivityStore';
 import { useRouter } from 'next/navigation';
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function Selection({ PackageDetail }) {
   const { setSelectedActivity } = useActivityStore();
   const router = useRouter();
@@ -138,7 +143,7 @@ export default function Selection({ PackageDetail }) {
         {PackageDetail?.cancellation_policy_text || "No cancellation policy available."}
       </Modal>
       <div className="mt-3 border p-3 rounded">
-        <h5 className="mb-0">Select Activity</h5>
+        <h5 className={`mb-0 fw-bold ${philosopher.className}`}>Select Activity</h5>
         <p className='small text-muted'>Fill in activity, date, passenger count, etc.</p>
 
         {/* People Count Info */}
@@ -307,7 +312,7 @@ export default function Selection({ PackageDetail }) {
         {/* Book Now Button */}
         <button
           onClick={HandleBookNow}
-          className="btn btn-success w-100"
+          className="btn exploreBtn text-light w-100"
           disabled={!selectedDate || !isValidPeopleCount || totalPeople === 0}
         >
           Proceed to checkout

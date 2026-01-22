@@ -63,7 +63,7 @@ export default function HeroSection() {
                 </SwiperSlide>
             </Swiper> */}
              <Image 
-                        src="/images/hero/urtymhfghm.png" 
+                        src="/images/hero/hero-saudi.jpg" 
                         alt="Beautiful destination 1" 
                         fill
                         priority

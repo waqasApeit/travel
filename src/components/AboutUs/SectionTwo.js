@@ -1,146 +1,83 @@
 import React from "react";
 import styles from "./about.module.css";
 import Image from "next/image";
-import { CiFlag1 } from "react-icons/ci";
+
+import { FaHeart, FaUsers, FaAward, FaGlobe } from "react-icons/fa";
 export default function SectionTwo() {
   return (
-    // <div className={styles.sectionOneWrapper}>
-    //     <div className='container'>
-    //         <div className={styles.sectionTwoHeading}>
-    //             <p className='text-muted'> Making every Hajj and Umrah journey meaningful and memorable</p>
-    //             <h1 className='fw-bold'>Why Pilgrims Choose<br/> Kashta Travels</h1>
-    //         </div>
-    //         <div className='row align-items-center mt-5'>
-    //             <div className='col-lg-3 mb-3'>
-    //                 <div className={styles.sectionTwoServices}>
-    //                     <Image src="https://winsfolio.net/html/ibadah/assets/img/service-icon-1.png" alt="Service" height={90} width={90} />
-    //                     <h5 className='mt-3'>Pilgrimage Plans</h5>
-    //                     <p className='text-muted'>Designed Umrah and Hajj trips for your comfort and needs.</p>
-    //                 </div>
-    //                 <div className={styles.sectionTwoServices}>
-    //                     <Image src="https://winsfolio.net/html/ibadah/assets/img/service-icon-2.png" alt="Service" height={90} width={90} />
-    //                     <h5 className='mt-3'>Expert Guidance</h5>
-    //                     <p className='text-muted'>Experienced guides for support and advice.</p>
-    //                 </div>
-    //             </div>
-    //             <div className='col-lg-6 mb-3'>
-    //                 <div className={styles.sectionTwoServicesImg}>
-    //                     <Image src="https://winsfolio.net/html/ibadah/assets/img/video-img.jpg" alt="Why Choose Us" height={700} width={600} className='img-fluid rounded' />
-    //                 </div>
-    //             </div>
-    //             <div className='col-lg-3 mb-3'>
-    //                 <div className={styles.sectionTwoServices}>
-    //                    <Image src="https://winsfolio.net/html/ibadah/assets/img/service-icon-1.png" alt="Service" height={90} width={90} />
-    //                     <h5 className='mt-3'>Travel Arrangements</h5>
-    //                     <p className='text-muted'>Flights, hotels and transfers handled carefully.</p>
-    //                 </div>
-    //                 <div className={styles.sectionTwoServices}>
-    //                     <Image src="https://winsfolio.net/html/ibadah/assets/img/service-icon-2.png" alt="Service" height={90} width={90} />
-    //                     <h5 className='mt-3'>Spiritual Experiences</h5>
-    //                     <p className='text-muted'>Meaningful experiences that enrich your pilgrimage journey.</p>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>
     <>
-      <section className={`${styles.aboutUs} pb-6 pt-10`}>
-        <div className="container">
-          <div
-            className={`${styles.sectionTitle} mb-6 w-50 mx-auto text-center`}
-          >
-            <h4 className="mb-1">Core Features</h4>
-            <h2 className="mb-1">
-              Find <span className="theme">Travel Perfection</span>
-            </h2>
-            <p>Convenient and Easy Tour Booking Process.</p>
-          </div>
+ <section className={styles.sectionSpacing}>
+      <div className="container">
 
-          <div className="why-us mt-5">
-            <div className="why-us-box">
-              <div className="row">
-                {/** Card */}
-                <div className="col-lg-3 col-md-6 col-sm-6 mb-4">
-                  <div
-                    className={`${styles.whyUsItem} p-5 pt-6 pb-6 border rounded bg-white shadow`}
-                  >
-                    <div className={styles.whyUsContent}>
-                      <h4>
-                        <a href="about.html">Tell Us What You want To Do</a>
-                      </h4>
-                      <p className="mb-2">
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa.
-                      </p>
-                      <p className={`${styles.reviewText} mb-0`}>
-                        100+ Reviews
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6 mb-4">
-                  <div
-                    className={`${styles.whyUsItem} p-5 pt-6 pb-6 border rounded bg-white shadow`}
-                  >
-                    <div className={styles.whyUsContent}>
-                      <h4>
-                        <a href="about.html">Share Your Travel Locations</a>
-                      </h4>
-                      <p className="mb-2">
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa.
-                      </p>
-                      <p className={`${styles.reviewText} mb-0`}>
-                        100+ Reviews
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6 mb-4">
-                  <div
-                    className={`${styles.whyUsItem} p-5 pt-6 pb-6 border rounded bg-white shadow`}
-                  >
-                    <div className={styles.whyUsContent}>
-                      <h4>
-                        <a href="about.html">Share Your Travel Preference</a>
-                      </h4>
-                      <p className="mb-2">
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa.
-                      </p>
-                      <p className={`${styles.reviewText} mb-0`}>
-                        100+ Reviews
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6 mb-4">
-                  <div
-                    className={`${styles.whyUsItem} p-5 pt-6 pb-6 border rounded bg-white shadow`}
-                  >
-                    <div className={styles.whyUsContent}>
-                      <h4>
-                        <a href="about.html"> 100% Trusted Tour Agency</a>
-                      </h4>
-                      <p className="mb-2">
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa.
-                      </p>
-                      <p className={`${styles.reviewText} mb-0`}>
-                        100+ Reviews
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/** Repeat for other cards (icons + text only) */}
-              </div>
-            </div>
-          </div>
+        {/* Heading */}
+        <div className="text-center mb-5">
+          <h2 className={`fw-bold ${styles.valuesHeading}`}>
+            What We Stand For
+          </h2>
+          <p className={styles.valuesSubtext}>
+            Our values guide everything we do, from selecting our partners to
+            designing your experiences.
+          </p>
         </div>
 
-        <div className={styles.whiteOverlay}></div>
-      </section>
+        {/* Cards */}
+        <div className="row g-4">
+
+          <div className="col-md-6 col-lg-3">
+            <div className={styles.valuesCard}>
+              <div className={styles.valuesIconBox}>
+                <FaHeart />
+              </div>
+              <h5 className={styles.valuesTitle}>Passion for Travel</h5>
+              <p className={styles.valuesDescription}>
+                We believe travel has the power to transform lives and connect
+                people across cultures.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-md-6 col-lg-3">
+            <div className={styles.valuesCard}>
+              <div className={styles.valuesIconBox}>
+                <FaUsers />
+              </div>
+              <h5 className={styles.valuesTitle}>Local Expertise</h5>
+              <p className={styles.valuesDescription}>
+                Our guides are locals who share authentic stories and hidden
+                gems you won't find in guidebooks.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-md-6 col-lg-3">
+            <div className={styles.valuesCard}>
+              <div className={styles.valuesIconBox}>
+                <FaAward />
+              </div>
+              <h5 className={styles.valuesTitle}>Quality First</h5>
+              <p className={styles.valuesDescription}>
+                Every tour is carefully curated and reviewed to ensure
+                unforgettable experiences.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-md-6 col-lg-3">
+            <div className={styles.valuesCard}>
+              <div className={styles.valuesIconBox}>
+                <FaGlobe />
+              </div>
+              <h5 className={styles.valuesTitle}>Sustainable Tourism</h5>
+              <p className={styles.valuesDescription}>
+                We're committed to responsible travel that benefits local
+                communities and protects our planet.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
     </>
   );
 }

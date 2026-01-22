@@ -59,13 +59,14 @@ export default function HotelCard({ isLoading }) {
   //   }
   // }, [hotels]);
 
-  const ProviderShortNames = (provider) => {
-    if (!provider) return "";
-    const providerFind = ProviderCodeList.find(
-      (item) => item.name === provider.toLowerCase()
-    );
-    return providerFind?.code;
+   const ProviderShortNames = (encodedProvider) => {
+    if (!encodedProvider) return '';
+    const provider = encodeProvider(encodedProvider).toLowerCase();
+    return provider;
   };
+  const encodeProvider = (str) => {
+    return [...str].map(c => (c.charCodeAt(0) + 3).toString(36)).join('');
+  }
 
   const SetRoomsData = (id) => {
     const selectedHotel = hotels.find((hotel) => hotel.id === id);
@@ -153,6 +154,13 @@ export default function HotelCard({ isLoading }) {
     refetchOnMount: false,
   });
 
+
+  
+  const customehotels = hotels.filter((item)=> item.provider === 'custom') 
+  const thirdpartyhotels = hotels.filter((item)=> item.provider !== 'custom') 
+
+  const combinehotels = [...customehotels, ...thirdpartyhotels]
+
   return (
     <div className="container hotel-card">
       {hotels.length === 0 && isLoading === false && (
@@ -168,7 +176,7 @@ export default function HotelCard({ isLoading }) {
         </div>
       )}
       <div className="row" id="top_hotel">
-        {hotels.map((item, index) => (
+        {combinehotels.map((item, index) => (
           <div key={index} className="col-12 mb-4">
             <div className="card shadow-sm border-0">
               <div className="row g-0 position-relative">
@@ -197,14 +205,14 @@ export default function HotelCard({ isLoading }) {
                     style={{ zIndex: 1 }}
                   >
                     {/* Left badge */}
-                    <span className="badge bg-success">
+                    <span className="badge bg-danger">
                       {item?.rooms.length}{" "}
                       {item?.rooms.length > 1 ? "Rooms Left" : "Room Left"}
                     </span>
 
                     {/* Right badge */}
                     {item?.provider === "custom" && (
-                      <span className="badge bg-success">K</span>
+                      <span className="badge bg-danger">K</span>
                     )}
                   </div>
                 </div>
@@ -260,7 +268,7 @@ export default function HotelCard({ isLoading }) {
                           .slice(0, 7)
                           .map((amenity, i) => (
                             <span
-                              className="badge bg-light text-dark border border-success me-2 mb-2 p-2"
+                              className="badge bg-light text-dark border border-danger me-2 mb-2 p-2"
                               key={i}
                             >
                               {amenity}
@@ -318,7 +326,7 @@ export default function HotelCard({ isLoading }) {
                             item.id
                           }&code=${ProviderShortNames(item.provider)}`}
                         >
-                          <button className="btn btn-success">
+                          <button className="btn exploreBtn text-light">
                             View Detail <LiaAngleRightSolid />
                           </button>
                         </Link>

@@ -4,6 +4,8 @@ import { Select } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { notifications } from "@mantine/notifications";
 import { useRouter } from "next/navigation";
+import { FaMapMarkerAlt, FaCalendarAlt, FaSearch } from "react-icons/fa";
+import styles from './search.module.css'
 import moment from "moment";
 export default function ActivitySearch() {
   const router = useRouter();
@@ -81,42 +83,55 @@ export default function ActivitySearch() {
   console.log(destinations);
 
   return (
-    <div>
-      <div className="row ">
-        <div className="col-md-4 my-1">
-          <label htmlFor="selectcity" className="form-label fw-medium">
-            Select City
-          </label>
+    <div className={styles.wrapper}>
+      <div className={styles.searchBar}>
+        {/* Destination */}
+        <div className={styles.inputWrapper}>
+          <FaMapMarkerAlt className={styles.icon} />
           <Select
             onChange={handleSelectChange}
             value={formData.name}
-            placeholder="Select City"
-            className="height-25 man-height"
+            placeholder="Where to?"
             data={destinations}
             searchable
+            styles={{
+              input: {
+                border: 'none',
+                '&:focus': {
+                  outline: 'none'
+                }
+              }
+            }}
           />
         </div>
-        <div className="col-md-4 my-1">
-          <label htmlFor="selectcity" className="form-label fw-medium">
-            Select Date
-          </label>
+
+        {/* Divider */}
+        <div className={styles.divider} />
+
+        {/* Date */}
+        <div className={styles.inputWrapper}>
+          <FaCalendarAlt className={styles.icon} />
           <DateInput
             clearable
             onChange={handleDateChange}
             value={formData.date}
-            className="height-25 man-height"
-            placeholder="Select Date"
+            placeholder="When?"
             minDate={new Date()}
+            styles={{
+              input: {
+                border: 'none',
+                '&:focus': {
+                  outline: 'none'
+                }
+              }
+            }}
           />
         </div>
-        <div className="col-md-4 mt-auto">
-          <button
-            className="btn btn-success mt-auto cursor-pointer bg-color w-100 height-25"
-            onClick={HandleSubmit}
-          >
-            Search
-          </button>
-        </div>
+
+        {/* Search Button */}
+        <button className={styles.searchBtn} onClick={HandleSubmit}>
+          <FaSearch />
+        </button>
       </div>
     </div>
   );

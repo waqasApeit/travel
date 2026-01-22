@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import { useState } from "react";
 import styles from "../ContactUs.module.css";
 import { notifications } from "@mantine/notifications";
-
+import { FaPaperPlane } from "react-icons/fa";
 const initialState = {
   name: "",
   email: "",
@@ -67,20 +67,23 @@ export default function Form() {
       setLoading(true);
       setErrorMsg("");
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (!res.ok) throw new Error("Failed to submit");
       const response = await res.json();
       notifications.show({
-        title: 'Success',
+        title: "Success",
         message: response?.Description,
-        color: 'green',
+        color: "green",
       });
       setFormData(initialState);
     } catch (error) {
@@ -91,82 +94,83 @@ export default function Form() {
   };
 
   return (
-    <div className={styles.contactform}>
-      <form onSubmit={handleSubmit} className="php-email-form">
-        <div className="row gy-4">
+    <>
+      <div className="d-flex align-items-center gap-3 mb-4">
+        <div className={styles.iconPrimary}>
+          <FaPaperPlane />
+        </div>
+        <h2 className={styles.heading}>Send Us a Message</h2>
+      </div>
 
-          {/* Name */}
-          <div className="col-md-6">
-            <label className="pb-2">Your Name</label>
+      <form onSubmit={handleSubmit}>
+        <div className="row g-4">
+          <div className="col-sm-6">
+            <label className={styles.label}>Your Name</label>
             <input
               type="text"
-              name="name"
-              className="form-control"
+              className="form-control form-control"
+              placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
             />
-            {errors.name && <small className="text-danger">{errors.name}</small>}
+            {errors.name && (
+              <small className="text-danger">{errors.name}</small>
+            )}
           </div>
 
-          {/* Email */}
-          <div className="col-md-6">
-            <label className="pb-2">Your Email</label>
+          <div className="col-sm-6">
+            <label className={styles.label}>Email Address</label>
             <input
               type="email"
-              name="email"
-              className="form-control"
+              className="form-control form-control"
+              placeholder="john@example.com"
               value={formData.email}
               onChange={handleChange}
             />
-            {errors.email && <small className="text-danger">{errors.email}</small>}
+            {errors.email && (
+              <small className="text-danger">{errors.email}</small>
+            )}
           </div>
 
-          {/* Subject */}
-          <div className="col-md-12">
-            <label className="pb-2">Subject</label>
+          <div className="col-12">
+            <label className={styles.label}>Subject</label>
             <input
               type="text"
-              name="subject"
-              className="form-control"
+              className="form-control form-control"
+              placeholder="How can we help?"
               value={formData.subject}
               onChange={handleChange}
             />
-            {errors.subject && <small className="text-danger">{errors.subject}</small>}
+            {errors.subject && (
+              <small className="text-danger">{errors.subject}</small>
+            )}
           </div>
 
-          {/* Message */}
-          <div className="col-md-12">
-            <label className="pb-2">Message</label>
+          <div className="col-12">
+            <label className={styles.label}>Your Message</label>
             <textarea
-              name="message"
-              rows="8"
               className="form-control"
+              rows="5"
+              placeholder="Tell us more about your inquiry..."
               value={formData.message}
               onChange={handleChange}
             />
-            {errors.message && <small className="text-danger">{errors.message}</small>}
+            {errors.message && (
+              <small className="text-danger">{errors.message}</small>
+            )}
           </div>
 
-          {/* Success Message */}
-          {errorMsg && (
-            <div className="col-md-12 text-success text-center">
-              {errorMsg}
-            </div>
-          )}
-
-          {/* Button */}
-          <div className="col-md-12 text-center">
+          <div className="col-12">
             <button
-              className="btn btn-success w-100"
               type="submit"
+              className={`btn text-light btn-lg ${styles.exploreBtn}`}
               disabled={loading}
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
           </div>
-
         </div>
       </form>
-    </div>
+    </>
   );
 }

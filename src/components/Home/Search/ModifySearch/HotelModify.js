@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { DatePickerInput } from "@mantine/dates";
 import { Popover } from "@mantine/core";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus, FaSearch, FaMapMarkerAlt, FaCalendarAlt, FaUser } from "react-icons/fa";
 import Autocomplete from "react-google-autocomplete";
 import { notifications } from "@mantine/notifications";
 import { useRouter, useSearchParams } from "next/navigation";
+import styles from '../search.module.css'
 export default function HotelModify() {
   const [popoverOpened, setPopoverOpened] = useState(false);
   const searchParams = useSearchParams();
@@ -245,10 +246,18 @@ export default function HotelModify() {
     setPopoverOpened(false);
   }
   return (
-    <div>
-      <div className="row ">
-        <div className="col-md-3 my-1">
-          <Autocomplete id="location" onPlaceSelected={handlePlaceSelected} onChange={handleLocationChange} className="form-control height-25" placeholder="Location" apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+    <div className={styles.wrapper}>
+      <div className={styles.searchBar}>
+        {/* Location */}
+        <div className={styles.inputWrapper}>
+          <FaMapMarkerAlt className={styles.icon} />
+          <Autocomplete 
+            id="location" 
+            onPlaceSelected={handlePlaceSelected} 
+            onChange={handleLocationChange} 
+            className="form-control" 
+            placeholder="Where to?" 
+            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
             options={{
               types: ['establishment', 'geocode'],
               componentRestrictions: null
@@ -256,10 +265,39 @@ export default function HotelModify() {
             language='en'
           />
         </div>
-        <div className="col-md-3 my-1">
-          <DatePickerInput clearable minDate={new Date()} valueFormat="DD-MM-YYYY" numberOfColumns={2} value={formData.dateRange} onChange={handleDateChange} placeholder="Pick dates range" className=" height-25" type="range" />
+
+        {/* Divider */}
+        <div className={styles.divider} />
+
+        {/* Dates */}
+        <div className={styles.inputWrapper}>
+          <FaCalendarAlt className={styles.icon} />
+          <DatePickerInput 
+            clearable 
+            minDate={new Date()} 
+            valueFormat="DD-MM-YYYY" 
+            numberOfColumns={2} 
+            value={formData.dateRange} 
+            onChange={handleDateChange} 
+            placeholder="When?" 
+            type="range"
+            styles={{
+              input: {
+                border: 'none',
+                '&:focus': {
+                  outline: 'none'
+                }
+              }
+            }}
+          />
         </div>
-        <div className="col-md-3 my-1">
+
+        {/* Divider */}
+        <div className={styles.divider} />
+
+        {/* Guests & Rooms */}
+        <div className={styles.inputWrapper}>
+          <FaUser className={styles.icon} />
           <Popover
             width={300}
             opened={popoverOpened}
@@ -269,8 +307,8 @@ export default function HotelModify() {
             shadow="md"
             styles={{
               dropdown: {
-                maxHeight: 380,       // fixed height
-                overflowY: "auto",    // enable scroll
+                maxHeight: 380,
+                overflowY: "auto",
               },
             }}
             clickOutsideEvents={["mouseup", "touchend"]}
@@ -278,16 +316,16 @@ export default function HotelModify() {
             <Popover.Target>
               <button
                 onClick={() => setPopoverOpened((o) => !o)}
-                className="btn btn-light person-selection w-100 height-25"
+                className={styles.guestButton}
               >
-                {totalAdults > 1 ? 'Adults' : 'Adult'}  {totalAdults} | {totalChildren > 1 ? 'Childs' : 'Child'}  {totalChildren} | {rooms.length > 1 ? 'Rooms' : 'Room'}  {rooms.length}
+                {totalAdults > 1 ? 'Adults' : 'Adult'} {totalAdults}, {totalChildren > 1 ? 'Children' : 'Child'} {totalChildren}, {rooms.length > 1 ? 'Rooms' : 'Room'} {rooms.length}
               </button>
             </Popover.Target>
             <Popover.Dropdown>
               <div className="p-2">
                 {rooms.map((room, index) => (
                   <div key={index} className="mt-2">
-                    <div className="d-flex justify-content-between  align-items-center">
+                    <div className="d-flex justify-content-between align-items-center">
                       <p className="small m-0">Room {index + 1}</p>
                       {index + 1 !== 1 && (
                         <button onClick={() => removeRoom(index)} className="btn btn-danger x-small btn-sm">
@@ -298,19 +336,17 @@ export default function HotelModify() {
                     <hr className="m-1" />
                     <div className="e484bb5b7a mt-2">
                       <div className="c5aae0350e">
-                        <label className="small " >
-                          Adults
-                        </label>
+                        <label className="small">Adults</label>
                       </div>
                       <div className="e301a14002">
                         <div className="e301a14002">
-                          <button onClick={() => handleRoomChange(index, "adults", -1)} className="adult-modal-btn" >
+                          <button onClick={() => handleRoomChange(index, "adults", -1)} className="adult-modal-btn">
                             <FaMinus />
                           </button>
                           <span className="mx-2" aria-hidden="true">
                             {room.adults}
                           </span>
-                          <button onClick={() => handleRoomChange(index, "adults", 1)} className="adult-modal-btn" >
+                          <button onClick={() => handleRoomChange(index, "adults", 1)} className="adult-modal-btn">
                             <FaPlus />
                           </button>
                         </div>
@@ -318,19 +354,17 @@ export default function HotelModify() {
                     </div>
                     <div className="e484bb5b7a mt-2">
                       <div className="c5aae0350e">
-                        <label className="small " >
-                          Children
-                        </label>
+                        <label className="small">Children</label>
                       </div>
                       <div className="e301a14002">
                         <div className="e301a14002">
-                          <button onClick={() => handleRoomChange(index, "children", -1)} className="adult-modal-btn" >
+                          <button onClick={() => handleRoomChange(index, "children", -1)} className="adult-modal-btn">
                             <FaMinus />
                           </button>
                           <span className="mx-2" aria-hidden="true">
                             {room.children}
                           </span>
-                          <button onClick={() => handleRoomChange(index, "children", 1)} className="adult-modal-btn" >
+                          <button onClick={() => handleRoomChange(index, "children", 1)} className="adult-modal-btn">
                             <FaPlus />
                           </button>
                         </div>
@@ -339,8 +373,11 @@ export default function HotelModify() {
                     <div className="d-flex mt-2 flex-wrap justify-content-between">
                       {room.childrenAges.map((age, ageIndex) => (
                         <div key={ageIndex} className="kids-age-select">
-                          <select onChange={(e) => handleAgeChange(index, ageIndex, e.target.value)}
-                            value={age} className="form-control border  form-control-sm">
+                          <select 
+                            onChange={(e) => handleAgeChange(index, ageIndex, e.target.value)}
+                            value={age} 
+                            className="form-control border form-control-sm"
+                          >
                             <option value="">Age Needed</option>
                             {[...Array(16).keys()].map((n) => (
                               <option key={n + 1} value={n + 1}>
@@ -360,16 +397,16 @@ export default function HotelModify() {
                 ))}
                 <hr />
                 <p onClick={addRoom} className="small cursor-pointer text-end mb-1 text-primary">+ Add Room</p>
-                <button onClick={ClosePopover} type="button" className="btn  w-100 btn-outline-success">Done</button>
+                <button onClick={ClosePopover} type="button" className="btn w-100 btn-outline-success">Done</button>
               </div>
             </Popover.Dropdown>
           </Popover>
         </div>
-        <div className="col-md-3 my-1">
-          <button onClick={SubmitForm} className="btn btn-success bg-color w-100 height-25">
-            Search
-          </button>
-        </div>
+
+        {/* Search Button */}
+        <button className={styles.searchBtn} onClick={SubmitForm}>
+          <FaSearch />
+        </button>
       </div>
     </div>
   );
