@@ -171,7 +171,7 @@ function LatestActivities() {
 
                       <div className={styles.cardFooter}>
                         <span className={styles.price}>
-                          From{" "}
+                        <span className="fw-normal text-muted small">  From{" "}</span>
                           <PriceDisplay
                             price={item?.sale_price}
                             currency={item?.currency_code}

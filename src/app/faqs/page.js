@@ -2,10 +2,15 @@
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { Accordion } from "@mantine/core";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function page() {
   return (
     <div>
-      <section className="page-title-section breadcrum-bg text-center d-flex align-items-center justify-content-center">
+      {/* <section className="page-title-section breadcrum-bg text-center d-flex align-items-center justify-content-center">
         <div className="page-title-overlay"></div>
         <div className="container">
           <h1 className="text-white fw-bold">FAQs</h1>
@@ -13,10 +18,13 @@ export default function page() {
             Home <FaAngleRight /> FAQs
           </p>
         </div>
-      </section>
+      </section> */}
       <div className="container my-5 ">
-        <h3 className="mb-3 text-center">Frequently Asked Questions</h3>
-        <p className="text-muted small text-center">
+        <div className='hotel-checkout-top'>
+                    <h2 className={`fw-bold text-center ${philosopher.className}`}>Frequently Asked Questions</h2>
+                </div>
+        {/* <h3 className={`mb-3 fw-bold text-center ${philosopher.className}`}>Frequently Asked Questions</h3> */}
+        <p className={`text-justify ${philosopher.className}`}>
           There are a lot of questions that come up when you plan your Hotel or Excursions trip. AtTravels Tours, we've put together a list of the most
           common questions to help pilgrims learn more about our services,
           packages, and travel advice. Check out these frequently asked
@@ -26,7 +34,7 @@ export default function page() {
         <div className="mt-4 faq-accordion">
           <Accordion defaultValue="q1" radius="md" transitionDuration={300}>
             <Accordion.Item value="q1">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 What services do you offer for hotels and excursions?
               </Accordion.Control>
               <Accordion.Panel>
@@ -38,7 +46,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q2">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 When should I book my hotel or excursion package?
               </Accordion.Control>
               <Accordion.Panel>
@@ -49,7 +57,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q3">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 Can I customize my hotel stay or excursion itinerary?
               </Accordion.Control>
               <Accordion.Panel>
@@ -60,7 +68,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q4">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 Is it possible to upgrade my hotel after booking?
               </Accordion.Control>
               <Accordion.Panel>
@@ -71,7 +79,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q5">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 Do you provide transportation for excursions?
               </Accordion.Control>
               <Accordion.Panel>
@@ -82,7 +90,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q6">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 Are excursions suitable for families and children?
               </Accordion.Control>
               <Accordion.Panel>
@@ -93,7 +101,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q7">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 What type of excursions do you offer?
               </Accordion.Control>
               <Accordion.Panel>
@@ -105,7 +113,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q8">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 What should I know before booking an excursion?
               </Accordion.Control>
               <Accordion.Panel>
@@ -117,7 +125,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q9">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 Do your packages include hotel accommodations?
               </Accordion.Control>
               <Accordion.Panel>
@@ -128,7 +136,7 @@ export default function page() {
             </Accordion.Item>
 
             <Accordion.Item value="q10">
-              <Accordion.Control>
+              <Accordion.Control className={`${philosopher.className}`}>
                 What is the booking process for hotels and excursions?
               </Accordion.Control>
               <Accordion.Panel>

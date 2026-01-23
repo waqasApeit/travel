@@ -15,6 +15,7 @@ import { ThemeIcon } from "@mantine/core";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import ActivityDetailLoader from "@/components/Loader/ActivityDetailLoader";
+import SimilarActivity from "@/components/Activities/SimilarActivity/SimilarActivity";
 import { Philosopher } from "next/font/google";
 const philosopher = Philosopher({
   subsets: ["latin"],
@@ -90,16 +91,16 @@ function ActivityDetail() {
 
                 if (index < fullStars) {
                   // Full star
-                  return <FaStar key={index} className="text-warning me-1" />;
+                  return <FaStar key={index} className="text-danger me-1" />;
                 } else if (index === fullStars && hasHalfStar) {
                   // Half star
                   return (
-                    <FaStarHalfAlt key={index} className="text-warning me-1" />
+                    <FaStarHalfAlt key={index} className="text-danger me-1" />
                   );
                 } else {
                   // Empty star
                   return (
-                    <FaRegStar key={index} className="text-warning me-1" />
+                    <FaRegStar key={index} className="text-danger me-1" />
                   );
                 }
               })}
@@ -191,7 +192,7 @@ function ActivityDetail() {
                     <div className="row mt-4">
                       {PackageDetail?.facilities?.map((item, index) => (
                         <div key={index} className="col-md-4 col-12 mb-2">
-                          <ThemeIcon color="teal" size={24} radius="xl">
+                          <ThemeIcon color="darkgreen" size={24} radius="xl">
                             <IoMdCheckmarkCircleOutline size={16} />
                           </ThemeIcon>{" "}
                           {item.name}
@@ -216,6 +217,11 @@ function ActivityDetail() {
             {PackageDetail?.faqs && PackageDetail?.faqs.length > 0 && (
               <Faqs faqsList={PackageDetail?.faqs || []} />
             )}
+
+
+
+
+        
           </div>
           <div className="col-md-4">
             {/* Availability Section */}
@@ -223,6 +229,9 @@ function ActivityDetail() {
 
             {/* Selection Section */}
             <Selection PackageDetail={PackageDetail} />
+          </div>
+          <div className="col md-12">
+               <SimilarActivity city={PackageDetail?.city} currentSlug={PackageDetail?.slug} />
           </div>
         </div>
       </div>

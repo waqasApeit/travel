@@ -5,11 +5,16 @@ import {
     AccordionControl,
     AccordionPanel,
 } from "@mantine/core";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function Faqs({faqsList}) {
     return (
         <div>
             <section id="faqs" className="mb-5 mt-4">
-                <h5 className="mb-0">FAQs</h5>
+                <h5 className={`mb-0 fw-bold ${philosopher.className}`}>FAQs</h5>
                 <p className='small text-muted'>Frequently Asked Questions about the Experience</p>
                 <hr />
                 <Accordion variant="separated">

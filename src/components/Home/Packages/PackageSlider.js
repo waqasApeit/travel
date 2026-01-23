@@ -132,8 +132,8 @@ export default function PackageSlider({ packages }) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           <div className="col-lg-4">
             <div className={`card border-0 ${styles.umrahCard}`}>
               {/* Image */}

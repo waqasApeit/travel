@@ -268,7 +268,7 @@ const ProviderShortNames = (encodedProvider) => {
                     </div>
 
                     {/* Title */}
-                    <h6 className={` fw-semibold mb-2 ${styles.title}`}>
+                    <h5 className={` fw-semibold mb-2 ${styles.title}`}>
                       <Link
                   target="_blank"
                   onClick={() => handleClick(hotel)}
@@ -279,7 +279,7 @@ const ProviderShortNames = (encodedProvider) => {
                 >
                        {hotel.name}
                       </Link>
-                    </h6>
+                    </h5>
 
                     {/* Rating */}
                     <div className="d-flex align-items-center gap-2 small mb-3">

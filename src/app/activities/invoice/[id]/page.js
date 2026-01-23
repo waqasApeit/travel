@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import styles from "./invoice.module.css";
 import moment from "moment";
 import Image from "next/image";
@@ -7,7 +7,14 @@ import { useEffect, useRef, useState } from "react";
 import HotelInvoiceLoader from "@/components/Loader/HotelInvoiceLoader";
 import { toJpeg } from "html-to-image";
 import jsPDF from "jspdf";
-import { FaFileInvoice, FaHome, FaPrint, FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import {
+  FaFileInvoice,
+  FaHome,
+  FaPrint,
+  FaRegStar,
+  FaStar,
+  FaStarHalfAlt,
+} from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineFileDownload } from "react-icons/md";
 import Link from "next/link";
@@ -16,7 +23,7 @@ export default function Page() {
   const ref = useRef();
   const [voucherDetail, setVoucherDetail] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     fetchDetails();
@@ -25,21 +32,24 @@ export default function Page() {
   const fetchDetails = async () => {
     setIsLoading(true);
     try {
-      const responses = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/activities/booking/${id}`, {
-        method: 'GET',
-         headers: {
-              // 'ngrok-skip-browser-warning': 'true',
-              "Content-Type": "application/json",
-              // "Access-Control-Allow-Origin": "*",
-            },
-      });
+      const responses = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/activities/booking/${id}`,
+        {
+          method: "GET",
+          headers: {
+            // 'ngrok-skip-browser-warning': 'true',
+            "Content-Type": "application/json",
+            // "Access-Control-Allow-Origin": "*",
+          },
+        },
+      );
       const res = await responses.json();
       setIsLoading(false);
       if (res.Success) {
         setVoucherDetail(res?.Content?.booking);
         // console.log("Voucher Details:", res?.Content);
       } else {
-        setErrorMessage(res?.message)
+        setErrorMessage(res?.message);
       }
     } catch (err) {
       setIsLoading(false);
@@ -54,12 +64,12 @@ export default function Page() {
     // Clone for consistent layout
     const clone = original.cloneNode(true);
     // Fix mobile responsive classes
-    clone.querySelectorAll(`.${styles.invmobile100}`).forEach(elem => {
+    clone.querySelectorAll(`.${styles.invmobile100}`).forEach((elem) => {
       elem.classList.remove(styles.invmobile100);
-      elem.style.width = 'auto';  // Force desktop layout
+      elem.style.width = "auto"; // Force desktop layout
     });
     // 🔹 Force desktop layout on clone before rendering to image
-    clone.querySelectorAll("img").forEach(img => {
+    clone.querySelectorAll("img").forEach((img) => {
       img.loading = "eager";
     });
 
@@ -77,20 +87,20 @@ export default function Page() {
     clone.querySelectorAll("img").forEach((img) => {
       const src = (img.getAttribute("src") || "").toLowerCase();
       try {
-        if (src.includes('/images/header.png')) {
-          img.style.width = '1000px';
-          img.style.maxWidth = '100%';
-          img.style.height = '80px';
-          img.style.objectFit = 'contain';
-          img.style.display = 'block';
+        if (src.includes("/images/header.png")) {
+          img.style.width = "1000px";
+          img.style.maxWidth = "100%";
+          img.style.height = "80px";
+          img.style.objectFit = "contain";
+          img.style.display = "block";
         }
-        if (src.includes('/images/footer.png')) {
-          img.style.width = '1000px';
-          img.style.maxWidth = '100%';
-          img.style.height = '90px';
-          img.style.objectFit = 'contain';
-          img.style.display = 'block';
-          img.style.marginTop = '12px';
+        if (src.includes("/images/footer.png")) {
+          img.style.width = "1000px";
+          img.style.maxWidth = "100%";
+          img.style.height = "90px";
+          img.style.objectFit = "contain";
+          img.style.display = "block";
+          img.style.marginTop = "12px";
         }
       } catch (e) {
         // ignore
@@ -109,7 +119,7 @@ export default function Page() {
 
     const content = clone.querySelector("#download_section");
     if (content) {
-      content.querySelectorAll(".col-12").forEach(col => {
+      content.querySelectorAll(".col-12").forEach((col) => {
         col.classList.remove("col-12");
         col.classList.add("col-6");
       });
@@ -118,8 +128,18 @@ export default function Page() {
 
     try {
       // Higher pixelRatio boosts clarity; JPEG quality balances size vs. fidelity
-      const dataUrl = await toJpeg(clone, { quality: 0.8, pixelRatio: 2, cacheBust: true, backgroundColor: '#ffffff' });
-      const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4", compressPdf: true });
+      const dataUrl = await toJpeg(clone, {
+        quality: 0.8,
+        pixelRatio: 2,
+        cacheBust: true,
+        backgroundColor: "#ffffff",
+      });
+      const pdf = new jsPDF({
+        orientation: "p",
+        unit: "pt",
+        format: "a4",
+        compressPdf: true,
+      });
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgProps = pdf.getImageProperties(dataUrl);
@@ -128,14 +148,32 @@ export default function Page() {
       // pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
       let heightLeft = imgHeight;
       let position = 0;
-      pdf.addImage(dataUrl, "JPEG", 0, position, imgWidth, imgHeight, undefined, "FAST");
+      pdf.addImage(
+        dataUrl,
+        "JPEG",
+        0,
+        position,
+        imgWidth,
+        imgHeight,
+        undefined,
+        "FAST",
+      );
       heightLeft -= pdfHeight;
 
       // Add extra pages if needed
       while (heightLeft > 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(dataUrl, "JPEG", 0, position, imgWidth, imgHeight, undefined, "FAST");
+        pdf.addImage(
+          dataUrl,
+          "JPEG",
+          0,
+          position,
+          imgWidth,
+          imgHeight,
+          undefined,
+          "FAST",
+        );
         heightLeft -= pdfHeight;
       }
 
@@ -151,9 +189,10 @@ export default function Page() {
     if (!text) return "";
     const s = String(text);
     return s.charAt(0).toUpperCase() + s.slice(1);
-  };
+  }
   function convertToCustomerCurrency(price) {
-    if (!price || !voucherDetail.customer_exchange_rate) return Number(price || 0).toFixed(2);
+    if (!price || !voucherDetail.customer_exchange_rate)
+      return Number(price || 0).toFixed(2);
 
     // If currency_code matches customer_currency, no conversion needed
     if (voucherDetail.currency_code === voucherDetail.customer_currency) {
@@ -161,228 +200,433 @@ export default function Page() {
     }
 
     // Convert using exchange rate
-    const convertedPrice = Number(price) * Number(voucherDetail.customer_exchange_rate);
+    const convertedPrice =
+      Number(price) * Number(voucherDetail.customer_exchange_rate);
     return convertedPrice.toFixed(2);
   }
 
   return (
     <div>
       <div className={styles.invoicecontainerwrap}>
-        <div className={styles.invoicecontainer}>
-          {isLoading ? (
-            <div className={styles.themeholyinvoice}>
-              <HotelInvoiceLoader />
-            </div>
-          ) : (
-            <main className="text-black">
-              <div className={styles?.invoiceprintbutton}>
+        <div className="container py-4">
+          <div className={`${styles.invoicecontainer} mx-auto`}>
+            {isLoading ? (
+              <div className="card border-0 shadow-lg">
+                <div className="card-body">
+                  <HotelInvoiceLoader />
+                </div>
               </div>
-              <div ref={ref} id="voucher" className={styles.themeholyinvoice}>
-                <Image src={voucherDetail?.client?.client_images?.header_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Header" />
-                <div className={styles.downloadinner}>
-                  <header className="themeholy-header header-layout1">
-                    <div className="row gx-0 justify-content-between my-4">
-                      <div className="col-6">
-                        <div className={`${styles.infobox2} text-start`}>
-                          <b className="text-black">Invoice No:</b> <br />
-                          <span>{voucherDetail?.booking_reference}</span>
+            ) : (
+              <main>
+                <div
+                  ref={ref}
+                  id="voucher"
+                  className={`${styles.invoiceCard} card border-0 shadow-lg`}
+                >
+                  <div>
+                    {/* <div className="d-flex justify-content-between align-items-center">
+                      <div className="d-flex align-items-center gap-3">
+                        <div className={styles.logoBox}>
+                          <FaFileInvoice size={24} />
+                        </div>
+                        <div>
+                          <h5 className="mb-0 fw-bold">TravelLux</h5>
+                          <small className="text-white-50">PREMIUM BOOKINGS</small>
                         </div>
                       </div>
-                      <div className="col-6">
-                        <div className={`${styles.infobox2} text-end`}>
-                          <b className="text-black">Booking Date:</b> <br />
-                          <span>{moment(Date(voucherDetail?.created_at)).format('DD-MM-YYYY')}</span>
+                      <div className="text-end">
+                        <small className="d-block">support@travellux.com</small>
+                        <small>+44 20 7946 0958</small>
+                      </div>
+                    </div> */}
+                    <Image
+                      src={voucherDetail?.client?.client_images?.header_image}
+                      height={150}
+                      width={1000}
+                      className="w-100 h-auto"
+                      quality={100}
+                      alt="Invoice Header"
+                    />
+                  </div>
+                  <div className="card-body p-4">
+                    <div className="row g-3 mb-4">
+                      <div className="col-md-4">
+                        <div className={styles.infoCard}>
+                          <small className={styles.infoLabel}>INVOICE NO</small>
+                          <div className={styles.infoValue}>
+                            {voucherDetail?.booking_reference}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-md-4">
+                        <div className={styles.infoCard}>
+                          <small className={styles.infoLabel}>
+                            BOOKING DATE
+                          </small>
+                          <div className={styles.infoValue}>
+                            {moment(Date(voucherDetail?.created_at)).format(
+                              "DD-MM-YYYY",
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-md-4">
+                        <div className={styles.infoCard}>
+                          <small className={styles.infoLabel}>STATUS</small>
+                          <div
+                            className={`${styles.infoValue} ${styles.statusConfirmed}`}
+                          >
+                            {capitalize(voucherDetail?.booking_status)}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </header>
-                  <h6 className="mb-2 text-black">Booked By</h6>
-                  <table className={`${styles.invoicetable} ${styles.tablestripe3} w-100`}>
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Contact</th>
-                        <th>Gender</th>
-                        <th>Country</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>{voucherDetail?.lead_title} {voucherDetail?.lead_first_name} {voucherDetail?.lead_last_name}</td>
-                        <td>Email: {voucherDetail?.lead_email} <br /> Phone No: {voucherDetail?.lead_phone}</td>
-                        <td> {voucherDetail?.lead_gender}</td>
-                        <td> {voucherDetail?.lead_country}</td>
-                        <td> {capitalize(voucherDetail?.booking_status)}</td>
-                      </tr>
-                      <tr className="border">
-                        <td colSpan={5}><span className="text-black">Address:</span> {voucherDetail?.lead_address}</td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-                  {(voucherDetail?.other_passengers?.additional_adults?.length > 0
-                    || voucherDetail?.other_passengers?.children_details?.length > 0 || voucherDetail?.additional_adults?.infants_details?.length > 0
-                  ) && (
-                      <div>
-                        <h6 className="mb-2 text-black">Additional Guests</h6>
-                        <table className={`${styles.invoicetable} ${styles.tablestripe3} w-100`}>
+                    <div className="mb-4">
+                      <h6 className={styles.sectionTitle}>Booked By</h6>
+                      <div className="table-responsive">
+                        <table className={`${styles.modernTable} table mb-0`}>
                           <thead>
                             <tr>
-                              <th>Name</th>
-                              <th>Gender</th>
-                              <th>Type</th>
+                              <th>NAME</th>
+                              <th>CONTACT</th>
+                              <th>GENDER</th>
+                              <th>COUNTRY</th>
                             </tr>
                           </thead>
                           <tbody>
-                            {voucherDetail?.other_passengers?.additional_adults.map((adult, index) => (
-                              <tr key={index}>
-                                <td>{adult.first_name} {adult.last_name}</td>
-                                <td>{adult.gender}</td>
-                                <td>Adult</td>
-                              </tr>
-                            ))}
-                            {voucherDetail?.additional_adults?.children_details.map((child, index) => (
-                              <tr key={index}>
-                                <td>{child.first_name} {child.last_name}</td>
-                                <td>{child.gender}</td>
-                                <td>Child</td>
-                              </tr>
-                            ))}
-                            {voucherDetail?.additional_adults?.infants_details.map((infant, index) => (
-                              <tr key={index}>
-                                <td>{infant.first_name} {infant.last_name}</td>
-                                <td>{infant.gender}</td>
-                                <td>Infant</td>
-                              </tr>
-                            ))}
+                            <tr>
+                              <td>
+                                {voucherDetail?.lead_title}{" "}
+                                {voucherDetail?.lead_first_name}{" "}
+                                {voucherDetail?.lead_last_name}
+                              </td>
+                              <td>
+                                <div>Email: {voucherDetail?.lead_email}</div>
+                                <div>Phone: {voucherDetail?.lead_phone}</div>
+                              </td>
+                              <td>{voucherDetail?.lead_gender}</td>
+                              <td>{voucherDetail?.lead_country}</td>
+                            </tr>
+                            <tr className={styles.addressRow}>
+                              <td colSpan={4}>
+                                <strong>Address:</strong>{" "}
+                                {voucherDetail?.lead_address}
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
-                    )}
-                  <h6 className="mb-2 text-black">Activity Details</h6>
-                  <table className={`${styles.invoicetable} ${styles.tablestripe3} w-100`}>
-                    <thead>
-                      <tr >
-                        <th colSpan={3}>Name: {voucherDetail?.activity?.title}<br /><span className="text-muted"><FaLocationDot /> {voucherDetail?.activity?.address}</span></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Selected Date: {moment(voucherDetail?.travel_date).format('DD-MM-YYYY')}</td>
-                        <td>Duration: {voucherDetail?.activity?.activity_duration}</td>
-                        <td>Rating:  {voucherDetail?.activity?.rating_stars} star<br />
-                          <span className="ms-1">
-                            {Array.from({ length: 5 }).map((_, index) => {
-                              const rating = Number(voucherDetail?.activity?.rating_stars);
-                              const fullStars = Math.floor(rating);
-                              const hasHalfStar = rating - fullStars >= 0.5;
-
-                              if (index < fullStars) {
-                                // Full star
-                                return <FaStar key={index} className="text-warning me-1" />;
-                              } else if (index === fullStars && hasHalfStar) {
-                                // Half star
-                                return <FaStarHalfAlt key={index} className="text-warning me-1" />;
-                              } else {
-                                // Empty star
-                                return <FaRegStar key={index} className="text-warning me-1" />;
-                              }
-                            })}
-                          </span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div>
-                    <h6 className="mb-2 text-black">Traveler Details</h6>
-                    <table className={`${styles.invoicetable} ${styles.tablestripe3} w-100`}>
-                      <thead>
-                        <tr className="text-center">
-                          <th>Name</th>
-                          <th>Quantity</th>
-                          <th>Total Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="text-center">
-                          <td>Adult{voucherDetail?.adults !== 1 ? 's' : ''}</td>
-                          <td>{voucherDetail?.adults} * {voucherDetail?.customer_currency} {convertToCustomerCurrency(voucherDetail?.activity?.sale_price)}</td>
-                          <td>{voucherDetail?.customer_currency} {convertToCustomerCurrency(voucherDetail?.adult_price)}</td>
-                        </tr>
-                        {voucherDetail?.children > 0 && (
-                          <tr className="text-center">
-                            <td>Child{voucherDetail?.children !== 1 ? 'ren' : ''}</td>
-                            <td>{voucherDetail?.children} * {voucherDetail?.customer_currency} {convertToCustomerCurrency(voucherDetail?.activity?.child_sale_price)}</td>
-                            <td>{voucherDetail?.customer_currency} {convertToCustomerCurrency(voucherDetail?.child_price)}</td>
-                          </tr>
-                        )}
-
-                      </tbody>
-                    </table>
-                  </div>
-                  {(voucherDetail?.additional_services && voucherDetail?.additional_services.length > 0) && (
-                    <div>
-                      <h6 className="mb-2 text-black">Additional Services Details</h6>
-                      <table className={`${styles.invoicetable} ${styles.tablestripe3} w-100`}>
-                        <thead>
-                          <tr className="text-center">
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {voucherDetail?.additional_services.map((item, index) => (
-                            <tr className="text-center" key={index}>
-                              <td>{item.name} </td>
-                              <td>{item.quantity} * {voucherDetail?.customer_currency} {convertToCustomerCurrency(item?.price)}</td>
-                              <td>{voucherDetail?.customer_currency} {convertToCustomerCurrency(item?.total)}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
                     </div>
-                  )}
-                  <div className="row justify-content-between">
-                    <div className="col-auto mb-3">
-                      <div className="invoice-left">
-                        <b className='text-black'>Please Note:</b>
-                        <p className="mb-0">The invoice displays the complete pricing details of your activity <br /> booking, inclusive of all applicable taxes.<br />
-                          Please verify the information and retain this invoice for your records.</p>
+                    {(voucherDetail?.other_passengers?.additional_adults
+                      ?.length > 0 ||
+                      voucherDetail?.other_passengers?.children_details
+                        ?.length > 0 ||
+                      voucherDetail?.additional_adults?.infants_details
+                        ?.length > 0) && (
+                      <div className="mb-4">
+                        <h6 className={styles.sectionTitle}>
+                          Additional Guests
+                        </h6>
+                        <div className="table-responsive">
+                          <table className={`${styles.modernTable} table mb-0`}>
+                            <thead>
+                              <tr>
+                                <th>NAME</th>
+                                <th>GENDER</th>
+                                <th>TYPE</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {voucherDetail?.other_passengers?.additional_adults.map(
+                                (adult, index) => (
+                                  <tr key={index}>
+                                    <td>
+                                      {adult.first_name} {adult.last_name}
+                                    </td>
+                                    <td>{adult.gender}</td>
+                                    <td>Adult</td>
+                                  </tr>
+                                ),
+                              )}
+                              {voucherDetail?.additional_adults?.children_details.map(
+                                (child, index) => (
+                                  <tr key={index}>
+                                    <td>
+                                      {child.first_name} {child.last_name}
+                                    </td>
+                                    <td>{child.gender}</td>
+                                    <td>Child</td>
+                                  </tr>
+                                ),
+                              )}
+                              {voucherDetail?.additional_adults?.infants_details.map(
+                                (infant, index) => (
+                                  <tr key={index}>
+                                    <td>
+                                      {infant.first_name} {infant.last_name}
+                                    </td>
+                                    <td>{infant.gender}</td>
+                                    <td>Infant</td>
+                                  </tr>
+                                ),
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+                    <div className="mb-4">
+                      <h6 className={styles.sectionTitle}>Activity Details</h6>
+                      <div className={styles.activityCard}>
+                        <div className="d-flex justify-content-between align-items-start mb-3">
+                          <div>
+                            <h6 className="mb-1 fw-bold">
+                              {voucherDetail?.activity?.title}
+                            </h6>
+                            <small className="text-muted">
+                              <FaLocationDot />{" "}
+                              {voucherDetail?.activity?.address}
+                            </small>
+                          </div>
+                          <div className="text-end">
+                            <div className="mb-1">
+                              {Array.from({ length: 5 }).map((_, index) => {
+                                const rating = Number(
+                                  voucherDetail?.activity?.rating_stars,
+                                );
+                                const fullStars = Math.floor(rating);
+                                const hasHalfStar = rating - fullStars >= 0.5;
+
+                                if (index < fullStars) {
+                                  return (
+                                    <FaStar
+                                      key={index}
+                                      className="text-danger me-1"
+                                      size={14}
+                                    />
+                                  );
+                                } else if (index === fullStars && hasHalfStar) {
+                                  return (
+                                    <FaStarHalfAlt
+                                      key={index}
+                                      className="text-danger me-1"
+                                      size={14}
+                                    />
+                                  );
+                                } else {
+                                  return (
+                                    <FaRegStar
+                                      key={index}
+                                      className="text-danger me-1"
+                                      size={14}
+                                    />
+                                  );
+                                }
+                              })}
+                            </div>
+                            <small className="text-muted">
+                              {voucherDetail?.activity?.rating_stars} / 5
+                            </small>
+                          </div>
+                        </div>
+                        <div className="row g-3">
+                          <div className="col-md-6">
+                            <div className={styles.activityInfoItem}>
+                              <small className="text-muted">
+                                CHECK IN DATE
+                              </small>
+                              <div className="fw-semibold">
+                                {moment(voucherDetail?.travel_date).format(
+                                  "DD-MM-YYYY",
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-md-6">
+                            <div className={styles.activityInfoItem}>
+                              <small className="text-muted">DURATION</small>
+                              <div className="fw-semibold">
+                                {voucherDetail?.activity?.activity_duration}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-auto">
-                      <table className={`${styles.totaltable} w-100`}>
-                        <tr>
-                          <th className='text-black'>Sub Total:</th>
-                          <td>{voucherDetail?.customer_currency} {voucherDetail?.customer_total}</td>
-                        </tr>
-                        <tr>
-                          <th className='text-black'>Total:</th>
-                          <td>{voucherDetail?.customer_currency} {voucherDetail?.customer_total}</td>
-                        </tr>
-                      </table>
+                    <div className="mb-4">
+                      <h6 className={styles.sectionTitle}>Traveler Details</h6>
+                      <div className="table-responsive">
+                        <table className={`${styles.modernTable} table mb-0`}>
+                          <thead>
+                            <tr>
+                              <th>CATEGORY</th>
+                              <th>QUANTITY</th>
+                              <th>UNIT PRICE</th>
+                              <th>TOTAL PRICE</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Adults</td>
+                              <td>{voucherDetail?.adults}</td>
+                              <td>
+                                {voucherDetail?.customer_currency}{" "}
+                                {convertToCustomerCurrency(
+                                  voucherDetail?.activity?.sale_price,
+                                )}
+                              </td>
+                              <td>
+                                {voucherDetail?.customer_currency}{" "}
+                                {convertToCustomerCurrency(
+                                  voucherDetail?.adult_price,
+                                )}
+                              </td>
+                            </tr>
+                            {voucherDetail?.children > 0 && (
+                              <tr>
+                                <td>Children</td>
+                                <td>{voucherDetail?.children}</td>
+                                <td>
+                                  {voucherDetail?.customer_currency}{" "}
+                                  {convertToCustomerCurrency(
+                                    voucherDetail?.activity?.child_sale_price,
+                                  )}
+                                </td>
+                                <td>
+                                  {voucherDetail?.customer_currency}{" "}
+                                  {convertToCustomerCurrency(
+                                    voucherDetail?.child_price,
+                                  )}
+                                </td>
+                              </tr>
+                            )}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    {voucherDetail?.additional_services &&
+                      voucherDetail?.additional_services.length > 0 && (
+                        <div className="mb-4">
+                          <h6 className={styles.sectionTitle}>
+                            Additional Services
+                          </h6>
+                          <div className="table-responsive">
+                            <table
+                              className={`${styles.modernTable} table mb-0`}
+                            >
+                              <thead>
+                                <tr>
+                                  <th>NAME</th>
+                                  <th>QUANTITY</th>
+                                  <th>UNIT PRICE</th>
+                                  <th>TOTAL PRICE</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {voucherDetail?.additional_services.map(
+                                  (item, index) => (
+                                    <tr key={index}>
+                                      <td>{item.name}</td>
+                                      <td>{item.quantity}</td>
+                                      <td>
+                                        {voucherDetail?.customer_currency}{" "}
+                                        {convertToCustomerCurrency(item?.price)}
+                                      </td>
+                                      <td>
+                                        {voucherDetail?.customer_currency}{" "}
+                                        {convertToCustomerCurrency(item?.total)}
+                                      </td>
+                                    </tr>
+                                  ),
+                                )}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
+                    <div className="row g-3 mt-2">
+                      <div className="col-lg-7">
+                        <div className={styles.noteBox}>
+                          <h6 className="fw-bold mb-2">Please Note:</h6>
+                          <p className="small mb-0 text-muted">
+                            This invoice displays the complete pricing details
+                            of your booking, inclusive of all applicable taxes.
+                            Please verify the information and retain this
+                            invoice for your records.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="col-lg-5">
+                        <div className={styles.totalBox}>
+                          <div className="d-flex justify-content-between mb-2">
+                            <span>Sub Total:</span>
+                            <span>
+                              {voucherDetail?.customer_currency}{" "}
+                              {voucherDetail?.customer_total}
+                            </span>
+                          </div>
+
+                          <hr className="my-2" />
+                          <div className="d-flex justify-content-between">
+                            <strong>Grand Total:</strong>
+                            <strong className={styles.grandTotal}>
+                              {voucherDetail?.customer_currency}{" "}
+                              {voucherDetail?.customer_total}
+                            </strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.footerNote}>
+                      <small>
+                        <strong>NOTE:</strong> This is a computer generated
+                        receipt and does not require physical signature.
+                      </small>
+                    </div>
+                    <div>
+                      <Image
+                        src={voucherDetail?.client?.client_images?.footer_image}
+                        height={150}
+                        width={1000}
+                        className="w-100 h-auto"
+                        quality={100}
+                        alt="Invoice Footer"
+                      />
                     </div>
                   </div>
-                  <p className={`${styles.invoicenote} mt-3 text-center mt-5`}>
-                    <b className='text-black'>NOTE: </b>This is computer generated receipt and does not require physical signature.
-                  </p>
                 </div>
-                <Image src={voucherDetail?.client?.client_images?.footer_image} height={150} width={1000} className="w-100 h-auto" quality={100} alt="Invoice Footer" />
+              </main>
+            )}
+            {!isLoading && !errorMessage && (
+              <div className="d-flex flex-wrap gap-3 justify-content-center mt-4 pb-3 printActions">
+                {/* <button className={`${styles.actionBtn} ${styles.downloadBtn}`} onClick={handleDownload}>
+                  <MdOutlineFileDownload size={18} /> Download PDF
+                </button> */}
+                <button
+                  className={`${styles.actionBtn} ${styles.printBtn}`}
+                  onClick={() => window.print()}
+                >
+                  <FaPrint size={16} /> Print / Save
+                </button>
+                <Link
+                  href={`/activities/voucher/${voucherDetail?.booking_reference}`}
+                >
+                  <button
+                    className={`${styles.actionBtn} ${styles.voucherBtn}`}
+                  >
+                    <FaFileInvoice size={16} /> View Voucher
+                  </button>
+                </Link>
+                <Link href="/">
+                  <button className={`${styles.actionBtn} ${styles.homeBtn}`}>
+                    <FaHome size={16} /> Go to Home
+                  </button>
+                </Link>
               </div>
-            </main>
-          )}
-          {!isLoading && !errorMessage && (
-            <div className="mt-2 text-center printActions">
-              <button className="btn btn-success mx-1" onClick={handleDownload}><MdOutlineFileDownload /> Download PDF</button>
-              <button className="btn btn-success mx-1" onClick={()=>window.print()}><FaPrint /> Print</button>
-              <Link href={`/activities/voucher/${voucherDetail?.booking_reference}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Voucher</button></Link>
-              <Link href='/'><button className="btn btn-success mx-1" ><FaHome /> Go to Home</button></Link>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

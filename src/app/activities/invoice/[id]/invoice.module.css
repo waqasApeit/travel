@@ -1,158 +1,438 @@
+/* Main Container */
 .invoicecontainerwrap {
-    font-size: 14px;
-    font-weight: 400;
-    color: #6E6E6E;
-    line-height: 22px;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    background-color: #e7e7e7;
+    min-height: 100vh;
+    background: #80808038;
+    padding: 20px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .invoicecontainer {
-    width: 880px;
-    padding: 20px 15px;
-    margin: 15px auto;
-    position: relative;
-    z-index: 5;
+    max-width: 900px;
 }
-.infobox2 {
-    background-color: #f3f3f3;
-    border-right: 1px solid #E3E3E3;
+
+/* Invoice Card */
+.invoiceCard {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Header Section */
+.invoiceHeader {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: white;
+    padding: 20px 30px;
+}
+
+.logoBox {
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Info Cards */
+.infoCard {
+    background: #f8f9fa;
+    border-radius: 8px;
     padding: 15px 20px;
-}
-.tablestripe3{
-    border: 1px solid #f3f3f3 !important;
+    border-left: 4px solid #b81717;
 }
 
-.tablestripe3 thead tr{
-   border: 1px solid #f3f3f3 !important;
-}
-.tablestripe3 tbody tr{
-   border: 1px solid #f3f3f3 !important;
-}
-.tablestripe3 thead th, .tablestripe3 thead td {
-    border-radius: 0 !important;
-    border-top: 1px solid #E0E0E0;
-}
-.tablestripe3 tr th, .tablestripe3 tr td {
-    border-right: 1px solid #E0E0E0;
-}
-.themeholyinvoice {
-    position: relative;
-    z-index: 4;
-    background-color: #ffffff;
+.infoLabel {
+    display: block;
+    color: #6c757d;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
 }
 
-.downloadinner {
-    padding: 25px;
+.infoValue {
+    font-weight: 600;
+    font-size: 16px;
+    color: #212529;
 }
-.invoicetable {
+
+.statusConfirmed {
+    color: #28a745;
+    text-transform: uppercase;
+}
+
+/* Section Titles */
+.sectionTitle {
+    font-weight: 700;
+    font-size: 16px;
+    color: #212529;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f8f9fa;
+}
+
+/* Modern Table */
+.modernTable thead {
+    background: #17a2b8;
+    color: white;
+}
+
+.modernTable thead th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 15px;
     border: none;
-    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
-.invoicetable thead th:first-child,
-.invoicetable thead td:first-child {
-    border-radius: 0;
+.modernTable tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f3f5;
+    color: #495057;
+    font-size: 14px;
 }
 
-.invoicetable thead th,
-.invoicetable thead td {
-    background-color: #E1ECFF;
+.modernTable tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.invoicetable th,
-.invoicetable td {
-    padding: 11px 20px;
-    border: none;
+.addressRow {
+    background: #f8f9fa;
 }
 
-.invoicetable th {
-    color: #111111
+.addressRow td {
+    font-size: 13px;
 }
 
-.totaltable {
-    border: none;
-    margin-bottom: 0;
-    margin-top: -4px;
+/* Activity Card */
+.activityCard {
+    background: #e3f7fa;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #b8ecf3;
 }
 
-.totaltable th,
-.totaltable td {
-    border: none;
-    padding: 4px 20px;
+.activityInfoItem {
+    padding: 10px 0;
 }
 
-.invoicenote {
-    border-top: 1px solid #E3E3E3;
-    border-bottom: 1px solid #E3E3E3;
-    padding-top: 15px;
-    padding-bottom: 15px;
+.activityInfoItem small {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+/* Note Box */
+.noteBox {
+    background: #e7f5ff;
+    border-left: 4px solid #1971c2;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.noteBox h6 {
+    color: #1971c2;
+    font-size: 14px;
+}
+
+/* Total Box */
+.totalBox {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border: 2px solid #e9ecef;
+}
+
+.totalBox .grandTotal {
+    color: #b81717;
+    font-size: 22px;
+}
+
+/* Footer Note */
+.footerNote {
+    background: #f8f9fa;
+    padding: 15px;
     text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
-.invoiceprintbutton {
-    position: absolute;
-    right: -3em;
+/* Action Buttons */
+.actionBtn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.downloadBtn {
+    background: #17a2b8;
+    color: white;
+}
+
+.downloadBtn:hover {
+    background: #138496;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+}
+
+.printBtn {
+    background: #6c757d;
+    color: white;
+}
+
+.printBtn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.voucherBtn {
+    background: #17a2b8;
+    color: white;
+}
+
+.voucherBtn:hover {
+    background: #138496;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+}
+
+.homeBtn {
+    background: #28a745;
+    color: white;
+}
+
+.homeBtn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }
 
 
-@media screen and (max-width : 998px) {
-    .invoiceprintbutton {
-        position: fixed;
-        z-index: 7;
-        right: 5px;
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .invoiceHeader {
+        padding: 15px 20px;
     }
 
-    .invoicecontainer {
-        width: 99%;
+    .invoiceCard {
+        border-radius: 12px;
+    }
+
+    .modernTable thead th,
+    .modernTable tbody td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .actionBtn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .infoCard {
+        padding: 12px 15px;
+    }
+
+    .totalBox {
+        margin-top: 15px;
     }
 }
 
+/* Print Styles */
 @media print {
     .invoicecontainerwrap {
         width: 100% !important;
-        background: white !important;
-        padding: 0 !important;
+        background: linear-gradient(135deg, #d4f1f4 0%, #a8e6cf 100%) !important;
+        padding: 20px 10px !important;
         margin: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
     .invoicecontainer {
-        width: 100% !important;
-        max-width: 100% !important;
+        max-width: 900px !important;
+        margin: 0 auto !important;
         padding: 0 !important;
-        margin: 0 !important;
     }
 
-    .themeholyinvoice {
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        margin: 0 !important;
+    .invoiceCard {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 16px !important;
+        border: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    .downloadinner {
+    .printActions {
+        display: none !important;
+    }
+
+    /* Preserve header colors in print */
+    .invoiceHeader {
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+        color: white !important;
+        padding: 20px 30px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .logoBox {
+        background: rgba(255, 255, 255, 0.2) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Preserve info cards styling */
+    .infoCard {
+        background: #f8f9fa !important;
+        border-left: 4px solid #17a2b8 !important;
+        border-radius: 8px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .statusConfirmed {
+        color: #28a745 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Preserve table header colors */
+    .modernTable thead {
+        background: #17a2b8 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .modernTable thead th {
+        background: #17a2b8 !important;
+        color: white !important;
+        border: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .modernTable tbody td {
+        border-bottom: 1px solid #f1f3f5 !important;
+    }
+
+    /* Preserve address row background */
+    .addressRow {
+        background: #f8f9fa !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .addressRow td {
+        background: #f8f9fa !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Preserve activity card styling */
+    .activityCard {
+        background: #e3f7fa !important;
+        border: 1px solid #b8ecf3 !important;
+        border-radius: 12px !important;
         padding: 20px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    .invoiceprintbutton {
-        display: none !important;
+    /* Preserve note box styling */
+    .noteBox {
+        background: #e7f5ff !important;
+        border-left: 4px solid #1971c2 !important;
+        border-radius: 8px !important;
+        padding: 20px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-     .themeholyinvoice :global(button) {
-    display: none !important;
-  }
-
-  .themeholyinvoice :global(a) {
-    display: none !important;
-  }
-
-  .themeholyinvoice :global(.btn) {
-    display: none !important;
-  }
-   .themeholyinvoice :global(.mt-2.text-center) {
-        display: none !important;
+    .noteBox h6 {
+        color: #1971c2 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
-     .printActions {
-    display: none !important;
-  }
+
+    /* Preserve total box styling */
+    .totalBox {
+        background: #f8f9fa !important;
+        border: 2px solid #e9ecef !important;
+        border-radius: 8px !important;
+        padding: 20px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .totalBox .grandTotal {
+        color: #17a2b8 !important;
+        font-size: 22px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Preserve footer note styling */
+    .footerNote {
+        background: #f8f9fa !important;
+        border-radius: 8px !important;
+        padding: 15px !important;
+        margin-top: 20px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Ensure star ratings are visible */
+    .text-warning {
+        color: #ffc107 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Preserve section titles */
+    .sectionTitle {
+        border-bottom: 2px solid #f8f9fa !important;
+        page-break-after: avoid !important;
+    }
+
+    /* Page break control */
+    .invoiceCard {
+        page-break-inside: avoid;
+    }
+
+    .modernTable {
+        page-break-inside: auto;
+    }
+
+    .modernTable tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    /* Keep card body padding */
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+.exploreBtn{
+    background-color: #EE1B22 !important;
+    border-color: #EE1B22 !important;
+}
+.exploreBtn:hover{
+    background-color: #c81419 !important;
+    border-color: #c81419 !important;
 }

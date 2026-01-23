@@ -6,11 +6,16 @@ import {
     AccordionControl,
     AccordionPanel,
 } from "@mantine/core";
+import { Philosopher } from "next/font/google";
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+});
 export default function WhatExpect({expectData}) {
     return (
         <div>
             <section id="expectation" className="mb-5 mt-4">
-                <h5 className="mb-0">What to Expect</h5>
+                <h5 className={`mb-0 fw-bold ${philosopher.className}`}>What to Expect</h5>
                 <p className='small text-muted'>What You Can Expect During the Experience</p>
                 <hr />
 

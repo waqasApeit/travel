@@ -31,7 +31,7 @@ export default function page() {
                 </div>
 
                 <div className='border rounded shadow p-3'>
-                    <h4 className={`mb-0 ${philosopher.className}`}>{activityDetail?.title}</h4>
+                    <h4 className={`mb-0 fw-bold ${philosopher.className}`}>{activityDetail?.title}</h4>
                     <p className='text-muted'><FaLocationDot/> {activityDetail?.address}</p>
                     <div className='row mt-4 mb-3 text-center text-md-start justify-content-center align-items-center'>
                         <div className='col-md-3 col-12 col-sm-6 d-flex align-items-center gap-2 mb-2'>
@@ -60,13 +60,13 @@ export default function page() {
 
                                         if (index < fullStars) {
                                             // Full star
-                                            return <FaStar key={index} className="text-warning me-1" />;
+                                            return <FaStar key={index} className="text-danger me-1" />;
                                         } else if (index === fullStars && hasHalfStar) {
                                             // Half star
-                                            return <FaStarHalfAlt key={index} className="text-warning me-1" />;
+                                            return <FaStarHalfAlt key={index} className="text-danger me-1" />;
                                         } else {
                                             // Empty star
-                                            return <FaRegStar key={index} className="text-warning me-1" />;
+                                            return <FaRegStar key={index} className="text-danger me-1" />;
                                         }
                                     })}
                                 </span>

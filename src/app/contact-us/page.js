@@ -25,7 +25,7 @@ export default function page() {
               </div>
             </div>
           </section>
-          <div class="col-lg-12">
+          <div className="col-lg-12">
             <Map />
           </div>
         </div>

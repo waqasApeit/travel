@@ -832,7 +832,7 @@ export default function DetailForm({ activityDetail }) {
         <div className="border rounded p-3 bg-white shadow">
           <div className="d-flex justify-content-between align-items-center">
             <div>
-              <h6 className={`mb-0 fw-bold ${philosopher.className}`}>Pay via Card</h6>
+              <h5 className={`mb-0 fw-bold ${philosopher.className}`}>Pay via Card</h5>
               <div className="small text-muted">
                 Pay securely using your debit or credit card.
               </div>

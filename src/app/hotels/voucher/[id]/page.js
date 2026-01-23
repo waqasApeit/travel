@@ -256,7 +256,7 @@ const Page = () => {
 
                                     <div className="col-12">
                                         <h6>Room Details</h6>
-                                        <table class="table table-bordered">
+                                        <table className="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>Sr</th>

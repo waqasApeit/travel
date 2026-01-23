@@ -105,7 +105,6 @@ export default function Detail() {
               </div>
               <h5 className={styles.title}>Visit Us</h5>
               <p className={styles.text}>123 Adventure Street</p>
-              <p className={styles.text}>Travel City, TC 12345</p>
             </div>
           </div>
 
@@ -116,8 +115,7 @@ export default function Detail() {
                 <FaPhoneAlt />
               </div>
               <h5 className={styles.title}>Call Us</h5>
-              <p className={styles.text}>+1 (555) 123-4567</p>
-              <p className={styles.text}>+1 (555) 987-6543</p>
+              <p className={styles.text}>+966 11 222 3333</p>
             </div>
           </div>
 
@@ -128,8 +126,7 @@ export default function Detail() {
                 <FaEnvelope />
               </div>
               <h5 className={styles.title}>Email Us</h5>
-              <p className={styles.text}>hello@explore.com</p>
-              <p className={styles.text}>support@explore.com</p>
+              <p className={styles.text}>info@kashta.com</p>
             </div>
           </div>
 
@@ -141,7 +138,6 @@ export default function Detail() {
               </div>
               <h5 className={styles.title}>Working Hours</h5>
               <p className={styles.text}>Mon - Fri: 9AM - 6PM</p>
-              <p className={styles.text}>Sat - Sun: 10AM - 4PM</p>
             </div>
           </div>
 

@@ -2,53 +2,48 @@ import React from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-} from "react-icons/fa";
-import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-} from "react-icons/fa";
-import {  FaXTwitter } from "react-icons/fa6";
-import { Philosopher } from 'next/font/google';
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { Philosopher } from "next/font/google";
 const philosopher = Philosopher({
-  subsets: ['latin'],
-  weight: '700',
+  subsets: ["latin"],
+  weight: "700",
 });
 export default function Footer() {
   return (
     <>
- <footer className={styles.footer}>
-      {/* Newsletter */}
-      <div className={styles.newsletter}>
-        <div className="container py-5">
-          <div className="text-center mx-auto" style={{ maxWidth: "520px" }}>
-            <h3 className={`fw-bold mb-2 ${philosopher.className}`}>Get Exclusive Deals</h3>
-            <p className="text-secondary mb-4">
-              Subscribe for special offers and travel inspiration.
-            </p>
+      <footer className={styles.footer}>
+        {/* Newsletter */}
+        <div className={styles.newsletter}>
+          <div className="container py-5">
+            <div className="text-center mx-auto" style={{ maxWidth: "520px" }}>
+              <h3 className={`fw-bold mb-2 ${philosopher.className}`}>
+                Get Exclusive Deals
+              </h3>
+              <p className="text-secondary mb-4">
+                Subscribe for special offers and travel inspiration.
+              </p>
 
-            <form className="d-flex flex-column flex-sm-row gap-2">
-              <input
-                type="email"
-                className={`form-control ${styles.newsletterInput}`}
-                placeholder="Enter your email"
-              />
-              <button className="btn exploreBtn text-light btn-lg">
-                Subscribe
-              </button>
-            </form>
+              <form className="d-flex flex-column flex-sm-row gap-2">
+                <input
+                  type="email"
+                  className={`form-control ${styles.newsletterInput}`}
+                  placeholder="Enter your email"
+                />
+                <button className="btn exploreBtn text-light btn-lg">
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Footer */}
-      <div className="container py-5">
-        <div className="row g-4">
-          {/* Brand */}
-          <div className="col-12 col-md-3">
+        {/* Main Footer */}
+        <div className="container py-5">
+          <div className="row g-4 align-items-baseline">
+            {/* Brand */}
+            <div className="col-12 col-md-3">
               <Image
                 height={200}
                 width={250}
@@ -57,94 +52,124 @@ export default function Footer() {
                 className="img-fluid"
               />
 
-            <p className="small text-secondary mb-3">
-              Discover the wonders of Saudi Arabia with expertly curated tours and experiences.
-            </p>
+              <p className="small text-secondary mb-3">
+                Discover the wonders of Saudi Arabia with expertly curated tours
+                and experiences.
+              </p>
 
-            <div className="small text-secondary d-flex flex-column gap-2">
-              <span className="d-flex align-items-center gap-2">
-                <FaMapMarkerAlt /> Riyadh, Saudi Arabia
-              </span>
-              <span className="d-flex align-items-center gap-2">
-                <FaPhoneAlt /> +966 11 XXX XXXX
-              </span>
-              <span className="d-flex align-items-center gap-2">
-                <FaEnvelope /> hello@rihlat.sa
-              </span>
+              <div className="small text-secondary d-flex flex-column gap-2">
+                <span className="d-flex align-items-center gap-2">
+                  <FaMapMarkerAlt /> Riyadh, Saudi Arabia
+                </span>
+                <span className="d-flex align-items-center gap-2">
+                  <FaPhoneAlt /> +966 11 222 3333
+                </span>
+                <span className="d-flex align-items-center gap-2">
+                  <FaEnvelope /> info@kashta.com
+                </span>
+              </div>
+            </div>
+
+            {/* Company */}
+            <div className="col-6 col-md-2">
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Company</h6>
+              <ul className={styles.footerList}>
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li>
+                  <Link href="/about-us">About Us</Link>
+                </li>
+                <li>
+                  <Link href="/contact-us">Contact</Link>
+                </li>
+                <li>
+                  <Link href="/faqs">Faqs</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Destinations */}
+            <div className="col-6 col-md-2">
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Destinations</h6>
+              <ul className={styles.footerList}>
+                <li>
+                  <Link href="/">AlUla Tours</Link>
+                </li>
+                <li>
+                  <Link href="/">Riyadh Tours</Link>
+                </li>
+                <li>
+                  <Link href="/">Jeddah Tours</Link>
+                </li>
+                <li>
+                  <Link href="/">Red Sea</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Categories */}
+            <div className="col-6 col-md-2">
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Categories</h6>
+              <ul className={styles.footerList}>
+                <li>
+                  <Link href="/">Adventure</Link>
+                </li>
+                <li>
+                  <Link href="/">Heritage & Culture</Link>
+                </li>
+                <li>
+                  <Link href="/">Food & Drink</Link>
+                </li>
+                <li>
+                  <Link href="/">Desert Safari</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div className="col-6 col-md-3">
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Support</h6>
+              <ul className={styles.footerList}>
+                {/* <li><a href="#">Help Center</a></li>
+              <li><a href="#">Cancellation Policy</a></li> */}
+                <li>
+                  <Link href="/terms-and-conditions">Terms and Conditions</Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy">Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link href="/faqs">Faqs</Link>
+                </li>
+              </ul>
             </div>
           </div>
+        </div>
 
-          {/* Destinations */}
-          <div className="col-6 col-md-2">
-            <h6 className="fw-semibold mb-3">Destinations</h6>
-            <ul className={styles.footerList}>
-              <li><a href="/tours?destination=alula">AlUla Tours</a></li>
-              <li><a href="/tours?destination=riyadh">Riyadh Tours</a></li>
-              <li><a href="/tours?destination=jeddah">Jeddah Tours</a></li>
-              <li><a href="/tours?destination=redsea">Red Sea</a></li>
-            </ul>
-          </div>
+        {/* Bottom Bar */}
+        <div className={styles.bottomBar}>
+          <div className="container d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3 py-3">
+            <p className="small text-secondary mb-0">
+              © {new Date().getFullYear()} Rihlat. All rights reserved.
+            </p>
 
-          {/* Categories */}
-          <div className="col-6 col-md-2">
-            <h6 className="fw-semibold mb-3">Categories</h6>
-            <ul className={styles.footerList}>
-              <li><a href="/tours?category=adventure">Adventure</a></li>
-              <li><a href="/tours?category=cultural">Heritage & Culture</a></li>
-              <li><a href="/tours?category=food">Food & Drink</a></li>
-              <li><a href="/tours?category=safari">Desert Safari</a></li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div className="col-6 col-md-2">
-            <h6 className="fw-semibold mb-3">Support</h6>
-            <ul className={styles.footerList}>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Cancellation Policy</a></li>
-              <li><a href="#">Safety Info</a></li>
-              <li><a href="#">FAQs</a></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="col-6 col-md-3">
-            <h6 className="fw-semibold mb-3">Company</h6>
-            <ul className={styles.footerList}>
-              <li><Link href="/about-us">About Us</Link></li>
-              <li><Link href="/contact-us">Contact</Link></li>
-              <li><Link href="/faqs">Faqs</Link></li>
-              <li><Link href="/privacy-policy">Privacy Policy</Link></li>
-            </ul>
+            <div className="d-flex gap-3">
+              <a href="#" aria-label="Facebook" className={styles.social}>
+                <FaFacebookF />
+              </a>
+              <a href="#" aria-label="Instagram" className={styles.social}>
+                <FaInstagram />
+              </a>
+              <a href="#" aria-label="TwitterX" className={styles.social}>
+                <FaXTwitter />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </footer>
 
-      {/* Bottom Bar */}
-      <div className={styles.bottomBar}>
-        <div className="container d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3 py-3">
-          <p className="small text-secondary mb-0">
-            © {new Date().getFullYear()} Rihlat. All rights reserved.
-          </p>
-
-          <div className="d-flex gap-3">
-            <a href="#" aria-label="Facebook" className={styles.social}>
-              <FaFacebookF />
-            </a>
-            <a href="#" aria-label="Instagram" className={styles.social}>
-              <FaInstagram />
-            </a>
-            <a href="#" aria-label="TwitterX" className={styles.social}>
-              <FaXTwitter />
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-
-
-    {/* <footer className={styles.footerWrapper}>
+      {/* <footer className={styles.footerWrapper}>
       <div className={`container ${styles.footerContent}`}>
        
         <div className="row mb-5">
