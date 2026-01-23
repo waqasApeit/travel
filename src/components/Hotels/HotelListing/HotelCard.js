@@ -230,7 +230,7 @@ export default function HotelCard({ isLoading }) {
                                   .map((_, i) => (
                                     <FaStar
                                       key={i}
-                                      className="text-warning me-1"
+                                      className="text-danger me-1"
                                     />
                                   ))}
                               </>

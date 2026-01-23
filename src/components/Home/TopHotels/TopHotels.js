@@ -119,7 +119,7 @@ export default function TopHotels() {
   }, []);
 
   if (loading) return null;
-  // if (!hotels.length) return null;
+  if (!hotels.length) return null;
 
   const makingSlug = (name) => {
     return (
