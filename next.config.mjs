@@ -16,36 +16,39 @@ const nextConfig = {
     ],
   },
 
-   async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value:
-              "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:;",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
-        ],
-      },
-    ];
-  },
+ async headers() {
+  return [
+    {
+      source: "/(.*)",
+      headers: [
+        {
+          key: "Content-Security-Policy",
+          value: `
+            default-src 'self';
+            script-src 'self' 'unsafe-inline' 'unsafe-eval' https:;
+            style-src 'self' 'unsafe-inline' https:;
+            img-src 'self' data: https:;
+            connect-src 'self' https:;
+            frame-src 'self' https:;
+            child-src 'self' https:;
+          `.replace(/\s{2,}/g, ' ').trim(),
+        },
+        {
+          key: "X-Content-Type-Options",
+          value: "nosniff",
+        },
+        {
+          key: "Referrer-Policy",
+          value: "strict-origin-when-cross-origin",
+        },
+        {
+          key: "Permissions-Policy",
+          value: "microphone=(self), camera=(self), geolocation=(self)",
+        },
+      ],
+    },
+  ];
+}
 };
 
 export default nextConfig;
