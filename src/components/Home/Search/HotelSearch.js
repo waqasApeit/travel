@@ -374,7 +374,7 @@ export default function HotelSearch() {
                 ))}
                 <hr />
                 <p onClick={addRoom} className="small cursor-pointer text-end mb-1 text-primary">+ Add Room</p>
-                <button onClick={ClosePopover} type="button" className="btn w-100 btn-outline-success">Done</button>
+                <button onClick={ClosePopover} type="button" className="btn w-100 btn-outline-danger">Done</button>
               </div>
             </Popover.Dropdown>
           </Popover>

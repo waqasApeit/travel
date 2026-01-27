@@ -208,7 +208,8 @@ a {
 .nav-pills.lights .nav-link.active,
 .nav-pills.lights .show>.nav-link {
     background: #ffffff8c;
-    color: #fff !important;
+    color: #000 !important;
+    font-weight: 600;
 }
 
 .btn-success {
