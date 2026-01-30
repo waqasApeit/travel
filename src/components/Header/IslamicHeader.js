@@ -99,7 +99,7 @@ export default function IslamicHeader() {
                                 className={styles.islamicLogo} 
                                 height={60} 
                                 width={150} 
-                                src='/images/logoo.png' 
+                                src='/images/kashtalogo.png' 
                                 alt="kashta" 
                                 priority
                             />

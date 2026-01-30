@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./footer.module.css";
 import Image from "next/image";
@@ -6,11 +7,97 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Philosopher } from "next/font/google";
+import { useRouter } from "next/navigation";
+import moment from "moment";
 const philosopher = Philosopher({
   subsets: ["latin"],
   weight: "700",
 });
 export default function Footer() {
+  const router = useRouter();
+  const HotelListing = (cname) => {
+    var lat;
+    var lng;
+    var code;
+    var location;
+    var country;
+    var city = "";
+    if (cname === "makkah") {
+      lat = 21.4240968;
+      lng = 39.81733639999999;
+      code = "SA";
+      location = "Makkah Saudi Arabia";
+      country = "Saudi Arabia";
+      city = "Makkah";
+    } else if (cname === "madinah") {
+      lat = 24.4672132;
+      lng = 39.6024496;
+      code = "SA";
+      location = "Madinah Saudi Arabia";
+      country = "Saudi Arabia";
+      city = "Madinah";
+    } else if (cname === "london") {
+      lat = 51.5072178;
+      lng = -0.1275862;
+      code = "GB";
+      location = "London, UK";
+      country = "United Kingdom";
+      city = "London";
+    } else if (cname === "dubai") {
+      lat = 25.2048493;
+      lng = 55.2707828;
+      code = "AE";
+      location = "Dubai - United Arab Emirates";
+      country = "United Arab Emirates";
+      city = "Dubai";
+    } else if (cname === "riyadh") {
+      lat = 24.713552;
+      lng = 46.675297;
+      code = "SA";
+      location = "Riyadh, Saudi Arabia";
+      country = "Saudi Arabia";
+      city = "Riyadh";
+    } else if (cname === "jeddah") {
+      lat = 21.543333;
+      lng = 39.172778;
+      code = "SA";
+      location = "Jeddah, Saudi Arabia";
+      country = "Saudi Arabia";
+      city = "Jeddah";
+    } else if (cname === "newyork") {
+      lat = 40.7127753;
+      lng = -74.0059728;
+      code = "US";
+      location = "New York, USA";
+      country = "United States";
+      city = "New York";
+    } else if (cname === "istanbul") {
+      lat = 41.0082376;
+      lng = 28.9783589;
+      code = "TR";
+      location = "Istanbul, Turkey";
+      country = "Turkey";
+      city = "Istanbul";
+    }
+    const queryParams = new URLSearchParams();
+    queryParams.set("checkIn", moment().add(1, "days").format("YYYY-MM-DD"));
+    queryParams.set("checkOut", moment().add(2, "days").format("YYYY-MM-DD"));
+    queryParams.set("currency", "GBP");
+    queryParams.set("city", city);
+    queryParams.set("lat", lat);
+    queryParams.set("lng", lng);
+    queryParams.set("code", code);
+    queryParams.set("location", location);
+    queryParams.set("country", country);
+    const roomsArray = [
+      {
+        adults: 2,
+        children: [],
+      },
+    ];
+    localStorage.setItem("searchRoomSelection", JSON.stringify(roomsArray));
+    router.push(`/hotels?${queryParams.toString()}`);
+  };
   return (
     <>
       <footer className={styles.footer}>
@@ -47,7 +134,7 @@ export default function Footer() {
               <Image
                 height={200}
                 width={250}
-                src="/images/logoo.png"
+                src="/images/kashtalogo.png"
                 alt="kashta"
                 className="img-fluid"
               />
@@ -72,7 +159,9 @@ export default function Footer() {
 
             {/* Company */}
             <div className="col-6 col-md-2">
-              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Company</h6>
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>
+                Company
+              </h6>
               <ul className={styles.footerList}>
                 <li>
                   <Link href="/">Home</Link>
@@ -91,26 +180,30 @@ export default function Footer() {
 
             {/* Destinations */}
             <div className="col-6 col-md-2">
-              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Destinations</h6>
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>
+                Destinations
+              </h6>
               <ul className={styles.footerList}>
-                <li>
-                  <Link href="/">AlUla Tours</Link>
+                <li onClick={() => HotelListing("london")} style={{cursor: "pointer"}}>
+                  <a>London</a>
                 </li>
-                <li>
-                  <Link href="/">Riyadh Tours</Link>
+                <li onClick={() => HotelListing("dubai")} style={{cursor: "pointer"}}>
+                  <a>Dubai</a>
                 </li>
-                <li>
-                  <Link href="/">Jeddah Tours</Link>
+                <li onClick={() => HotelListing("newyork")} style={{cursor: "pointer"}}>
+                  <a>New York</a>
                 </li>
-                <li>
-                  <Link href="/">Red Sea</Link>
+                <li onClick={() => HotelListing("istanbul")} style={{cursor: "pointer"}}>
+                  <a>Istanbul</a>
                 </li>
               </ul>
             </div>
 
             {/* Categories */}
             <div className="col-6 col-md-2">
-              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Categories</h6>
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>
+                Categories
+              </h6>
               <ul className={styles.footerList}>
                 <li>
                   <Link href="/">Adventure</Link>
@@ -129,7 +222,9 @@ export default function Footer() {
 
             {/* Support */}
             <div className="col-6 col-md-3">
-              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>Support</h6>
+              <h6 className={`fw-bold mb-3 ${philosopher.className}`}>
+                Support
+              </h6>
               <ul className={styles.footerList}>
                 {/* <li><a href="#">Help Center</a></li>
               <li><a href="#">Cancellation Policy</a></li> */}
