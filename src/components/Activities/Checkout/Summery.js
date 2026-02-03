@@ -60,7 +60,7 @@ export default function Summery({ activityDetail }) {
           Sub Total: <span><PriceDisplay price={activityDetail?.grand_total} currency={activityDetail?.currency} /></span>
         </div>
         <hr />
-        <div className='mt-2 d-flex h5 align-items-center justify-content-between'>
+        <div className={`mt-2 fw-bold d-flex h5 align-items-center justify-content-between ${philosopher.className}`}>
           Total: <span className='text-success'><PriceDisplay price={activityDetail?.grand_total} currency={activityDetail?.currency} /></span>
         </div>
         <div className='small text-end text-muted'>Inclusive of VAT and Taxes</div>

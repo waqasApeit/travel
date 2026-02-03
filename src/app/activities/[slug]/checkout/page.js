@@ -27,7 +27,7 @@ export default function page() {
         <div>
             <div className='container my-5'>
                 <div className='hotel-checkout-top shadow'>
-                    <h2 className={`fw-bold ${philosopher.className}`}>Review Your Booking</h2>
+                    <h2 className={`fw-bold text-center ${philosopher.className}`}>Review Your Booking</h2>
                 </div>
 
                 <div className='border rounded shadow p-3'>

@@ -312,8 +312,8 @@ const Page = () => {
             )}
             {!isLoading && !errorMessage && (
                 <div className="mt-2 text-center">
-                    <button className="btn btn-success mx-1" onClick={handleDownload}><MdOutlineFileDownload /> Download PDF</button>
-                    <Link href={`/hotels/invoice/${voucherDetail?.invoice_number}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Invoice</button></Link>
+                    <button className="btn exploreBtn text-light mx-1" onClick={handleDownload}><MdOutlineFileDownload /> Download PDF</button>
+                    <Link href={`/hotels/invoice/${voucherDetail?.invoice_number}`}><button className="btn exploreBtn text-light mx-1" ><FaFileInvoice /> View Invoice</button></Link>
                 </div>
             )}
         </div>

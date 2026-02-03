@@ -10,6 +10,8 @@ import { PiDownloadSimpleThin } from "react-icons/pi";
 import { Tooltip } from '@mantine/core';
 import { toPng } from "html-to-image";
 import jsPDF from "jspdf";
+import Link from "next/link";
+import { FaFileInvoice } from "react-icons/fa";
 export default function Page() {
     const { id } = useParams();
     const ref = useRef();
@@ -267,7 +269,7 @@ export default function Page() {
                     )}
                      {!isLoading && !errorMessage && (
                                     <div className="mt-2 text-center">
-                                        <Link href={`/hotels/voucher/${voucherDetail?.invoice_number}`}><button className="btn btn-success mx-1" ><FaFileInvoice /> View Voucher</button></Link>
+                                        <Link href={`/hotels/voucher/${voucherDetail?.invoice_number}`}><button className="btn exploreBtn text-light mx-1" ><FaFileInvoice /> View Voucher</button></Link>
                                     </div>
                                 )}
                 </div>

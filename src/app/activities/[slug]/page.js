@@ -36,9 +36,9 @@ function ActivityDetail() {
             method: "GET",
             cache: "no-store",
             headers: {
-              // 'ngrok-skip-browser-warning': 'true',
+              'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              // "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Origin": "*",
             },
           }
         );

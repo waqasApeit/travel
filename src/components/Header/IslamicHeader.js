@@ -217,7 +217,7 @@ export default function IslamicHeader() {
                             height={50} 
                             width={150} 
                             className="w-100"
-                            src='/images/logoo.png' 
+                            src='/images/kashtalogo.png' 
                             alt="Kashta"
                         />
               {/* <h1 className="fw-bold text-dark">Travel</h1> */}

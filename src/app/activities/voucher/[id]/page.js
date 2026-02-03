@@ -37,9 +37,9 @@ export default function Page() {
         {
           method: "GET",
           headers: {
-            // 'ngrok-skip-browser-warning': 'true',
+            'ngrok-skip-browser-warning': 'true',
             "Content-Type": "application/json",
-            // "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "*",
           },
         },
       );
@@ -269,7 +269,7 @@ export default function Page() {
                     <div className="mb-4">
                       <h6 className={styles.sectionTitle}>Booked By</h6>
                       <div className="table-responsive">
-                        <table className={`${styles.modernTable} table mb-0`}>
+                        <table className={`table-bordered ${styles.modernTable} table mb-0`}>
                           <thead>
                             <tr>
                               <th>NAME</th>
@@ -313,7 +313,7 @@ export default function Page() {
                           Additional Guests
                         </h6>
                         <div className="table-responsive">
-                          <table className={`${styles.modernTable} table mb-0`}>
+                          <table className={`table-bordered ${styles.modernTable} table mb-0`}>
                             <thead>
                               <tr>
                                 <th>NAME</th>
@@ -430,7 +430,7 @@ export default function Page() {
                     <div className="mb-4">
                       <h6 className={styles.sectionTitle}>Traveler Details</h6>
                       <div className="table-responsive">
-                        <table className={`${styles.modernTable} table mb-0`}>
+                        <table className={`table-bordered ${styles.modernTable} table mb-0`}>
                           <thead>
                             <tr>
                               <th>CATEGORY</th>
@@ -505,7 +505,7 @@ export default function Page() {
             {!isLoading && !errorMessage && (
               <div className="d-flex flex-wrap gap-3 justify-content-center mt-4 pb-3 printActions">
                 <button
-                  className={`${styles.actionBtn} ${styles.printBtn}`}
+                  className={`exploreBtn text-light ${styles.actionBtn} ${styles.printBtn}`}
                   onClick={() => window.print()}
                 >
                   <FaPrint size={16} /> Print / Save
@@ -514,13 +514,13 @@ export default function Page() {
                   href={`/activities/invoice/${voucherDetail?.booking_reference}`}
                 >
                   <button
-                    className={`${styles.actionBtn} ${styles.voucherBtn}`}
+                    className={`exploreBtn text-light ${styles.actionBtn} ${styles.voucherBtn}`}
                   >
                     <FaFileInvoice size={16} /> View Invoice
                   </button>
                 </Link>
                 <Link href="/">
-                  <button className={`${styles.actionBtn} ${styles.homeBtn}`}>
+                  <button className={`exploreBtn text-light ${styles.actionBtn} ${styles.homeBtn}`}>
                     <FaHome size={16} /> Go to Home
                   </button>
                 </Link>

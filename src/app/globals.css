@@ -1005,12 +1005,14 @@ a {
 }
 
 .exploreBtn{
-    background-color: #EE1B22 !important;
-    border-color: #EE1B22 !important;
+    /* background-color: #000 !important; */
+    border-color: #000 !important;
+    color: #000 !important;
 }
 .exploreBtn:hover{
     background-color: #c81419 !important;
     border-color: #c81419 !important;
+    color: #fff !important;
 }
 
 

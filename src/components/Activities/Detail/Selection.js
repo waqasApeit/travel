@@ -268,7 +268,7 @@ export default function Selection({ PackageDetail }) {
             {selectedServices.length > 0 && (
               <>
                 <hr className="my-2" />
-                <div className="small text-muted mb-1">Additional Services:</div>
+                <div className={`small text-muted mb-1 ${philosopher.className}`}>Additional Services:</div>
                 {selectedServices.map((service, index) => {
                   const serviceTotal = service.type === 'per_person'
                     ? service.quantity  * Number(service.price)

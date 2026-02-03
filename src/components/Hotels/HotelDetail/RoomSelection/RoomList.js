@@ -75,7 +75,7 @@ export default function RoomList({ hotelDetail }) {
                                 </div>
                                 <div className='col-md-9'>
                                     {room?.rates.map((rate, idx) => (
-                                        <div key={idx} className="my-2 p-2 rounded border room-bg-color">
+                                        <div key={idx} className="my-2 p-2 rounded border shadow">
                                             <div className="row">
                                                 <div className="col-md-8 col-lg-8">
                                                     <h5 className="mb-0 font-size-16">{rate?.board_name}</h5>
@@ -84,7 +84,7 @@ export default function RoomList({ hotelDetail }) {
                                                 </div>
                                                 <div className="col-md-4 col-lg-4 my-2 text-center d-flex justify-content-center align-items-center">
                                                     <div>
-                                                        <h5 className="text-success mb-0"><PriceDisplay price={rate?.price} currency={rate?.currency} /></h5>
+                                                        <h5 className="text-black fw-bold mb-0"><PriceDisplay price={rate?.price} currency={rate?.currency} /></h5>
                                                         {/* <span className="small">Price For 4 Nights</span> */}
                                                         {isRoomSelected(rate?.rate_key) ? (
                                                             <div className='d-flex mt-2'>

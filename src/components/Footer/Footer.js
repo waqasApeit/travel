@@ -134,7 +134,7 @@ export default function Footer() {
               <Image
                 height={200}
                 width={250}
-                src="/images/kashtalogo.png"
+                src="/images/kashtawhitelogo.png"
                 alt="kashta"
                 className="img-fluid"
               />
