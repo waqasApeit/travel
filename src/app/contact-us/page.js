@@ -14,7 +14,7 @@ export default function page() {
           </div>
           <section className={styles.section}>
             <div className="container">
-              <div className="row g-5">
+              <div className="row gy-5">
                 <div className="col-lg-6">
                   <Form />
                 </div>

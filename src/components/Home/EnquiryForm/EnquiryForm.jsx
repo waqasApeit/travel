@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./enquiryform.module.css";
 import Link from "next/link"
 import { Philosopher } from 'next/font/google';
+import Image from "next/image";
 const philosopher = Philosopher({
   subsets: ['latin'],
   weight: '700',
@@ -82,7 +83,14 @@ function EnquiryForm() {
 </div> */}
 
     <section className={`${styles.ticket} position-relative`}>
-  <div className={styles.overlay}></div>
+      <Image 
+        src="/images/LivingRoomReimagined-1920x1200.jpg" 
+        alt="Background Image" 
+        fill
+        className={styles.ticketBgImage}
+        priority
+      />
+      <div className={styles.overlay}></div>
 
   <div className="container">
     <div className={`w-lg-75 mx-auto text-center ${styles.ticketInner}`}>

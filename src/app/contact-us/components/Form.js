@@ -108,6 +108,7 @@ export default function Form() {
             <label className={styles.label}>Your Name</label>
             <input
               type="text"
+              name="name"
               className="form-control form-control"
               placeholder="Your Name"
               value={formData.name}
@@ -122,6 +123,7 @@ export default function Form() {
             <label className={styles.label}>Email Address</label>
             <input
               type="email"
+              name="email"
               className="form-control form-control"
               placeholder="john@example.com"
               value={formData.email}
@@ -136,6 +138,7 @@ export default function Form() {
             <label className={styles.label}>Subject</label>
             <input
               type="text"
+              name="subject"
               className="form-control form-control"
               placeholder="How can we help?"
               value={formData.subject}
@@ -151,6 +154,7 @@ export default function Form() {
             <textarea
               className="form-control"
               rows="5"
+              name="message"
               placeholder="Tell us more about your inquiry..."
               value={formData.message}
               onChange={handleChange}

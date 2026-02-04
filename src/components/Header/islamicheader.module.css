@@ -311,9 +311,9 @@
 }
 
 .islamicMobileMenuClose:hover {
-    background-color: #fdb714;
-    border-color: #fdb714;
-    color: #000000;
+    background-color: #ff0000;
+    border-color: #ff0000;
+    color: #ffffff;
     transform: rotate(90deg);
 }
 
@@ -472,7 +472,7 @@
     }
 
     .islamicLogo {
-        max-height: 40px;
+        max-height: 50px;
         max-width: 130px;
     }
 

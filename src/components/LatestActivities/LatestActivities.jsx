@@ -34,13 +34,12 @@ function LatestActivities() {
           {
             cache: "no-store",
             headers: {
-              'ngrok-skip-browser-warning': 'true',
+              // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Origin": "*",
             },
           },
         );
-
         const response = await res.json();
         console.log("Activities Response:", response);
 
@@ -113,7 +112,7 @@ function LatestActivities() {
                         alt={item.title}
                         width={400}
                         height={280}
-                        className="w-100 h-auto"
+                        className="w-100 "
                       />
                       <span className={styles.badge}>
                         Duration: {item?.activity_duration}

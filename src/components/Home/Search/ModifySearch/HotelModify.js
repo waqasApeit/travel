@@ -10,6 +10,7 @@ import styles from '../search.module.css'
 export default function HotelModify() {
   const [popoverOpened, setPopoverOpened] = useState(false);
   const searchParams = useSearchParams();
+  const [breakPoint, setBreakPoint] = useState(false);
   const [rooms, setRooms] = useState([
     { adults: 2, children: 0, childrenAges: [], errors: {} }
   ]);
@@ -88,11 +89,27 @@ export default function HotelModify() {
     if (type === "adults") {
       updatedRooms[index].adults = Math.max(1, updatedRooms[index].adults + delta);
     } else if (type === "children") {
-      const newCount = Math.max(0, updatedRooms[index].children + delta);
+      const prevCount = updatedRooms[index].children;
+      const newCount = Math.max(0, prevCount + delta);
+
       updatedRooms[index].children = newCount;
-      updatedRooms[index].childrenAges = Array(newCount).fill(null);
+
+      // copy old ages
+      let ages = [...(updatedRooms[index].childrenAges || [])];
+
+      if (newCount > prevCount) {
+        // child add hua → sirf new entry null
+        ages.push(null);
+      } else if (newCount < prevCount) {
+        // child remove hua → last age remove
+        ages.pop();
+      }
+
+      updatedRooms[index].childrenAges = ages;
+
+      // agar children 0 ho jaen to errors remove
       if (newCount === 0) {
-        updatedRooms[index].errors = [];
+        updatedRooms[index].errors = {};
       }
     }
     setRooms(updatedRooms);
@@ -100,6 +117,12 @@ export default function HotelModify() {
   const handleAgeChange = (roomIndex, ageIndex, value) => {
     const updatedRooms = [...rooms];
     updatedRooms[roomIndex].childrenAges[ageIndex] = value;
+    const hasEmptyAge = updatedRooms[roomIndex].childrenAges.some(
+      (age) => !age,
+    );
+    if (!hasEmptyAge) {
+      updatedRooms[roomIndex].errors = {};
+    }
     setRooms(updatedRooms);
   };
   const handleLocationChange = (e) => {
@@ -213,6 +236,7 @@ export default function HotelModify() {
     queryParams.set('checkIn', formData.dateRange[0])
     queryParams.set('checkOut', formData.dateRange[1])
     queryParams.set('currency', 'GBP')
+    queryParams.set("place", locationName);
     // Destination - flatten for readability
     queryParams.set('city', formData.city)
     queryParams.set('lat', formData.lat)
@@ -245,6 +269,60 @@ export default function HotelModify() {
     }
     setPopoverOpened(false);
   }
+
+  useEffect(() => {
+    setBreakPoint(window.innerWidth <= 500);
+    if (searchParams && searchParams.toString()) {
+      const city = searchParams.get("city");
+      const countryCode = searchParams.get("code");
+      const check_in = searchParams.get("checkIn");
+      const check_out = searchParams.get("checkOut");
+      const lat = searchParams.get("lat");
+      const long = searchParams.get("lng");
+      const location = searchParams.get("location");
+      const country = searchParams.get("country");
+      const place = searchParams.get("place");
+      setFormData({
+        location: location,
+        city: city,
+        code: countryCode,
+        country: country,
+        lat: lat,
+        lng: long,
+        dateRange: [check_in, check_out],
+      });
+      const loc = document.getElementsByName("hotellocation")[0];
+      loc.value = place;
+    } else {
+      const data = localStorage.getItem("HotelSearchData");
+      if (data) {
+        const newData = JSON.parse(data);
+        setFormData({
+          location: newData?.location,
+          city: newData?.city,
+          code: newData?.countryCode,
+          country: newData?.country,
+          lat: newData?.lat,
+          lng: newData?.long,
+          dateRange: [newData?.check_in, newData?.check_out],
+        });
+        const loc = document.getElementsByName("hotellocation")[0];
+        loc.value = newData?.location;
+      }
+    }
+    let RoomMap = [];
+    const roomData = localStorage.getItem("searchRoomSelection");
+    if (roomData) {
+      RoomMap = JSON.parse(roomData);
+    }
+    const formattedRooms = RoomMap.map((item) => ({
+      adults: item.adults,
+      children: item.children.length, // count of children
+      childrenAges: item.children.map((c) => c.age),
+      errors: {},
+    }));
+    setRooms(formattedRooms);
+  }, [searchParams]);
   return (
     <div className={styles.wrapper}>
       <div className={styles.searchBar}>
@@ -256,6 +334,7 @@ export default function HotelModify() {
             onPlaceSelected={handlePlaceSelected} 
             onChange={handleLocationChange} 
             className="form-control" 
+            name="hotellocation"
             placeholder="Where to?" 
             apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
             options={{
@@ -276,7 +355,7 @@ export default function HotelModify() {
             clearable 
             minDate={new Date()} 
             valueFormat="DD-MM-YYYY" 
-            numberOfColumns={2} 
+            numberOfColumns={breakPoint ? 1 : 2}
             value={formData.dateRange} 
             onChange={handleDateChange} 
             placeholder="When?" 

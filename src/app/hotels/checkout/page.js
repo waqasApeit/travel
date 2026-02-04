@@ -68,7 +68,7 @@ export default function Page() {
               </div>
             </div>
             <div className='mt-3 small fw-bold'>Total length of stay:</div>
-            <div className='mt-1 small fw-bold'>{moment(availabilityData?.check_out).diff(moment(availabilityData?.check_in), 'days')} nights</div>
+            <div className='mt-1 small fw-bold'>{moment(availabilityData?.check_out).diff(moment(availabilityData?.check_in), 'days')} {moment(availabilityData?.check_out).diff(moment(availabilityData?.check_in), 'days') > 1 ? 'nights' : 'night'}</div>
           </div>
           <div className='rounded hotel-detail-room-selection p-3  mt-3'>
             {availabilityData?.rooms && availabilityData?.rooms.map((item, index) => (
@@ -90,7 +90,7 @@ export default function Page() {
                         <HiOutlineUsers className="me-2" />
                         <strong>Room:</strong>
                       </span>
-                      <span>{rate.rooms} Room</span>
+                      <span>{rate.rooms} {rate.rooms > 1 ? 'Rooms' : 'Room'}</span>
                     </div>
 
                     <div className="d-flex justify-content-between mb-2">
@@ -98,7 +98,7 @@ export default function Page() {
                         <BiUser className="me-2" />
                         <strong>Adults:</strong>
                       </span>
-                      <span>{rate.adults}</span>
+                      <span>{rate.adults} {rate.adults > 1 ? 'Adults' : 'Adult'}</span>
                     </div>
 
                     <div className="d-flex justify-content-between mb-2">
@@ -106,7 +106,7 @@ export default function Page() {
                         <BiUser className="me-2" />
                         <strong>Children:</strong>
                       </span>
-                      <span>{rate.children}</span>
+                      <span>{rate.children} {rate.children > 1 ? 'Children' : 'Child'}</span>
                     </div>
                     <div className="d-flex  justify-content-between mb-2">
                       <span className="text-muted">

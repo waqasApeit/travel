@@ -156,10 +156,10 @@ export default function HotelCard({ isLoading }) {
 
 
   
-  const customehotels = hotels.filter((item)=> item.provider === 'custom') 
-  const thirdpartyhotels = hotels.filter((item)=> item.provider !== 'custom') 
+  // const customehotels = hotels.filter((item)=> item.provider === 'custom') 
+  // const thirdpartyhotels = hotels.filter((item)=> item.provider !== 'custom') 
 
-  const combinehotels = [...customehotels, ...thirdpartyhotels]
+  // const combinehotels = [...customehotels, ...thirdpartyhotels]
 
   return (
     <div className="container hotel-card">
@@ -176,7 +176,7 @@ export default function HotelCard({ isLoading }) {
         </div>
       )}
       <div className="row" id="top_hotel">
-        {combinehotels.map((item, index) => (
+        {hotels.map((item, index) => (
           <div key={index} className="col-12 mb-4">
             <div className="card shadow-sm border-0">
               <div className="row g-0 position-relative">

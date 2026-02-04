@@ -179,26 +179,27 @@ export default function HotelSearch() {
 
     return true;
   };
-  const SubmitForm = () => {
+    const SubmitForm = () => {
     if (!validateForm()) return;
 
-    const roomsArray = rooms.map(room => ({
+    const roomsArray = rooms.map((room) => ({
       adults: room.adults,
-      children: room.childrenAges.map(age => ({ age: Number(age) }))
+      children: room.childrenAges.map((age) => ({ age: Number(age) })),
     }));
     const queryParams = new URLSearchParams();
-    queryParams.set('checkIn', formData.dateRange[0])
-    queryParams.set('checkOut', formData.dateRange[1])
-    queryParams.set('currency', 'GBP')
-
+    const locationName = document.getElementsByName("hotellocation")[0].value;
+    queryParams.set("checkIn", formData.dateRange[0]);
+    queryParams.set("checkOut", formData.dateRange[1]);
+    queryParams.set("currency", "GBP");
+    queryParams.set("place", locationName);
     // Destination - flatten for readability
-    queryParams.set('city', formData.city)
-    queryParams.set('lat', formData.lat)
-    queryParams.set('lng', formData.lng)
-    queryParams.set('code', formData.code)
-    queryParams.set('location', formData.location)
-    queryParams.set('country', formData.country)
-    localStorage.setItem('searchRoomSelection', JSON.stringify(roomsArray));
+    queryParams.set("city", formData.city);
+    queryParams.set("lat", formData.lat);
+    queryParams.set("lng", formData.lng);
+    queryParams.set("code", formData.code);
+    queryParams.set("location", formData.location);
+    queryParams.set("country", formData.country);
+    localStorage.setItem("searchRoomSelection", JSON.stringify(roomsArray));
     router.push(`/hotels?${queryParams.toString()}`);
   };
   const ClosePopover = () => {
@@ -234,6 +235,7 @@ export default function HotelSearch() {
             onChange={handleLocationChange} 
             className="form-control" 
             placeholder="Where to?" 
+            name="hotellocation"
             apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
             options={{
               types: ['establishment', 'geocode'],

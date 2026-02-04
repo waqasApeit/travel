@@ -19,6 +19,7 @@ export default function Page() {
     const [progress, setProgress] = useState(0);
     const searchParams = useSearchParams();
     const city = searchParams.get("city");
+    const place = searchParams.get("place");
     const countryCode = searchParams.get("code");
     const currency = searchParams.get("currency");
     const check_in = searchParams.get("checkIn");
@@ -51,7 +52,7 @@ export default function Page() {
     }, [isLoading]);
     return (
         <div>
-            <HotelListProvider hotels={hotelsList}>
+            <HotelListProvider hotels={hotelsList} place={place}>
                 <section className="page-title-section breadcrumHotel-bg text-center d-flex align-items-center justify-content-center">
                     <div className='page-title-overlay'></div>
                     <div className="container">

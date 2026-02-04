@@ -30,6 +30,7 @@
 
 .imageWrap img {
   object-fit: cover;
+  height: 14em;
 }
 
 .badge {

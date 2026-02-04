@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useMemo } from "react";
 const HotelListContext = createContext();
 import { ConvertPrice } from "@/components/Currency/ConvertPrice";
 import { useCurrency } from "@/util/currency";
-export function HotelListProvider({ children, hotels }) {
+export function HotelListProvider({ children, hotels, place }) {
     const [convertedHotels, setConvertedHotels] = useState([]);
     const [search, setSearch] = useState(null);
     const { currency, rates } = useCurrency();
@@ -100,11 +100,39 @@ export function HotelListProvider({ children, hotels }) {
         if (sort === "price-asc") result.sort((a, b) => a?.price - b?.price);
         if (sort === "price-desc") result.sort((a, b) => b?.price - a?.price);
         if (sort === "name-asc") result.sort((a, b) => a.name.localeCompare(b.name));
+        const hasFilters = search !== null || star.length > 0 || meal.length > 0 ||
+            priceRange[0] !== minPrice || priceRange[1] !== maxPrice || sort !== "price-asc";
+        if (!hasFilters) {
+            const customhotel = result.filter(h => h.provider === 'custom');
+            const otherHotels = result.filter(h => h.provider !== 'custom');
+            const newresultlist = [...customhotel, ...otherHotels];
+            result = newresultlist.sort((a, b) => {
+                const scoreA = getMatchScore(place, a.name);
+                const scoreB = getMatchScore(place, b.name);
+                return scoreB - scoreA; // higher match on top
+            });
+        }
 
         return result;
     }, [convertedHotels, search, priceRange, star, meal, sort]);
 
+    function getMatchScore(place, hotelName) {
+        
+        const placeWords = place.toLowerCase().split(/\s+/);
+        const hotelWords = hotelName.toLowerCase().split(/\s+/);
+
+        let score = 0;
+
+        placeWords.forEach(word => {
+            if (hotelWords.includes(word)) {
+                score++;
+            }
+        });
+
+        return score;
+    }
     const totalPages = Math.ceil(filteredHotels.length / itemsPerPage);
+
     const paginatedHotels = useMemo(() => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         return filteredHotels.slice(startIndex, startIndex + itemsPerPage);

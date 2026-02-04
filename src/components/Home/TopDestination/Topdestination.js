@@ -87,6 +87,7 @@ function Topdestination() {
     queryParams.set("checkIn", moment().add(1, "days").format("YYYY-MM-DD"));
     queryParams.set("checkOut", moment().add(2, "days").format("YYYY-MM-DD"));
     queryParams.set("currency", "GBP");
+    queryParams.set("place", location);
     queryParams.set("city", city);
     queryParams.set("lat", lat);
     queryParams.set("lng", lng);

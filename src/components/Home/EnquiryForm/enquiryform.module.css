@@ -57,7 +57,6 @@
 
 
 .ticket {
-  /* background-image: url("/images/home/cta.jpg"); */
   background-color: #EE1B22;
   background-repeat: no-repeat;
   background-size: cover;
@@ -66,13 +65,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.ticketBgImage {
+  object-fit: cover;
+  z-index: 0;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: #000;
-  opacity: 0.5;
+  background: #000000c9;
+  /* opacity: 0.5; */
 }
 
 .ticketInner {
