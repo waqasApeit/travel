@@ -13,6 +13,7 @@ export default function Filter() {
     const searchParams = useSearchParams();
     const URLCity = searchParams.get('city');
     const router = useRouter();
+    const [isDesktop, setIsDesktop] = useState(false);
     const { currency, rates } = useCurrency();
     const [searchDate, setSearchDate] = useState(moment());
     const [categoryFilter, setCategoryFilter] = useState([]);
@@ -153,13 +154,25 @@ export default function Filter() {
         router.push(`?${decodeURIComponent(params.toString())}`);
     };
 
+
+     useEffect(() => {
+                 // Check screen size on mount and resize
+                 const checkScreenSize = () => {
+                     setIsDesktop(window.innerWidth >= 768);
+                 };
+                 
+                 checkScreenSize();
+                 window.addEventListener('resize', checkScreenSize);
+                 
+                 return () => window.removeEventListener('resize', checkScreenSize);
+             }, []);
     return (
         <div className="filter_box rounded">
             <a
                 className="d-flex justify-content-between fw-bold align-items-center"
                 data-bs-toggle="collapse"
                 href="#collapseFilters"
-                aria-expanded="false"
+                aria-expanded={isDesktop}
                 aria-controls="collapseFilters"
                 id="filters_col_bt"
             >
@@ -169,7 +182,7 @@ export default function Filter() {
             {isLoading ? (
                 <PackageFilterLoader />
             ) : (
-                <div className="collapse show" id="collapseFilters">
+                <div className={`collapse ${isDesktop ? 'show' : ''}`} id="collapseFilters">
                     <hr />
                     <div>
                         <p className="small fw-bold">Date</p>

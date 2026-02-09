@@ -14,17 +14,17 @@ function Easybook() {
   {
     icon: FaShieldAlt,
     title: "Trusted & Safe",
-    description: "All tours are verified and meet Saudi tourism standards",
+    description: "All tours and experiences are verified and operated in accordance with Saudi tourism regulations.",
   },
   {
     icon: FaClock,
     title: "Flexible Booking",
-    description: "Free cancellation up to 24 hours before your tour",
+    description: "Enjoy free cancellation on most experiences up to 24 hours before departure.",
   },
   {
     icon: FaAward,
-    title: "Best Price Guarantee",
-    description: "Find a lower price? We'll match it and give you 10% off",
+    title: "Best Value Guarantee",
+    description: "Found a better price? We’ll match it and offer extra value for your journey.",
   },
 ];
   return (

@@ -28,7 +28,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #00000026;
+    background-color: #00000085;
     z-index: 1;
 }
 
@@ -336,7 +336,7 @@
   left: 1.5rem;
   color: #6c757d;
   font-size: 1.1rem;
-  z-index: 10;
+  /* z-index: 10; */
   pointer-events: none;
 }
 

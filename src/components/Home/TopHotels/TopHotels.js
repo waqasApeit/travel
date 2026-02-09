@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css/pagination";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa6";
 import PriceDisplay from "@/components/Currency/PriceDisplay";
@@ -9,10 +12,10 @@ import { LiaAngleRightSolid } from "react-icons/lia"; // agar icon use karna hai
 import Link from "next/link";
 import { FaArrowRight, FaHeart, FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import styles from "./Tophotel.module.css";
-import { Philosopher } from 'next/font/google';
+import { Philosopher } from "next/font/google";
 const philosopher = Philosopher({
-  subsets: ['latin'],
-  weight: '700',
+  subsets: ["latin"],
+  weight: "700",
 });
 export default function TopHotels() {
   const [hotels, setHotels] = useState([]);
@@ -130,15 +133,15 @@ export default function TopHotels() {
     );
   };
 
-const ProviderShortNames = (encodedProvider) => {
-    if (!encodedProvider) return '';
+  const ProviderShortNames = (encodedProvider) => {
+    if (!encodedProvider) return "";
     const provider = encodeProvider(encodedProvider).toLowerCase();
     return provider;
   };
 
-   const encodeProvider = (str) => {
-    return [...str].map(c => (c.charCodeAt(0) + 3).toString(36)).join('');
-  }
+  const encodeProvider = (str) => {
+    return [...str].map((c) => (c.charCodeAt(0) + 3).toString(36)).join("");
+  };
 
   const handleClick = (hotel) => {
     if (hotel?.rooms) {
@@ -155,85 +158,14 @@ const ProviderShortNames = (encodedProvider) => {
 
   return (
     <>
-      {/* <div className="container section-gap">
-      <p className="text-center mb-2 sec-title__tagline">
-        Experience Comfort, Luxury, and Exceptional Service
-      </p>
-
-      <h2 className="text-center fs-60">Explore Our Top Hotels</h2>
-
-      <div className="row mt-5 m-0">
-        {hotels.slice(0, 8).map((hotel, index) => (
-          <div
-            key={hotel.id || index}
-            className="col-md-4 col-lg-3 col-sm-6 col-12 mt-2"
-          >
-            <div className="card h-100">
-              <div className="position-relative">
-                <Image
-                  src={hotel.mainImage}
-                  alt={hotel.name}
-                  width={250}
-                  height={250}
-                  className="home-hotel-image w-100"
-                  unoptimized
-                />
-
-                <div className="home-hotel-img-circle">
-                  {hotel?.location?.city}
-                </div>
-              </div>
-
-              <div className="px-2 py-3 mt-3 rounded gray-simple">
-                <p className="mb-1">
-                  {Array(Math.round(hotel?.metadata?.stars))
-                    .fill(0)
-                    .map((_, i) => (
-                      <FaRegStar key={i} />
-                    ))}
-                </p>
-
-                <h5 className="one-line-dot fw-bold mb-1">
-                  <span className="small">{hotel.name}</span>
-                </h5>
-
-                <hr className="my-3" />
-
-                <p className="small">
-                  From:{" "}
-                  <b>
-                    <PriceDisplay
-                      price={hotel.metadata?.min_price}
-                      currency={hotel.metadata?.currency}
-                    />
-                  </b>{" "}
-                  / per night
-                </p>
-                <Link
-                  target="_blank"
-                  onClick={() => handleClick(hotel)}
-                  href={`/hotels/${makingSlug(hotel.name)}?id=${
-                    hotel.id
-                  }&code=${ProviderShortNames(hotel.provider)}`}
-                  className="d-block mt-3"
-                >
-                  <button className="btn btn-success w-100">
-                    View Detail <LiaAngleRightSolid />
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div> */}
-
       <section className={`py-5 ${styles.section}`}>
         <div className="container">
           {/* Header */}
           <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 mb-4">
             <div>
-              <h2 className={`${philosopher.className} fw-bold mb-1`}>Top Hotels Around the Globe</h2>
+              <h2 className={`${philosopher.className} fw-bold mb-1`}>
+                Top Hotels Around the Globe
+              </h2>
               <p className="text-muted mb-0">
                 Handpicked tours loved by travelers
               </p>
@@ -241,9 +173,106 @@ const ProviderShortNames = (encodedProvider) => {
           </div>
 
           {/* Grid */}
-          <div className="row g-4">
+
+          {/* <div className="row g-4">
             {hotels.slice(0, 8).map((hotel, index) => (
               <div className="col-12 col-sm-6 col-lg-4 col-xl-3" key={index}>
+                <article className={styles.card}>
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      src={hotel.mainImage}
+                      alt={hotel.name}
+                      fill
+                      className={styles.image}
+                    />
+
+                    <div className={styles.badges}>
+                      <span className={styles.discount}>
+                        {hotel.provider === "custom" && "K"}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-3">
+                    <div className="d-flex align-items-center gap-1 text-muted small mb-2">
+                      <FaMapMarkerAlt size={12} />
+                      <span>{hotel?.location?.city}</span>
+                    </div>
+
+                    <h5 className={` fw-semibold mb-2 ${styles.title}`}>
+                      <Link
+                        target="_blank"
+                        onClick={() => handleClick(hotel)}
+                        href={`/hotels/${makingSlug(hotel.name)}?id=${
+                          hotel.id
+                        }&code=${ProviderShortNames(hotel.provider)}`}
+                        className={`d-block ${philosopher.className}`}
+                      >
+                        {hotel.name}
+                      </Link>
+                    </h5>
+
+                    <div className="d-flex align-items-center gap-2 small mb-3">
+                      <div className="d-flex align-items-center gap-1">
+                        {Array(Math.round(hotel?.metadata?.stars))
+                          .fill(0)
+                          .map((_, i) => (
+                            <FaStar key={i} className="text-danger" />
+                          ))}
+                      </div>
+                    </div>
+
+                    <div className="d-flex justify-content-between align-items-end pt-3 border-top">
+                      <div>
+                        <span className="text-muted small">From</span>{" "}
+                        <span className="fw-bold fs-5 fw-bold">
+                          {" "}
+                          <PriceDisplay
+                            price={hotel.metadata?.min_price}
+                            currency={hotel.metadata?.currency}
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div> */}
+
+          <Swiper
+            modules={[Pagination, Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            navigation={{
+              nextEl: ".custom-nexth",
+              prevEl: ".custom-prevh",
+            }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              576: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+              1200: {
+                slidesPerView: 4,
+              },
+            }}
+            className={`${styles.heroSwiper}`}
+          >
+            {hotels.slice(0, 8).map((hotel, index) => (
+              <SwiperSlide key={index}>
                 <article className={styles.card}>
                   {/* Image */}
                   <div className={styles.imageWrapper}>
@@ -255,7 +284,9 @@ const ProviderShortNames = (encodedProvider) => {
                     />
 
                     <div className={styles.badges}>
-                      <span className={styles.discount}>{hotel.provider === 'custom' && "K"}</span>
+                      <span className={styles.discount}>
+                        {hotel.provider === "custom" && "K"}
+                      </span>
                     </div>
                   </div>
 
@@ -270,14 +301,14 @@ const ProviderShortNames = (encodedProvider) => {
                     {/* Title */}
                     <h5 className={` fw-semibold mb-2 ${styles.title}`}>
                       <Link
-                  target="_blank"
-                  onClick={() => handleClick(hotel)}
-                  href={`/hotels/${makingSlug(hotel.name)}?id=${
-                    hotel.id
-                  }&code=${ProviderShortNames(hotel.provider)}`}
-                  className={`d-block ${philosopher.className}`}
-                >
-                       {hotel.name}
+                        target="_blank"
+                        onClick={() => handleClick(hotel)}
+                        href={`/hotels/${makingSlug(hotel.name)}?id=${
+                          hotel.id
+                        }&code=${ProviderShortNames(hotel.provider)}`}
+                        className={`d-block ${philosopher.className}`}
+                      >
+                        {hotel.name}
                       </Link>
                     </h5>
 
@@ -285,30 +316,31 @@ const ProviderShortNames = (encodedProvider) => {
                     <div className="d-flex align-items-center gap-2 small mb-3">
                       <div className="d-flex align-items-center gap-1">
                         {Array(Math.round(hotel?.metadata?.stars))
-                    .fill(0)
-                    .map((_, i) => (
-                      <FaStar key={i} className="text-danger" />
-                    ))}
-                        
+                          .fill(0)
+                          .map((_, i) => (
+                            <FaStar key={i} className="text-danger" />
+                          ))}
                       </div>
-                      
                     </div>
 
                     {/* Price */}
                     <div className="d-flex justify-content-between align-items-end pt-3 border-top">
                       <div>
                         <span className="text-muted small">From</span>{" "}
-                        <span className="fw-bold fs-5 fw-bold"> <PriceDisplay
-                      price={hotel.metadata?.min_price}
-                      currency={hotel.metadata?.currency}
-                    /></span>
+                        <span className="fw-bold fs-5 fw-bold">
+                          {" "}
+                          <PriceDisplay
+                            price={hotel.metadata?.min_price}
+                            currency={hotel.metadata?.currency}
+                          />
+                        </span>
                       </div>
                     </div>
                   </div>
                 </article>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </section>
     </>

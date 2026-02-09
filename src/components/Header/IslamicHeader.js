@@ -136,6 +136,18 @@ export default function IslamicHeader() {
                                     Hajj 2026
                                 </Link>
                             </li> */}
+                             <li className={`${styles.islamicNavItem} nav-item`}>
+                  <Link
+                    className={`${styles.islamicNavLink} nav-link ${
+                      pathname === "/activities"
+                        ? styles.islamicNavLinkActive
+                        : ""
+                    }`}
+                    href="/activities"
+                  >
+                    Excursions
+                  </Link>
+                </li>
                 <li className={`${styles.islamicNavItem} nav-item`}>
                   <Link
                     className={`${styles.islamicNavLink} nav-link ${
@@ -148,18 +160,7 @@ export default function IslamicHeader() {
                     About us
                   </Link>
                 </li>
-                <li className={`${styles.islamicNavItem} nav-item`}>
-                  <Link
-                    className={`${styles.islamicNavLink} nav-link ${
-                      pathname === "/activities"
-                        ? styles.islamicNavLinkActive
-                        : ""
-                    }`}
-                    href="/activities"
-                  >
-                    Excursions
-                  </Link>
-                </li>
+               
                 <li className={`${styles.islamicNavItem} nav-item`}>
                   <Link
                     className={`${styles.islamicNavLink} nav-link ${
@@ -261,6 +262,19 @@ export default function IslamicHeader() {
                             Hajj 2026
                         </Link>
                     </li> */}
+                     <li className={styles.islamicMobileMenuItem}>
+              <Link
+                className={`${styles.islamicMobileMenuLink} ${
+                  pathname === "/activities"
+                    ? styles.islamicMobileMenuLinkActive
+                    : ""
+                }`}
+                href="/activities"
+                onClick={closeMobileMenu}
+              >
+                Excursions
+              </Link>
+            </li>
             <li className={styles.islamicMobileMenuItem}>
               <Link
                 className={`${styles.islamicMobileMenuLink} ${
@@ -274,19 +288,7 @@ export default function IslamicHeader() {
                 About us
               </Link>
             </li>
-            <li className={styles.islamicMobileMenuItem}>
-              <Link
-                className={`${styles.islamicMobileMenuLink} ${
-                  pathname === "/activities"
-                    ? styles.islamicMobileMenuLinkActive
-                    : ""
-                }`}
-                href="/activities"
-                onClick={closeMobileMenu}
-              >
-                Excursions
-              </Link>
-            </li>
+           
             <li className={styles.islamicMobileMenuItem}>
               <Link
                 className={`${styles.islamicMobileMenuLink} ${

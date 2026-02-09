@@ -11,45 +11,45 @@ export default function SectionOne() {
         <div className="row align-items-center gy-5">
           <div className="col-lg-6">
             <h2 className={`fw-bold ${styles.whyChooseHeading}`}>
-              Why Travelers Choose Explore
+              Why Travelers Choose Kashta
             </h2>
 
             <div className={styles.whyChooseList}>
 
               <div className={styles.whyChooseListItem}>
                 <IoMdCheckmarkCircleOutline className={styles.whyChooseCheckIcon} />
-                <span>Handpicked tours with verified 4.5+ star ratings</span>
+                <span>Carefully selected tours and activities led by licensed local guides</span>
               </div>
 
               <div className={styles.whyChooseListItem}>
                 <IoMdCheckmarkCircleOutline className={styles.whyChooseCheckIcon} />
-                <span>Flexible booking with free cancellation up to 24 hours</span>
+                <span>Flexible booking options with free cancellation up to 24 hours before departure</span>
               </div>
 
               <div className={styles.whyChooseListItem}>
                 <IoMdCheckmarkCircleOutline className={styles.whyChooseCheckIcon} />
-                <span>24/7 customer support in multiple languages</span>
+                <span>Dedicated customer support available before and during your trip</span>
               </div>
 
               <div className={styles.whyChooseListItem}>
                 <IoMdCheckmarkCircleOutline className={styles.whyChooseCheckIcon} />
-                <span>Best price guarantee – we'll match any lower price</span>
+                <span>Transparent pricing with a best-value guarantee</span>
               </div>
 
               <div className={styles.whyChooseListItem}>
                 <IoMdCheckmarkCircleOutline className={styles.whyChooseCheckIcon} />
-                <span>Secure payments and instant booking confirmation</span>
+                <span>Secure online payments with instant booking confirmation</span>
               </div>
 
               <div className={styles.whyChooseListItem}>
                 <IoMdCheckmarkCircleOutline className={styles.whyChooseCheckIcon} />
-                <span>Small group sizes for personalized experiences</span>
+                <span>Small-group and private experiences for comfort and personalization</span>
               </div>
 
             </div>
 
-            <Link href="/tours" className={`btn btn-lg mt-4 text-light ${styles.exploreBtn}`}>
-              Explore Tours
+            <Link href="/activities" className={`btn btn-lg mt-4 text-light ${styles.exploreBtn}`}>
+              Explore Activities
             </Link>
           </div>
 

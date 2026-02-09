@@ -81,13 +81,13 @@ export default function Detail() {
                 <span className={styles.storyBadge}>Get In Touch</span>
     
                 {/* Heading */}
-                <h1 className={`fw-bold ${styles.storyHeading}`}>
-                We'd Love to Hear From You
-                </h1>
+                <h2 className={`fw-bold ${styles.storyHeading}`}>
+                Let’s Plan Your Unforgettable Saudi Adventure
+                </h2>
     
                 {/* Description */}
                 <p className={styles.storyDescription}>
-                 Have questions about a tour? Need help planning your trip? Our friendly team is here to help.
+                Have questions about our tours, hotels, or experiences? Need help building a custom itinerary? Our friendly and knowledgeable team is here to guide you every step of the way, making your journey across Saudi Arabia smooth, seamless, and unforgettable.
                 </p>
               </div>
             </section>

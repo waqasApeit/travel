@@ -15,8 +15,7 @@ export default function SectionTwo() {
             What We Stand For
           </h2>
           <p className={styles.valuesSubtext}>
-            Our values guide everything we do, from selecting our partners to
-            designing your experiences.
+            Our Values Shape Every Experience We Deliver
           </p>
         </div>
 
@@ -28,10 +27,9 @@ export default function SectionTwo() {
               <div className={styles.valuesIconBox}>
                 <FaHeart />
               </div>
-              <h5 className={styles.valuesTitle}>Passion for Travel</h5>
+              <h5 className={styles.valuesTitle}>Authentic Travel Experiences</h5>
               <p className={styles.valuesDescription}>
-                We believe travel has the power to transform lives and connect
-                people across cultures.
+                We believe travel should feel real and meaningful. Every experience we offer reflects Saudi culture, traditions, and lifestyle — not scripted tourism.
               </p>
             </div>
           </div>
@@ -41,10 +39,9 @@ export default function SectionTwo() {
               <div className={styles.valuesIconBox}>
                 <FaUsers />
               </div>
-              <h5 className={styles.valuesTitle}>Local Expertise</h5>
+              <h5 className={styles.valuesTitle}>Local Knowledge & Insight</h5>
               <p className={styles.valuesDescription}>
-                Our guides are locals who share authentic stories and hidden
-                gems you won't find in guidebooks.
+                Our guides and partners are locals who share genuine stories, cultural context, and places only insiders know.
               </p>
             </div>
           </div>
@@ -54,10 +51,10 @@ export default function SectionTwo() {
               <div className={styles.valuesIconBox}>
                 <FaAward />
               </div>
-              <h5 className={styles.valuesTitle}>Quality First</h5>
+              <h5 className={styles.valuesTitle}>Excellence & Reliability</h5>
               <p className={styles.valuesDescription}>
-                Every tour is carefully curated and reviewed to ensure
-                unforgettable experiences.
+               From hotels to activities, we carefully select and review every service to ensure comfort, safety, and quality at every step.
+
               </p>
             </div>
           </div>
@@ -67,10 +64,10 @@ export default function SectionTwo() {
               <div className={styles.valuesIconBox}>
                 <FaGlobe />
               </div>
-              <h5 className={styles.valuesTitle}>Sustainable Tourism</h5>
+              <h5 className={styles.valuesTitle}>Responsible & Sustainable Tourism</h5>
               <p className={styles.valuesDescription}>
-                We're committed to responsible travel that benefits local
-                communities and protects our planet.
+               We support ethical travel practices that respect local communities, preserve heritage sites, and protect Saudi Arabia’s natural beauty.
+
               </p>
             </div>
           </div>

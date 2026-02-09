@@ -83,6 +83,7 @@ export default function Footer() {
     queryParams.set("checkIn", moment().add(1, "days").format("YYYY-MM-DD"));
     queryParams.set("checkOut", moment().add(2, "days").format("YYYY-MM-DD"));
     queryParams.set("currency", "GBP");
+    queryParams.set("place", location);
     queryParams.set("city", city);
     queryParams.set("lat", lat);
     queryParams.set("lng", lng);
@@ -102,7 +103,7 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         {/* Newsletter */}
-        <div className={styles.newsletter}>
+        {/* <div className={styles.newsletter}>
           <div className="container py-5">
             <div
               className={`text-center mx-auto ${styles.newsletterContainer}`}
@@ -133,13 +134,13 @@ export default function Footer() {
               </form>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Footer */}
         <div className="container py-5">
           <div className="row g-4 g-lg-5">
             {/* Brand */}
-            <div className="col-12 col-lg-4">
+            <div className="col-12 col-lg-5">
               <div className={styles.brandSection}>
                 <Link href="/" className={styles.logoContainer}>
                   <Image
@@ -156,7 +157,7 @@ export default function Footer() {
                   tours and experiences. Your journey starts here.
                 </p>
 
-                <div className={styles.contactInfo}>
+                {/* <div className={styles.contactInfo}>
                   <div className={styles.contactItem}>
                     <FaMapMarkerAlt />
                     <span>Riyadh, Saudi Arabia</span>
@@ -169,7 +170,7 @@ export default function Footer() {
                     <FaEnvelope />
                     <span>info@kashta.com</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -199,7 +200,7 @@ export default function Footer() {
             </div>
 
             {/* Destinations */}
-            <div className="col-6 col-md-4 col-lg-3">
+            <div className="col-6 col-md-4 col-lg-2">
               <div className={styles.footerSection}>
                 <h6
                   className={`fw-bold ${styles.footerHeading} ${philosopher.className}`}
@@ -208,28 +209,28 @@ export default function Footer() {
                 </h6>
                 <ul className={styles.footerList}>
                   <li
-                    onClick={() => HotelListing("london")}
+                    onClick={() => HotelListing("makkah")}
                     style={{ cursor: "pointer" }}
                   >
-                    <a> London</a>
+                    <a> Makkah</a>
                   </li>
                   <li
-                    onClick={() => HotelListing("dubai")}
+                    onClick={() => HotelListing("madinah")}
                     style={{ cursor: "pointer" }}
                   >
-                    <a> Dubai</a>
+                    <a> Madinah</a>
                   </li>
                   <li
-                    onClick={() => HotelListing("newyork")}
+                    onClick={() => HotelListing("riyadh")}
                     style={{ cursor: "pointer" }}
                   >
-                    <a> New York</a>
+                    <a> Riyadh</a>
                   </li>
                   <li
-                    onClick={() => HotelListing("istanbul")}
+                    onClick={() => HotelListing("jeddah")}
                     style={{ cursor: "pointer" }}
                   >
-                    <a> Istanbul</a>
+                    <a> Jeddah</a>
                   </li>
                 </ul>
               </div>
@@ -278,10 +279,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className={styles.bottomBar}>
           <div className="container">
             <div className={styles.bottomContent}>
               <p className={styles.copyright}>
@@ -302,6 +299,29 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Bottom Bar */}
+        {/* <div className={styles.bottomBar}>
+          <div className="container">
+            <div className={styles.bottomContent}>
+              <p className={styles.copyright}>
+                © {new Date().getFullYear()} Kashta Travel. All rights reserved.
+              </p>
+
+              <div className={styles.socialLinks}>
+                <a href="#" aria-label="Facebook" className={styles.social}>
+                  <FaFacebookF />
+                </a>
+                <a href="#" aria-label="Instagram" className={styles.social}>
+                  <FaInstagram />
+                </a>
+                <a href="#" aria-label="Twitter" className={styles.social}>
+                  <FaXTwitter />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div> */}
       </footer>
     </>
   );

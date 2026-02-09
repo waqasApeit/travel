@@ -17,10 +17,7 @@ export default function SectionThree() {
 
             {/* Description */}
             <p className={styles.storyDescription}>
-              Born from a passion for authentic experiences, Explore connects
-              curious travelers with local experts who share their world's
-              hidden treasures. Since 2015, we've been crafting journeys that go
-              beyond sightseeing to create lasting memories.
+              Saudi Excursions was founded with a clear vision: to showcase Saudi Arabia through authentic, immersive, and well-curated travel experiences. Inspired by the Kingdom’s rich heritage, breathtaking landscapes, and warm hospitality, we connect travelers with the real essence of Saudi Arabia.
             </p>
           </div>
         </section>
@@ -30,23 +27,23 @@ export default function SectionThree() {
         <div className="container">
           <div className="row text-center gy-4">
             <div className="col-6 col-md-3">
-              <p className={styles.statsValue}>500+</p>
-              <p className={styles.statsLabel}>Tours Offered</p>
+              <p className={styles.statsValue}>300+</p>
+              <p className={styles.statsLabel}> Curated Tours & Experiences</p>
             </div>
 
             <div className="col-6 col-md-3">
-              <p className={styles.statsValue}>50+</p>
-              <p className={styles.statsLabel}>Destinations</p>
+              <p className={styles.statsValue}>30+</p>
+              <p className={styles.statsLabel}>Saudi Destinations Covered</p>
             </div>
 
             <div className="col-6 col-md-3">
-              <p className={styles.statsValue}>100k+</p>
-              <p className={styles.statsLabel}>Happy Travelers</p>
+              <p className={styles.statsValue}>50k+</p>
+              <p className={styles.statsLabel}>Satisfied Travelers</p>
             </div>
 
             <div className="col-6 col-md-3">
-              <p className={styles.statsValue}>10+</p>
-              <p className={styles.statsLabel}>Years Experience</p>
+              <p className={styles.statsValue}>8+</p>
+              <p className={styles.statsLabel}>Years of Industry Experience</p>
             </div>
           </div>
         </div>

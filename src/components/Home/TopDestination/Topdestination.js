@@ -118,12 +118,12 @@ function Topdestination() {
             <div className="col-6 col-md-3">
               <div
                 className={styles.card}
-                onClick={() => HotelListing("london")}
+                onClick={() => HotelListing("makkah")}
               >
                 {/* Image */}
                 <Image
-                  src="/images/home/london.jpg"
-                  alt="london"
+                  src="/images/home/kaaba.jpg"
+                  alt="Makkah"
                   className={styles.image}
                   width={1000}
                   height={1000}
@@ -140,22 +140,21 @@ function Topdestination() {
                     <h5
                       className={`mb-0 fw-bold text-white ${philosopher.className}`}
                     >
-                      London
+                      Makkah
                     </h5>
                   </div>
                   <p className="text-white-50 small mb-0">
-                    Discover timeless history, royal landmarks, and vibrant city
-                    life.
+                   A journey of faith, peace, and spiritual renewal
                   </p>
                 </div>
               </div>
             </div>
             <div className="col-6 col-md-3">
-              <div className={styles.card}  onClick={() => HotelListing("dubai")}>
+              <div className={styles.card}  onClick={() => HotelListing("madinah")}>
                 {/* Image */}
                 <Image
-                  src="/images/home/uae.jpeg"
-                  alt="Dubai"
+                  src="/images/home/madinah.jpg"
+                  alt="Madinah"
                   className={styles.image}
                   width={1000}
                   height={1000}
@@ -171,22 +170,21 @@ function Topdestination() {
                     <h5
                       className={`mb-0 fw-bold text-white ${philosopher.className}`}
                     >
-                      Dubai
+                      Madinah
                     </h5>
                   </div>
                   <p className="text-white-50 small mb-0">
-                    Experience luxury, desert adventures, and world-class
-                    attractions.
+                    Where serenity, devotion, and history embrace
                   </p>
                 </div>
               </div>
             </div>
             <div className="col-6 col-md-3">
-              <div className={styles.card}  onClick={() => HotelListing("newyork")}>
+              <div className={styles.card}  onClick={() => HotelListing("riyadh")}>
                 {/* Image */}
                 <Image
-                  src="/images/home/newyork.jpg"
-                  alt="New York"
+                  src="/images/home/riyadh.jpg"
+                  alt="Riyadh"
                   className={styles.image}
                   width={1000}
                   height={1000}
@@ -202,21 +200,21 @@ function Topdestination() {
                     <h5
                       className={`mb-0 fw-bold text-white ${philosopher.className}`}
                     >
-                      New York
+                      Riyadh
                     </h5>
                   </div>
                   <p className="text-white-50 small mb-0">
-                    Feel the energy of the city that never sleeps.
+                    The heart of modern Arabia, bold and vibrant.
                   </p>
                 </div>
               </div>
             </div>
             <div className="col-6 col-md-3">
-              <div className={styles.card}  onClick={() => HotelListing("istanbul")}>
+              <div className={styles.card}  onClick={() => HotelListing("jeddah")}>
                 {/* Image */}
                 <Image
-                  src="/images/home/istanbol.jpg"
-                  alt="Istanbul"
+                  src="/images/home/jeddah.jpg"
+                  alt="Jeddah"
                   className={styles.image}
                   width={1000}
                   height={1000}
@@ -232,12 +230,11 @@ function Topdestination() {
                     <h5
                       className={`mb-0 fw-bold text-white ${philosopher.className}`}
                     >
-                      Istanbul
+                      Jeddah
                     </h5>
                   </div>
                   <p className="text-white-50 small mb-0">
-                    Where East meets West with rich culture and breathtaking
-                    history.
+                    Culture, coastlines, and timeless charm.
                   </p>
                 </div>
               </div>

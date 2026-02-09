@@ -84,7 +84,7 @@ function EnquiryForm() {
 
     <section className={`${styles.ticket} position-relative`}>
       <Image 
-        src="/images/LivingRoomReimagined-1920x1200.jpg" 
+        src="/images/home/sahara-desert.jpg" 
         alt="Background Image" 
         fill
         className={styles.ticketBgImage}
@@ -97,14 +97,14 @@ function EnquiryForm() {
       <div className={styles.ticketTitle}>
         {/* <h5>LET'S DO IT HURRY</h5> */}
         <h1 className={philosopher.className}>
-         Ready to Explore World?{" "}
+         Ready to Explore Saudi Arabia?{" "}
         
         </h1>
       </div>
 
       <div className={styles.ticketInfo}>
-        <p>
-          Book your next adventure and discover the wonders of the Kingdom.
+        <p className="mx-auto w-50 d-none d-lg-block">
+         Book your next adventure with Saudi Excursions and experience the Kingdom through expertly curated tours, trusted hotels, and authentic local experiences.
         </p>
 
         <div className={styles.ticketButton}>

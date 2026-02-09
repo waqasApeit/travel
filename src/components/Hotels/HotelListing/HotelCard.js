@@ -294,12 +294,12 @@ export default function HotelCard({ isLoading }) {
                     <div className="d-flex justify-content-between align-items-center flex-wrap">
                       <div className="mb-2 mb-md-0">
                         <small className="fw-bold d-block">
-                          <PriceDisplay
-                            price={item.metadata.min_price / daysDiff}
-                            currency={item?.metadata.currency}
-                          />{" "}
-                          / Night
-                        </small>
+  <PriceDisplay
+    price={Number(item.metadata.min_price / daysDiff).toFixed(2)}
+    currency={item?.metadata.currency}
+  />{" "}
+  / Night
+</small>
                         <small
                           className="text-muted d-block"
                           style={{ fontSize: "11px" }}

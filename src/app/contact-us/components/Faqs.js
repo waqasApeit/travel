@@ -12,38 +12,38 @@ function Faqs() {
             </div>
 
             <div className={styles.faqItem}>
-              <h5 className={styles.faqheading}>How do I book a tour?</h5>
+              <h5 className={styles.faqheading}>How do I book a tour or experience?</h5>
               <p>
-                Simply browse our tours, select your preferred date and number
-                of travelers, and click “Book Now”. You’ll receive instant
-                confirmation via email.
+                Browse our carefully curated tours, select your preferred date and number of travelers, and click “Book Now.” You’ll receive instant confirmation by email.
               </p>
             </div>
 
             <div className={styles.faqItem}>
               <h5 className={styles.faqheading}>What is your cancellation policy?</h5>
               <p>
-                We offer free cancellation up to 24 hours before your scheduled
-                tour. After that, a 50% fee applies. No-shows are non-refundable.
+               We offer free cancellation up to 24 hours before most tours. After that, a 50% fee may apply. Please check individual tour policies for details.
               </p>
             </div>
 
             <div className={styles.faqItem}>
-              <h5 className={styles.faqheading}>Are your tours suitable for children?</h5>
+              <h5 className={styles.faqheading}>Are your tours suitable for families and children?</h5>
               <p>
-                Many of our tours are family-friendly! Check each tour’s
-                description for age recommendations and requirements.
+                Yes! Many experiences are family-friendly. Each tour page provides age guidelines, safety information, and recommendations.
               </p>
             </div>
 
             <div className={styles.faqItem}>
-              <h5 className={styles.faqheading}>What if I have special requirements?</h5>
+              <h5 className={styles.faqheading}>Can you accommodate special requests?</h5>
               <p>
-                Contact us before booking, and we’ll do our best to accommodate
-                dietary restrictions, accessibility needs, or other special
-                requests.
+                Yes. Whether you have dietary requirements, accessibility needs, or other special considerations, contact us before booking — we’ll do our best to tailor your experience.
               </p>
-            </div> 
+            </div>  
+            {/* <div className={styles.faqItem}>
+              <h5 className={styles.faqheading}>Do you provide private or custom tours?</h5>
+              <p>
+                Absolutely. We specialize in private and personalized tours, ensuring a flexible itinerary that matches your interests, pace, and travel style.
+              </p>
+            </div>  */}
     </>
   )
 }

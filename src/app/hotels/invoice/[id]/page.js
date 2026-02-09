@@ -233,7 +233,7 @@ export default function Page() {
                                                 ))
                                             ))}
                                             <tr>
-                                                <td colspan="3">&nbsp;</td>
+                                                <td colSpan="3">&nbsp;</td>
                                             </tr>
                                         </tbody>
                                     </table>

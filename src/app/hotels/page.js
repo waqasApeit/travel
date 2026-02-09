@@ -17,6 +17,7 @@ import HotelModify from "@/components/Home/Search/ModifySearch/HotelModify";
 import { useQuery } from '@tanstack/react-query';
 export default function Page() {
     const [progress, setProgress] = useState(0);
+    const [isDesktop, setIsDesktop] = useState(false);
     const searchParams = useSearchParams();
     const city = searchParams.get("city");
     const place = searchParams.get("place");
@@ -39,6 +40,19 @@ export default function Page() {
         cacheTime: 1000 * 60 * 20,
         staleTime: 20 * 60 * 1000
     });
+
+     useEffect(() => {
+        // Check screen size on mount and resize
+        const checkScreenSize = () => {
+            setIsDesktop(window.innerWidth >= 768);
+        };
+        
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
     useEffect(() => {
         if (isLoading) {
             setProgress(0);
@@ -73,11 +87,11 @@ export default function Page() {
                     <div className='row'>
                         <div className='col-md-3 col-sm-12 col-12'>
                             <div className='filter_box rounded'>
-                                <a className="d-flex justify-content-between fw-bold align-items-center" data-bs-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">
+                                <a className="d-flex justify-content-between fw-bold align-items-center" data-bs-toggle="collapse" href="#collapseFilters" aria-expanded={isDesktop} aria-controls="collapseFilters" id="filters_col_bt">
                                     Filters
                                     <MdFilterListAlt />
                                 </a>
-                                <div className='collapse show' id='collapseFilters'>
+                                <div className={`collapse ${isDesktop ? 'show' : ''}`} id='collapseFilters'>
                                     <hr />
                                     <SearchBar />
                                     <hr />

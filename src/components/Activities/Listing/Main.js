@@ -36,8 +36,8 @@ function Main() {
           {
             cache: "no-store",
             headers: {
-              // 'ngrok-skip-browser-warning': 'true',
               "Content-Type": "application/json",
+              // 'ngrok-skip-browser-warning': 'true',
               // "Access-Control-Allow-Origin": "*",
             },
           },
