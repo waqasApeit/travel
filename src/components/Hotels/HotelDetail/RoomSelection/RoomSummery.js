@@ -159,6 +159,7 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
       ? moment(detail.checkOut).diff(moment(detail.checkIn), "days")
       : 0;
   return (
+    <>
    <div className="card border sticky-top-div p-4 shadow-sm">
       <h5 className={`text-black fw-bold text-center ${philosopher.className} mb-3`}>
         Reservation Summary
@@ -277,7 +278,7 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
       <button
         disabled={isLoading}
         onClick={PreBooking}
-        className="btn exploreBtn  w-100 mt-3 py-2"
+        className="btn exploreBtn  w-100 mt-3 py-2 d-none d-md-block"
       >
         {isLoading ? (
           <div
@@ -291,5 +292,44 @@ export default function RoomSummery({ selectedRooms, roomList, detail }) {
         )}
       </button>
     </div>
+
+
+     {selectedRooms.length > 0 && (
+                <div className="d-md-none" style={{
+                    position: 'fixed',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    backgroundColor: 'white',
+                    boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+                    padding: '12px 16px',
+                    zIndex: 1000,
+                    borderTop: '1px solid #dee2e6'
+                }}>
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <small className="text-muted d-block" style={{ fontSize: '12px' }}>Total Price</small>
+                            <strong style={{ fontSize: '18px' }}>
+                                <PriceDisplay price={totalPrice} currency={currency} />
+                            </strong>
+                        </div>
+                        <button
+                            disabled={isLoading}
+                            onClick={PreBooking}
+                            className="btn btn-success"
+                            style={{ minWidth: '160px' }}
+                        >
+                            {isLoading ? (
+                                <div className="spinner-border text-light spinner-border-sm" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
+                            ) : (
+                                'Proceed to checkout'
+                            )}
+                        </button>
+                    </div>
+                </div>
+            )}
+    </>
   );
 }

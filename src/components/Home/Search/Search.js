@@ -4,9 +4,12 @@ import { FaHotel, FaRightLong } from "react-icons/fa6";
 import { BsSuitcaseFill } from "react-icons/bs";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { FaCar } from "react-icons/fa";
+import { IoBedOutline } from "react-icons/io5";
 import dynamic from "next/dynamic";
 import HeroSection from "./HeroSection";
 import styles from "./search.module.css";
+import { IoBed } from "react-icons/io5";
+import { MdAttractions } from "react-icons/md";
 import { FaArrowRightLong } from "react-icons/fa6";
 const HotelSearch = dynamic(() => import("./HotelSearch"));
 const ActivitySearch = dynamic(() => import("./ActivitySearch"));
@@ -44,54 +47,54 @@ export default async function Search() {
           <div
             className={`${styles.searchTabsWrapper} d-flex justify-content-center mb-3`}
           >
-            <ul
-              className="nav nav-pills gap-2 lights medium"
+          <ul
+              className="nav nav-pills gap-3 lights medium justify-content-center"
               id="searchTabs"
               role="tablist"
             >
+              {/* Activity */}
               <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link rounded-pill active"
-                  id="activity-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#activity-tab-pane"
-                  type="button"
-                  role="tab"
-                  aria-controls="activity-tab-pane"
-                  aria-selected="false"
-                >
-                  <GiSettingsKnobs className="me-1" /> Activities
-                </button>
+                <div className="tab-item text-center">
+                  <button
+                    className="nav-link rounded d-flex align-items-center justify-content-center active"
+                    id="activity-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#activity-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="activity-tab-pane"
+                    aria-selected="true"
+                  >
+                    <MdAttractions size={20} />
+                  </button>
+                  <span className="tab-label text-white">Activity</span>
+                </div>
               </li>
+
+              {/* Hotel */}
               <li className="nav-item" role="presentation">
-                <button
-                  className="nav-link rounded-pill"
-                  id="hotel-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#hotel-tab-pane"
-                  type="button"
-                  role="tab"
-                  aria-controls="hotel-tab-pane"
-                  aria-selected="true"
-                >
-                  <FaHotel className="me-1" /> Hotels
-                </button>
+                <div className="tab-item text-center">
+                  <button
+                    className="nav-link rounded d-flex align-items-center justify-content-center"
+                    id="hotel-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#hotel-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="hotel-tab-pane"
+                    aria-selected="false"
+                  >
+                    <IoBed size={20} />
+                  </button>
+                  <span className="tab-label text-white">Hotel</span>
+                </div>
               </li>
             </ul>
           </div>
-          <div
+         <div
             className={`tab-content ${styles.searchBoxWrapper}`}
             id="searchTabsContent"
           >
-            <div
-              className="tab-pane fade "
-              id="hotel-tab-pane"
-              role="tabpanel"
-              aria-labelledby="hotel-tab"
-            >
-              <HotelSearch />
-            </div>
-
             <div
               className="tab-pane fade show active"
               id="activity-tab-pane"
@@ -99,6 +102,15 @@ export default async function Search() {
               aria-labelledby="activity-tab"
             >
               <ActivitySearch />
+            </div>
+
+            <div
+              className="tab-pane fade"
+              id="hotel-tab-pane"
+              role="tabpanel"
+              aria-labelledby="hotel-tab"
+            >
+              <HotelSearch />
             </div>
           </div>
         </div>

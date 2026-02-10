@@ -283,9 +283,9 @@ export default function CheckoutForm({ data }) {
           confirmStatus={confirmStatus}
         />
       )}
-      <div className="alert alert-warning" role="alert">
+      {/* <div className="alert alert-warning" role="alert">
         <GoCheckCircle size={18} /> Almost done! Just fill in the required info
-      </div>
+      </div> */}
 
       {/* Lead Guest Info */}
       <div className="rounded shadow border mt-3 p-3">

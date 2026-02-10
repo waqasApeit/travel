@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import GalleryImages from "@/components/Hotels/HotelDetail/GalleryImages";
 import { FaLocationDot } from "react-icons/fa6";
-import { ThemeIcon, Blockquote } from '@mantine/core';
+import { ThemeIcon, Blockquote, Modal, Button } from '@mantine/core';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import RoomList from "@/components/Hotels/HotelDetail/RoomSelection/RoomList";
 import { useSearchParams } from "next/navigation";
@@ -22,6 +22,20 @@ export default function Page() {
   const [searchData, setSearchData] = useState({});
   const [hotelDetails, setHotelDetails] = useState({});
   const [isFetching, setIsFetching] = useState(true);
+  const [amenitiesModalOpen, setAmenitiesModalOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  // ✅ Detect screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // ✅ Load search data safely from localStorage (client only)
   useEffect(() => {
     const storedData = localStorage.getItem('HotelSearchData');
@@ -111,22 +125,63 @@ export default function Page() {
             <span className="text-success small">
               <FaLocationDot /> {hotelDetails?.address}
             </span>
-            <Blockquote mt="xl">{hotelDetails?.description}</Blockquote>
+            {/* <Blockquote mt="xl">{hotelDetails?.description}</Blockquote> */}
+            <div className="p-4 mt-2 border rounded ">
+              <h4 className={`fw-bold mb-1 ${philosopher.className}`}>Description</h4>
+              {hotelDetails?.description}
+            </div>
 
             <div className="mt-4">
               <h5 className={`fw-bold mb-1 ${philosopher.className}`}>Amenities</h5>
               <div className="row mt-4">
-                {hotelDetails?.facilities?.map((item, index) => (
-                  <div key={index} className="col-md-4 col-12 mb-2">
-                    <ThemeIcon color="teal" size={24} radius="xl">
-                      <IoMdCheckmarkCircleOutline size={16} />
-                    </ThemeIcon>{" "}
-                    {item}
-                  </div>
-                ))}
+                {(isSmallScreen 
+                  ? hotelDetails?.facilities?.slice(0, 3) 
+                  : hotelDetails?.facilities
+                )?.map((item, index) => {
+                  return (
+                    <div key={index} className="col-md-4 col-12 mb-2">
+                      <ThemeIcon color="teal" size={24} radius="xl">
+                        <IoMdCheckmarkCircleOutline size={16} />
+                      </ThemeIcon>{" "}
+                      {item}
+                    </div>
+                  );
+                })}
               </div>
+              {isSmallScreen && hotelDetails?.facilities?.length > 3 && (
+                <Button 
+                  variant="outline" 
+                  color="teal" 
+                  size="sm" 
+                  mt="md"
+                  onClick={() => setAmenitiesModalOpen(true)}
+                >
+                  Show All Amenities ({hotelDetails?.facilities?.length})
+                </Button>
+              )}
             </div>
           </div>
+
+          {/* Amenities Modal */}
+          <Modal
+            opened={amenitiesModalOpen}
+            onClose={() => setAmenitiesModalOpen(false)}
+            title={<h5 className={`fw-bold ${philosopher.className}`}>All Amenities</h5>}
+            size="lg"
+            centered
+          >
+            <div className="row">
+              {hotelDetails?.facilities?.map((item, index) => (
+                <div key={index} className="col-12 mb-3">
+                  <ThemeIcon color="teal" size={24} radius="xl">
+                    <IoMdCheckmarkCircleOutline size={16} />
+                  </ThemeIcon>{" "}
+                  {item}
+                </div>
+              ))}
+            </div>
+          </Modal>
+
           <RoomList hotelDetail={hotelDetails} />
           <div className="mt-4">
             <iframe

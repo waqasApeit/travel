@@ -131,6 +131,7 @@ export default function ActivitySearch() {
         {/* Search Button */}
         <button className={styles.searchBtn} onClick={HandleSubmit}>
           <FaSearch />
+          <span>Search</span>
         </button>
       </div>
     </div>

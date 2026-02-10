@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DatePickerInput } from "@mantine/dates";
 import { Popover } from "@mantine/core";
 import { FaMinus, FaPlus, FaMapMarkerAlt, FaCalendarAlt, FaSearch, FaUser } from "react-icons/fa";
@@ -10,10 +10,15 @@ import { useHotelStore } from "@/components/Store/HotelStore";
 import styles from './search.module.css';
 export default function HotelSearch() {
   const [popoverOpened, setPopoverOpened] = useState(false);
+  const [breakPoint, setBreakPoint] = useState(false);
   const { setSearchData } = useHotelStore();
   const [rooms, setRooms] = useState([
     { adults: 2, children: 0, childrenAges: [], errors: {} }
   ]);
+
+   useEffect(() => {
+    setBreakPoint(window.innerWidth <= 500);
+  }, []);
   const [formData, setFormData] = useState({
     location: "",
     city: "",
@@ -255,7 +260,7 @@ export default function HotelSearch() {
             clearable 
             minDate={new Date()} 
             valueFormat="DD-MM-YYYY" 
-            numberOfColumns={2} 
+            numberOfColumns={breakPoint ? 1 : 2} 
             value={formData.dateRange} 
             onChange={handleDateChange} 
             placeholder="When?" 
@@ -385,6 +390,7 @@ export default function HotelSearch() {
         {/* Search Button */}
         <button className={styles.searchBtn} onClick={SubmitForm}>
           <FaSearch />
+          <span>Search</span>
         </button>
       </div>
     </div>

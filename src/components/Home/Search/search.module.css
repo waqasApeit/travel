@@ -65,13 +65,40 @@
     animation: fadeIn 1.5s ease-in-out;
 }
 
+/* .searchTabsWrapper :global(.nav-pills) {
+    background: #ffffff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+} */
+
+.searchTabsWrapper :global(.nav-link) {
+    color: #4b5563;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.searchTabsWrapper :global(.nav-link:hover) {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.searchTabsWrapper :global(.nav-link.active) {
+    /* background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); */
+    color: #ffffff;
+    /* box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3); */
+    border-color: transparent;
+}
+
 /* Search Box Wrapper */
 .searchBoxWrapper {
-    background-color: #ffffff;
-    border-radius: 50px;
-    /* padding: 10px; */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    max-width: 900px;
+    background-color: transparent;
+    border-radius: 8px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -95,7 +122,7 @@
 
     .searchBoxWrapper {
         /* padding: 10px; */
-        max-width: 920px;
+        max-width: 1000px;
     }
 }
 
@@ -107,6 +134,10 @@
 
     .heroSubtitle {
         font-size: 1.25rem;
+    }
+
+    .searchBoxWrapper {
+        max-width: 95%;
     }
 }
 
@@ -149,9 +180,14 @@
         margin-bottom: 20px;
     }
 
+    .searchTabsWrapper :global(.nav-link) {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
     .searchBoxWrapper {
-        /* padding: 10px; */
-        border-radius: 50px;
+        border-radius: 8px;
+        max-width: 95%;
     }
 }
 
@@ -176,6 +212,16 @@
         -webkit-overflow-scrolling: touch;
     }
 
+    /* .searchTabsWrapper :global(.nav-pills) {
+        padding: 0.4rem;
+    } */
+
+    .searchTabsWrapper :global(.nav-link) {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
     .searchTabsWrapper::-webkit-scrollbar {
         height: 4px;
     }
@@ -186,8 +232,8 @@
     }
 
     .searchBoxWrapper {
-        padding: 10px;
         border-radius: 8px;
+        max-width: 100%;
     }
 }
 
@@ -210,8 +256,13 @@
         margin-bottom: 15px;
     }
 
+    .searchTabsWrapper :global(.nav-link) {
+        padding: 0.55rem 0.85rem;
+        font-size: 0.8rem;
+    }
+
     .searchBoxWrapper {
-        padding: 10px;
+        max-width: 100%;
     }
 }
 
@@ -234,9 +285,13 @@
         margin-bottom: 12px;
     }
 
+    .searchTabsWrapper :global(.nav-link) {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
     .searchBoxWrapper {
-        padding: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        max-width: 100%;
     }
 }
 
@@ -283,18 +338,19 @@
 
 
 .wrapper {
-  max-width: 950px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .searchBar {
   background: #fff;
-  border-radius: 999px;
-  padding: 0.5rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  gap: 0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  gap: 0.5rem;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .inputWrapper {
@@ -302,7 +358,22 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  /* border: 1px solid #d1d5db;
+  border-radius: 4px; */
+  transition: all 0.2s ease;
+  min-height: 56px;
+}
+
+.inputWrapper:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.inputWrapper:focus-within {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
 
 .inputWrapper :global(.mantine-Select-root),
@@ -318,9 +389,19 @@
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-  padding-left: 2.5rem !important;
-  height: 48px !important;
-  font-size: 0.95rem !important;
+  padding-left: 2.25rem !important;
+  height: auto !important;
+  /* font-size: 0.95rem !important; */
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+}
+
+.inputWrapper :global(.mantine-Select-input)::placeholder,
+.inputWrapper :global(.mantine-DateInput-input)::placeholder,
+.inputWrapper :global(.mantine-DatePickerInput-input)::placeholder,
+.inputWrapper :global(input.form-control)::placeholder {
+  color: #9ca3af !important;
+  font-weight: 400 !important;
 }
 
 .inputWrapper :global(.mantine-Select-input:focus),
@@ -333,55 +414,61 @@
 
 .icon {
   position: absolute;
-  left: 1.5rem;
-  color: #6c757d;
+  left: 1rem;
+  color: #6b7280;
   font-size: 1.1rem;
-  /* z-index: 10; */
   pointer-events: none;
+  z-index: 1;
 }
 
 .divider {
-  width: 1px;
-  height: 36px;
-  background-color: #e0e0e0;
-  margin: 0 0.25rem;
+  display: none;
 }
 
 .searchBtn {
-  height: 48px;
-  width: 48px;
-  min-width: 48px;
-  border-radius: 50%;
+  height: 60px;
+  min-width: 120px;
+  padding: 0 2rem;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ee1b22;
+  gap: 0.5rem;
+  background: #ee1b22;
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
-  margin-left: 0.25rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
 }
 
 .searchBtn:hover {
-  background-color: #c82333;
-  transform: scale(1.05);
+  /* background: linear-gradient(135deg, #ff5722 0%, #f57c00 100%); */
+  /* box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4); */
+  transform: translateY(-2px);
 }
 
 .searchBtn:active {
-  transform: scale(0.98);
+  transform: translateY(0);
+}
+
+.searchBtn svg {
+  font-size: 1.1rem;
 }
 
 .guestButton {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-  padding-left: 2.5rem !important;
-  height: 48px !important;
+  padding-left: 2.25rem !important;
+  height: auto !important;
   font-size: 0.95rem !important;
   text-align: left;
   width: 100%;
-  color: #495057;
+  color: #1f2937 !important;
+  font-weight: 500 !important;
 }
 
 .guestButton:hover,
@@ -391,33 +478,104 @@
   outline: none !important;
 }
 
-/* Responsive */
+/* Tablet  */
+@media (max-width: 991px) {
+  .searchBar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .inputWrapper {
+    min-width: calc(50% - 0.375rem);
+    flex: 1 1 calc(50% - 0.375rem);
+  }
+
+  .searchBtn {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
+  .wrapper {
+    padding: 0 0.5rem;
+  }
+
   .searchBar {
     flex-direction: column;
     padding: 1rem;
-    border-radius: 20px;
+    border-radius: 12px;
     gap: 0.75rem;
   }
 
   .inputWrapper {
     width: 100%;
-    padding: 0.5rem;
-    background: #f8f9fa;
-    border-radius: 10px;
+    min-width: 100%;
+    padding: 0.875rem 1rem;
+    min-height: 52px;
   }
 
-  .divider {
-    display: none;
+  .inputWrapper :global(.mantine-Select-input),
+  .inputWrapper :global(.mantine-DateInput-input),
+  .inputWrapper :global(.mantine-DatePickerInput-input),
+  .inputWrapper :global(input.form-control) {
+    font-size: 0.9rem !important;
   }
 
   .searchBtn {
     width: 100%;
-    border-radius: 10px;
-    height: 50px;
+    height: 52px;
+    border-radius: 8px;
+    font-size: 1rem;
   }
 
   .icon {
-    left: 1rem;
+    left: 0.875rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .searchBar {
+    padding: 0.875rem;
+  }
+
+  .inputWrapper {
+    padding: 0.75rem 0.875rem;
+    min-height: 48px;
+  }
+
+  .searchBtn {
+    height: 48px;
+    min-width: 100%;
+    padding: 0 1.5rem;
+  }
+}
+
+
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px; /* keeps spacing consistent */
+}
+
+.tab-label {
+  margin-top: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+  .tab-label {
+    font-size: 11px;
+  }
+
+  .tab-item {
+    min-width: 56px;
   }
 }
